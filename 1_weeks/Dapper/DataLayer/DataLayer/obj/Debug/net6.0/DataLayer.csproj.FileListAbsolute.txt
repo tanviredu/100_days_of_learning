@@ -1,0 +1,12 @@
+F:\100_days_of_learning\1_weeks\Dapper\DataLayer\DataLayer\bin\Debug\net6.0\DataLayer.deps.json
+F:\100_days_of_learning\1_weeks\Dapper\DataLayer\DataLayer\bin\Debug\net6.0\DataLayer.dll
+F:\100_days_of_learning\1_weeks\Dapper\DataLayer\DataLayer\bin\Debug\net6.0\ref\DataLayer.dll
+F:\100_days_of_learning\1_weeks\Dapper\DataLayer\DataLayer\bin\Debug\net6.0\DataLayer.pdb
+F:\100_days_of_learning\1_weeks\Dapper\DataLayer\DataLayer\obj\Debug\net6.0\DataLayer.csproj.AssemblyReference.cache
+F:\100_days_of_learning\1_weeks\Dapper\DataLayer\DataLayer\obj\Debug\net6.0\DataLayer.GeneratedMSBuildEditorConfig.editorconfig
+F:\100_days_of_learning\1_weeks\Dapper\DataLayer\DataLayer\obj\Debug\net6.0\DataLayer.AssemblyInfoInputs.cache
+F:\100_days_of_learning\1_weeks\Dapper\DataLayer\DataLayer\obj\Debug\net6.0\DataLayer.AssemblyInfo.cs
+F:\100_days_of_learning\1_weeks\Dapper\DataLayer\DataLayer\obj\Debug\net6.0\DataLayer.csproj.CoreCompileInputs.cache
+F:\100_days_of_learning\1_weeks\Dapper\DataLayer\DataLayer\obj\Debug\net6.0\DataLayer.dll
+F:\100_days_of_learning\1_weeks\Dapper\DataLayer\DataLayer\obj\Debug\net6.0\ref\DataLayer.dll
+F:\100_days_of_learning\1_weeks\Dapper\DataLayer\DataLayer\obj\Debug\net6.0\DataLayer.pdb
