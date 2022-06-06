@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "6334091f-3daa-43ea-9e31-86effae0436b": {
+      "ProjectGuid": "6334091f-3daa-43ea-9e31-86effae0436b",
+      "DisplayName": "Runner",
+      "ColorIndex": 0
+    },
+    "f48f44d4-8d31-421f-a34b-5194b89169a5": {
+      "ProjectGuid": "f48f44d4-8d31-421f-a34b-5194b89169a5",
+      "DisplayName": "DataLayer",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}
