@@ -60,6 +60,13 @@ namespace DataLayer
 
         }
 
+        /*public Contact GetFullContactAgain(int Id)
+        {
+
+        }*/
+
+
+
         public void Remove(int Id)
         {
             var sql = "DELETE FROM Contacts WHERE Id = @Id";
