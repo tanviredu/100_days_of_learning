@@ -1,2 +1,0 @@
-# 100_days_of_learning
-100_days_ofLearning
