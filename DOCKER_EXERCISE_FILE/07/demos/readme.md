@@ -1,1 +1,0 @@
-The code for this course can be found at https://github.com/DanWahlin/Docker-for-Web-Developers
