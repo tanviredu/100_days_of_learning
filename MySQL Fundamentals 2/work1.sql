@@ -422,3 +422,105 @@ SELECT NOW(),DATE(NOW()),TIME(NOW()),YEAR(NOW()),MONTH(NOW()),DAYNAME(NOW());
 -- NULLIF();
 
 
+-- Syntax is
+-- SET @variable = value
+-- SELECT CASE 
+-- WHEN @variable  = value THEN new_value
+-- ELSE value
+-- END
+-- AS OUTPUTCOLUMNNAME 
+
+SET @var = 1;
+SELECT CASE
+WHEN @var = 1 THEN 'one'
+WHEN @var = 2 THEN 'two'
+ELSE 'more'
+END
+AS RESULT;
+
+
+SET @VAR1 = 11;
+SET @VAR2 = 12;
+
+-- THIS IS THE SWITCH CASE STATEMENT IN SQL LANGUAGE
+
+SELECT CASE
+WHEN (@VAR1 = 11 AND @VAR2 = 13) THEN 'ONE'
+WHEN @VAR2 = 12 THEN 'TWO'
+ELSE 'MORE'
+END
+AS RESULT;
+
+
+-- THIS IS THE IF ELSE STATEMENT IN SQL LANGUAGE
+-- IF(CONDITION,IF_TRUE_THEN,IF_FALSE_THEN)
+SELECT IF(1 < 2 ,'CORRECT','INCORRECT');
+
+-- THIS STATEMENT IS VERY IMPORTANT 
+SELECT IF(YEAR(NOW())=2022,'CORRECT','INCORRECT');
+
+-- IFNULL() IS THE MOST IMPORTANT 
+-- IFNULL(VALUE/NULL,VALUE)
+-- IF THE FIRST ARGUMENT IS NULL THEN RETURN THE SECOND VALUE
+-- IF FIRST ARGUMENT IS NOT NULL THEN RETURN THE FIRST VALUE
+
+-- LETS HAVE AN EXAMPLE
+
+SELECT * FROM STUDENTS;
+SELECT * FROM CLASSES;
+SELECT * FROM  studentclass;
+-- PROBLEM
+-- WITH THIS THREE TABLE FIND THE 
+SELECT S.STUDENTNAME,IFNULL(SC.ClassId,'ABSENT'),IFNULL(C.CLASSNAME,'ABSENT') FROM STUDENTS S
+LEFT JOIN studentclass SC
+ON S.STUDENTID = SC.StudentId
+LEFT JOIN CLASSES AS C
+ON C.CLASSID = SC.CLASSID;
+
+
+-- -----------------------TYPE CONVERT-------------------
+
+
+
+
+
+-- ------------------------------------------------------------
+
+
+
+-- ----------------------------------------------------------------
+SELECT CURRENT_USER();
+SELECT USER();
+SELECT DATABASE();
+SELECT VERSION();
+SELECT RAND();
+SELECT IS_IPV4('10.0.0.1');
+SELECT IS_IPV4('10.0.0.1.1');
+SELECT IS_IPV4('192.168.0.10');
+SELECT IS_IPV6('2001:db8::8a2e:370:7334');
+SELECT IS_IPV6('2001:db8::8a2e7');
+SELECT UUID();
+SELECT UUID_SHORT();
+-- -----------------------------AGGREGATE FUNCTION-----------------------------------
+-- AGGRATE FUNCTION OPERATES ON A SERIES OF VALUE AND RETURN SINGLE VALUE
+-- IT IS KNOWN AS COLUMN FUNCTION.AS IT TYPICALLY WORKS ON VALUE OF COLUMN
+-- AVG() , SUM() ,MIN(), MAX(), COUNT()
+-- THESE ARE AGGARGATE FUNCTION
+
+-- IF AGGRAGATE FUNCTION AND A NON AGGRATE COLUMN ARE IN A SELECT STATEMENT 
+-- WE NEED TO USE GROUP_BY() FUNCTION
+-- ---------------------------------------------------------------------
+
+SELECT COUNT(*) from sakila.rental Where customer_id = 130;
+
+
+-- how much rental is taken with customer
+-- max() will return 
+Select Count(*) AS NUMBER_OF_RENTAL,customer_id from sakila.rental GROUP BY customer_id;
+
+-- find the latest rental
+select max(rental_date),customer_id from sakila.rental GROUP BY customer_id;
+
+SELECT AVG(AMOUNT) AVG_PAYMENT,SUM(AMOUNT) TOTAL_SPEND,COUNT(RENTAL_ID) TOTAL_NUMBER_RENTALS,CUSTOMER_ID
+FROM PAYMENT
+GROUP BY CUSTOMER_ID;
