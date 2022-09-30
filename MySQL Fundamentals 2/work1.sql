@@ -134,12 +134,18 @@ INSERT INTO Students(StudentId,StudentName) VALUES(1,'John');
 INSERT INTO Students(StudentId,StudentName) VALUES(2,'Matt');
 INSERT INTO Students(StudentId,StudentName) VALUES(3,'James');
 
+SELECT * FROM Students;
+
 
 CREATE TABLE Classes(ClassId INT,ClassName VARCHAR(50));
 
 INSERT INTO Classes(ClassId,ClassName) VALUES(1,'Maths');
 INSERT INTO Classes(ClassId,ClassName) VALUES(2,'Arts');
 INSERT INTO Classes(ClassId,ClassName) VALUES(3,'History');
+
+SELECT * FROM CLasses;
+
+
 
 CREATE TABLE StudentClass(StudentId INT,ClassId INT);
 
@@ -153,14 +159,127 @@ INSERT INTO StudentClass(StudentId,ClassId) VALUES(3,1);
 -- WHAT WILL BE THE BEST POSSIBLE JOIN IF WE WANT TO RETRIEVE
 -- ALL STUDENTS WHO HAVE SIGNED UP FOR THE CLASSES IN SUMMER
 
--- WHAT WILL BE BEST POSSIBLE JOIN IF WE WANT TO RETRIVE ALL THE STUDENTS WHO HAVE SIGNED UP FOR NO CLASS 
+-- WHAT WILL BE BEST POSSIBLE JOIN IF WE WANT TO RETRIVE ALL 
+-- THE STUDENTS WHO HAVE SIGNED UP FOR NO CLASS 
 -- IN SUMMER
 
--- first made a join table 
--- then select it very easy
+
+-- solution 1
+-- table 3 studentClass is the only table where 
+-- which student took which class information is saved
+-- if you take the table and join with the stuydent table to get the name
+-- and join with the class table to get the class name will be the ans 
+-- start with the studentclass table
+
+SELECT st.StudentName,cs.ClassName 
+FROM studentclass sc
+INNER JOIN Students st on st.StudentId = sc.StudentId
+INNER JOIN classes cs on cs.ClassId = sc.ClassId;
+
+
+-- solution two find the student who does not take any class
+-- 1) question says find the students so base table is students
+-- 2) we left join with studentclass so that we find the corresponding classId
+-- That student have and also null where student dont take any class
+-- 3) That null row in classId is our result so add a where class
+-- 4) filter the row where classid is null thats our student take no classes
+
+SELECT st.StudentName,st.StudentId FROM Students st
+LEFT JOIN studentclass sc On st.StudentId = sc.StudentId
+WHERE sc.ClassId IS NULL; 
 
 
 
-SELECT st.StudentName,cl.CLassName
-FROM StudentClass as sc
-LEFT JOIN StudentClass sc ON sc.StudentId
+
+-- SELF JOIN
+-- SELF JOIN IS WHEN A TABLE JOIN WITH ITSELF(ANOTHER COPY OF ITSELF)
+-- SUPPOSE YOU HAVE AN EMPLOYEE TABLE
+-- AND THAT HAS EMPOYEEID,EMPOYEENAME
+-- BUT IS ALSO HAVE A COLUMN CALLED SUPERVISERID
+-- NOW SUPERVISOR IS ALSO AN EMPLOYEE 
+-- IF YOU HAVE TO FIND THE EMPLOYYE AND HIS SUPERVISER YOU HAVE 
+-- TO A SELF JOIN
+
+USE sakila;
+CREATE TABLE IF NOT EXISTS Empoyee(
+	EmployeeId INT PRIMARY KEY,
+    Name VARCHAR(30),
+    ManagerId INT
+);
+
+INSERT INTO Empoyee(EmployeeId,Name,ManagerId)
+VALUES
+(1,'Mike',3),
+(2,'Devid',3),
+(3,'Roger',NULL),
+(4,'Marry',2),
+(5,'Joseph',2),
+(6,'Ben',2);
+
+
+-- ROGER HAS NOT MANAGER BECAUSE HE IS THE TOP MANAGER
+-- WE HAVE TO KEEP IN MIND THAT
+-- MIKE AND DEVID ARE UNDER ROGER
+-- MARRY JOSEPH AND BEN  ARE UNDER DEVID
+
+SELECT * FROM empoyee;
+
+SELECT e1.EmployeeId, e1.Name AS EmployeeName,e2.Name AS ManagerName FROM empoyee e1
+INNER JOIN Empoyee e2
+ON e1.ManagerId = e2.EmployeeId;
+
+
+SELECT e1.EmployeeId, e1.Name AS EmployeeName,IFNULL(e2.Name,'Top Manager') AS ManagerName FROM empoyee e1
+LEFT JOIN Empoyee e2
+ON e1.ManagerId = e2.EmployeeId;
+
+-- EXPLANATION OF THE CODE
+
+-- HERE YOU SELECT THE EMPLOYEEID AND EMPLOYEE NAME FROM THE E1 TABLE
+-- WHICH IS A EMPLOYEE TABLE
+-- THEN JOIN WITH THE E2 WHICH IS ALSO EMPLOYEE TABLE 
+-- AND TRY TO FETCH NAME BUT THIS TIME THAT NAME 
+-- IS THE MANAGER NAME AND HOW YOU FIND THE MANAGER NAME
+-- YOU TAKE THE MANAGER_ID FROM THE E1 TABLE AND MATCH WITH THE
+-- EMPLOYEE TABLE AND THEN MATCH IT WITH THE EMPLOYEE_ID OF THE E2 TABLE
+-- THEN WITH THIS RELATION WE FETCH THE NAME 
+-- ------------------------------------------------------------------------
+
+-- USING KEYWORD FOR JOINNING TWO TABLE 
+-- -------------NOT RECOMENDED-------------------
+-- WE ARE WORKING WITH TWO TABLE
+
+SELECT t1.*,t2.* 
+FROM table1 t1
+INNER JOIN table2 t2
+USING(Id);
+
+SELECT t1.*,t2.*
+FROM table1 t1
+INNER JOIN table2 t2
+USING(Id,Value);
+
+-- IT MEANS WITH THE ID IN BOTH TABLE YOU WILL 
+-- PERFORM THE JOIN
+SELECT t1.*,t2.* 
+FROM table1 t1
+INNER JOIN table2 t2 
+ON t1.Id = t2.Id AND t1.Value = t2.Value;
+
+
+-- UNION AND UNION ALL
+-- BEFORE UNION OR  UNION ALL
+-- YOU MUST KNOW THAT
+-- EACH SELECT STATEMENT OF UNION OPERATOT MUST HAVE THE SAME NUMBER 
+-- OF COLUMN
+-- IF YOU USE UNION IT WILL REMOVE THE DUPLICATE VALUE TABLE (A UNION B) = A+B-(A INSECTION B)
+-- BUT IN UNION ALL IT WONT REMOVE THE DUPLICATE (A UNION B) = A+B 
+
+
+
+
+-- same result 
+
+
+
+
