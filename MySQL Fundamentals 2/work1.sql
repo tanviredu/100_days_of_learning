@@ -276,9 +276,82 @@ ON t1.Id = t2.Id AND t1.Value = t2.Value;
 -- BUT IN UNION ALL IT WONT REMOVE THE DUPLICATE (A UNION B) = A+B 
 
 
+SELECT * FROM table1;
+SELECT * FROM table2;
+
+-- NO DUPLICATE
+SELECT * FROM table1
+UNION
+SELECT * FROM table2
+ORDER BY Value;
+
+-- WITH DUPLICATE
+
+SELECT * FROM table1
+UNION ALL
+SELECT * FROM table2;
 
 
--- same result 
+
+-- SUB QUERY
+-- USE SAKILA DATABASE 
+-- FIND CUSTOMERS WHO LIKE TO WATCH ACTION MOVIES
+USE sakila;
+
+
+SELECT category_id,Name FROM category;
+SELECT category_id FROM category WHERE Name = 'Action'; -- result 1
+SELECT * from film_category;
+SELECT film_id FROM film_category WHERE category_id = 1;
+SELECT COUNT(*) FROM film_category WHERE category_id = 1; -- 64 action film
+SELECT * FROM inventory; -- all the inventory
+SELECT COUNT(*) FROM inventory WHERE film_id IN(SELECT film_id FROM film_category WHERE category_id = 1);
+SELECT * FROM rental WHERE inventory_id IN(SELECT inventory_id FROM inventory WHERE film_id IN(SELECT film_id FROM film_category WHERE category_id = 1));
+SELECT customer_id FROM rental WHERE inventory_id IN(SELECT inventory_id FROM inventory WHERE film_id IN(SELECT film_id FROM film_category WHERE category_id = 1));
+SELECT * FROM customer where customer_id IN(SELECT customer_id FROM rental WHERE inventory_id IN(SELECT inventory_id FROM inventory WHERE film_id IN(SELECT film_id FROM film_category WHERE category_id = 1)));
+SELECT CONCAT(first_name,' ',last_name) AS FULLNAME  FROM customer  where customer_id IN(SELECT customer_id FROM rental WHERE inventory_id IN(SELECT inventory_id FROM inventory WHERE film_id IN(SELECT film_id FROM film_category WHERE category_id = 1)));
+
+
+-- THIS CAN BE ALSO ACHIEVED WITH THE JOIN QUERY
+-- BUT NOT ALL FOR EXAMPLE THIS CANT BE DONE WITH JUST 
+-- JOIN QUERY
+
+
+
+
+
+-- EASY QUERY COMPLETELY UNDERSTAND
+SELECT fm.title,cat.name,dt.COUNT_OF_CATEGORY FROM film fm
+INNER JOIN film_category fc
+ON fm.film_id = fc.film_id
+INNER JOIN category cat 
+ON fc.category_id = cat.category_id
+INNER JOIN
+	(
+		SELECT COUNT(*) AS COUNT_OF_CATEGORY,fc.category_id FROM film_category fc
+		GROUP BY fc.category_id
+
+	) AS dt ON dt.category_id = fc.category_id;
+;
+
+-- WE GETTHE TITLE FROM THE FROM THE FILM -- PART 1 EASY
+-- NOW WE NEED THE CATEGORY WHICH IS IN THE CATEGORY TABLE
+-- YOU CANT GET THE CATEGORY NAME FROM THE FILM TABLE DIRECTLY
+-- YOU NEED TO GO THROUGH THE FILMMCATEGORY TABLE
+-- SO JOIN FILM CATEGORY YOU GOT THE CATEGORY ID OF THE FILM ID
+-- THEN JOIN CATEGORY AND GET THE NAME -- PART 2 EASSY
+
+-- NOW WE NEED THE TOTAL AMMOUNT OF MOVIE OF THAT CATEGORY
+-- SO WE NEED A TABLE THAT HAS TWO PROPERTIES
+-- 1) SUM OF THE MOVIE
+-- 2) CATEGORY ID
+-- WE MAKE A SUB QUERY FOR COUNT(ROW) FROM FILM_CATEGORY GROUP BY CATEGORY ID
+--  THAT MEANS RETURN TOTAL NUMBER OF ROW OF EACH CATEGORY ID
+-- THEN ALIAS THE WHOLE TABLE AS DT AND THEN 
+-- ON CONDITION FOR INNER JOIN WITH CATEGORY ID OF INSIDE DT.CATEGORYID = FC CATEGORY
+
+
+
 
 
 
