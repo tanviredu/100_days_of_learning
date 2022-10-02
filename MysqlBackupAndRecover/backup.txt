@@ -1,0 +1,31 @@
+
+
+-- 1) COMMAND FOR BACKUP DATABASE
+-- 2) WE SUSE SAKILA DATABASE FOR BACKING UP
+-- 3) YOU HAVE TO DO IT IN COMMAND LINE
+-- 4) 'mysqldump' COMMAND WILL BE USED
+
+-- backup single sakila database command
+-- -> mysqldump -h <hostname> -u [user] -p [database_name] > [output_file_location]
+-- example
+-- -> mysqldump -h 127.0.0.1 -u root -p sakila > F:\sqlbackup\new\singlebackup.sql
+-- sakila is not the password it is the database name
+-- password will be asked when you excecuted the statement
+
+-- backup multiple database at once 
+-- we use the database sakila and world
+-- command
+-- the difference between single and multiple database is
+-- in multiple database backup you use a flag called --databases
+-- and in multiple database backup you give multiple database name 
+-- separated by space insted of one
+-- -> mysqldump -h 127.0.0.1 -u root -p --databases sakila world > F:\sqlbackup\new\numtipledatabasebackup.sql
+
+-- backup all the database (everything) every database
+-- it will backup everything
+-- command
+-- -> mysqldump -h [host] -u [user] -p --all-databases > [output_location/allbackup.sql]
+
+-- example
+-- -> mysqldump -h 127.0.0.1 -u root -p --all-databases > F:\sqlbackup\new\all.sql
+  
