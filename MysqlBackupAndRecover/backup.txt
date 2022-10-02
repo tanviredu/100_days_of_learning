@@ -28,4 +28,29 @@
 
 -- example
 -- -> mysqldump -h 127.0.0.1 -u root -p --all-databases > F:\sqlbackup\new\all.sql
+
+-- SINGLE TABLE BACKUP FROM DATABASE
+-- ONLY JUST THE TABLE
+-- we use the table 'rental' from the sakila database
+-- SYNTAX
+
+-- example
+-- > mysqldump -h 127.0.0.1 -u root -p --databases sakila --tables rental > F:\sqlbackup\new\all.sql
+
   
+
+-- backing up storeprocedure,storedfunction,Trigger,Event
+-- no table creating code
+-- no data 
+-- just the logic in routines
+-- routines means storeprocedure,storedfunction,Trigger,Event
+-- just the logic
+-- we will make a backup of sp,sf,trigger,and event or we call routines in combined
+-- Syntax:
+-- -> mysqldump -h [host] -u [user] -p --databases [database name] -- routines [sp/sf/trigger/event] --no-create-info [no table creation code] --no-data [no inserted data code] --no-create-db [no database create] --skip-opt [no additional options] > output.sql
+-- example
+-- -> mysqldump -h 127.0.0.1 -u root -p --databases sakila --routines --no-create-info --no-data --no-create-db --skip-opt > F:\100_days_of_learning\BACKUP_GENERATED_BY_MYSQLDUMP\routines.sql
+
+
+
+
