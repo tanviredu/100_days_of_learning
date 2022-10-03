@@ -124,5 +124,19 @@ GIT STATSH
      what stash do is is save your staged and unstaged changes in stash stack(safe place ) and then  rollback to the last commit.
 
 GIT MERGE
+suppose you have two branch 
+    1) development
+    2) production
+and you are working with the development branch
+your work is done and you need to merge your code to the 
+production branch.
 
-GIT RESET
+1) first go to the target brach 
+=>git checkout production
+2) merge it
+=> git merge development
+
+3)[optional]
+    so your work on the development branch is finished and you already merges with the production
+    so now you can  delete the branch development
+=> git branch -d development
