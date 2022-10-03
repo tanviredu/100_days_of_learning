@@ -140,3 +140,27 @@ production branch.
     so your work on the development branch is finished and you already merges with the production
     so now you can  delete the branch development
 => git branch -d development
+
+inside a repository the file has two model
+1) tracked file
+2) untracked file
+
+tracked file in git in 3 stage
+1) Commited
+2) modified
+3) staged
+
+*) Code that are commited and raemail unchanged since the last commit/snapshot are call the commited stage
+
+*)code that are modified ,inserted and deleted since last commit are the modified stage
+
+*)staged : changes that marked by git for next commit/snapshot are the staged.
+
+
+process: 
+1) you modigy code since last commit/snapshot
+2) stage the code : git add .
+3) commit/snapshot it : git commit -m "messge"
+   repeat the process
+
+
