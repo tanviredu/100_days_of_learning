@@ -83,6 +83,12 @@ you can find a recod of changes of a file using git blame command
     *) staging environment mimics the prodction so we can do accurate issue
     *) allow developer to work on a new feature without affecting the main program(production)
 
+    YOU MAY HAVE TWO BRANCHS 
+    1) PRODUCTION BRANCH
+    2) DEVELOPMENT BRANCH
+
+YOU ARE WORKING WITH THE DEVELOPMENT BRANCH AND TEST AND VERIFY IT . AFTER THAT WHEN YOU THING EVERYTHING IS READY YOU CAN MERGE YOUR CODE TO PRODUCT BRANCH
+
 1) in git you can identify who made a change n the code
 you can toll back to previous code if you want
 you can colaborate with other developer
