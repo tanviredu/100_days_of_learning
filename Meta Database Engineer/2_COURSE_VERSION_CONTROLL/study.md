@@ -95,6 +95,10 @@ you can colaborate with other developer
 
 2) some time merge conflict occur when multiple developer work on a same file. and if it happend developer have to manually fix this . there is no automatic process to do that
 
+3) branch create a parallel environment that can be used to add nee code with separate path. when job is done they will merge with the main branch
+
+4) suppose there is three developer theythey all create a branch each from the main branch they work on different feature and when task complete they merge with the main branch.
+
 3) distributed:
         git
         mercurical
@@ -106,3 +110,19 @@ you can colaborate with other developer
     1) continuous integration
     2) continious delivery
     3) continuous deployment
+
+
+
+GIT STATSH
+    whenyou are working on a feature in a branch suppose login branch
+
+    but suddenly you have to fo to the register branch
+    you have staged and unstaged both files in the login branch
+
+     now when you try to change branch git wont let you do that , and tell you to commit the change . but your work is not fully done yet , then comes the command 
+     git stash
+     what stash do is is save your staged and unstaged changes in stash stack(safe place ) and then  rollback to the last commit.
+
+GIT MERGE
+
+GIT RESET
