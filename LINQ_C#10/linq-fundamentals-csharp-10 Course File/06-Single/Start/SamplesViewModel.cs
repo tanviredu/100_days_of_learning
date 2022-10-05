@@ -14,9 +14,13 @@
       List<Product> products = GetProducts();
       Product value = null;
 
-      // Write Query Syntax Here
-
-      // Test the exception handling
+            // Write Query Syntax Here
+            // the problem of using First()
+            // is that if no match happen it will
+            // not give you null it will give you an error
+            
+            value = (from prod in products select prod).First(s => s.Color == "Red");
+            // Test the exception handling
 
       return value;
     }
@@ -34,9 +38,14 @@
       List<Product> products = GetProducts();
       Product value = null;
 
-      // Write Method Syntax Here
-      
-      return value;
+            // Write Method Syntax Here
+            // remember if not found First() will throw error
+            value = products.First(s => s.Color == "Red");
+            //value = products.First(s => s.Color == "Nothing"); // this will give you error
+
+
+
+            return value;
     }
     #endregion
 
@@ -52,9 +61,18 @@
       List<Product> products = GetProducts();
       Product value = null;
 
-      // Write Query Syntax Here
+            // Write Query Syntax Here
+            // first or default
+            // it will give you result of it there 
+            // but return a default value if not found
+            // if you dont set any default value then it return null as a default value
+            // but you provide it then it will show the default one
 
-      // Test the exception handling
+            // Test the exception handling
+
+            value = (from prod in products select prod).FirstOrDefault(s => s.Color == "Red");
+            // this will return single value which color is red
+
 
       return value;
     }
