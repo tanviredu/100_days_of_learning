@@ -1,0 +1,12 @@
+F:\100_days_of_learning\LINQ_C#10\linq-fundamentals-csharp-10 Course File\LINQSamples.DataLayer\bin\Debug\net6.0\LINQSamples.DataLayer.deps.json
+F:\100_days_of_learning\LINQ_C#10\linq-fundamentals-csharp-10 Course File\LINQSamples.DataLayer\bin\Debug\net6.0\LINQSamples.DataLayer.dll
+F:\100_days_of_learning\LINQ_C#10\linq-fundamentals-csharp-10 Course File\LINQSamples.DataLayer\bin\Debug\net6.0\ref\LINQSamples.DataLayer.dll
+F:\100_days_of_learning\LINQ_C#10\linq-fundamentals-csharp-10 Course File\LINQSamples.DataLayer\bin\Debug\net6.0\LINQSamples.DataLayer.pdb
+F:\100_days_of_learning\LINQ_C#10\linq-fundamentals-csharp-10 Course File\LINQSamples.DataLayer\obj\Debug\net6.0\LINQSamples.DataLayer.csproj.AssemblyReference.cache
+F:\100_days_of_learning\LINQ_C#10\linq-fundamentals-csharp-10 Course File\LINQSamples.DataLayer\obj\Debug\net6.0\LINQSamples.DataLayer.GeneratedMSBuildEditorConfig.editorconfig
+F:\100_days_of_learning\LINQ_C#10\linq-fundamentals-csharp-10 Course File\LINQSamples.DataLayer\obj\Debug\net6.0\LINQSamples.DataLayer.AssemblyInfoInputs.cache
+F:\100_days_of_learning\LINQ_C#10\linq-fundamentals-csharp-10 Course File\LINQSamples.DataLayer\obj\Debug\net6.0\LINQSamples.DataLayer.AssemblyInfo.cs
+F:\100_days_of_learning\LINQ_C#10\linq-fundamentals-csharp-10 Course File\LINQSamples.DataLayer\obj\Debug\net6.0\LINQSamples.DataLayer.csproj.CoreCompileInputs.cache
+F:\100_days_of_learning\LINQ_C#10\linq-fundamentals-csharp-10 Course File\LINQSamples.DataLayer\obj\Debug\net6.0\LINQSamples.DataLayer.dll
+F:\100_days_of_learning\LINQ_C#10\linq-fundamentals-csharp-10 Course File\LINQSamples.DataLayer\obj\Debug\net6.0\ref\LINQSamples.DataLayer.dll
+F:\100_days_of_learning\LINQ_C#10\linq-fundamentals-csharp-10 Course File\LINQSamples.DataLayer\obj\Debug\net6.0\LINQSamples.DataLayer.pdb

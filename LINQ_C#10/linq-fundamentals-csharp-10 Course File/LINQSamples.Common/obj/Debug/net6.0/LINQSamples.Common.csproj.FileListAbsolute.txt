@@ -1,0 +1,15 @@
+F:\100_days_of_learning\LINQ_C#10\linq-fundamentals-csharp-10 Course File\LINQSamples.Common\bin\Debug\net6.0\LINQSamples.Common.deps.json
+F:\100_days_of_learning\LINQ_C#10\linq-fundamentals-csharp-10 Course File\LINQSamples.Common\bin\Debug\net6.0\LINQSamples.Common.dll
+F:\100_days_of_learning\LINQ_C#10\linq-fundamentals-csharp-10 Course File\LINQSamples.Common\bin\Debug\net6.0\ref\LINQSamples.Common.dll
+F:\100_days_of_learning\LINQ_C#10\linq-fundamentals-csharp-10 Course File\LINQSamples.Common\bin\Debug\net6.0\LINQSamples.Common.pdb
+F:\100_days_of_learning\LINQ_C#10\linq-fundamentals-csharp-10 Course File\LINQSamples.Common\bin\Debug\net6.0\LINQSamples.DataLayer.dll
+F:\100_days_of_learning\LINQ_C#10\linq-fundamentals-csharp-10 Course File\LINQSamples.Common\bin\Debug\net6.0\LINQSamples.DataLayer.pdb
+F:\100_days_of_learning\LINQ_C#10\linq-fundamentals-csharp-10 Course File\LINQSamples.Common\obj\Debug\net6.0\LINQSamples.Common.csproj.AssemblyReference.cache
+F:\100_days_of_learning\LINQ_C#10\linq-fundamentals-csharp-10 Course File\LINQSamples.Common\obj\Debug\net6.0\LINQSamples.Common.GeneratedMSBuildEditorConfig.editorconfig
+F:\100_days_of_learning\LINQ_C#10\linq-fundamentals-csharp-10 Course File\LINQSamples.Common\obj\Debug\net6.0\LINQSamples.Common.AssemblyInfoInputs.cache
+F:\100_days_of_learning\LINQ_C#10\linq-fundamentals-csharp-10 Course File\LINQSamples.Common\obj\Debug\net6.0\LINQSamples.Common.AssemblyInfo.cs
+F:\100_days_of_learning\LINQ_C#10\linq-fundamentals-csharp-10 Course File\LINQSamples.Common\obj\Debug\net6.0\LINQSamples.Common.csproj.CoreCompileInputs.cache
+F:\100_days_of_learning\LINQ_C#10\linq-fundamentals-csharp-10 Course File\LINQSamples.Common\obj\Debug\net6.0\LINQSamples.Common.csproj.CopyComplete
+F:\100_days_of_learning\LINQ_C#10\linq-fundamentals-csharp-10 Course File\LINQSamples.Common\obj\Debug\net6.0\LINQSamples.Common.dll
+F:\100_days_of_learning\LINQ_C#10\linq-fundamentals-csharp-10 Course File\LINQSamples.Common\obj\Debug\net6.0\ref\LINQSamples.Common.dll
+F:\100_days_of_learning\LINQ_C#10\linq-fundamentals-csharp-10 Course File\LINQSamples.Common\obj\Debug\net6.0\LINQSamples.Common.pdb
