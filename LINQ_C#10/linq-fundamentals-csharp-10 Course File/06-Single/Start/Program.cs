@@ -5,11 +5,17 @@ SamplesViewModel vm = new();
 
 try
 {
-  // Call Sample Method
-  var result = vm.SingleOrDefaultQuery();
+    //  Call Sample Method
+    //  var result = vm.SingleOrDefaultQuery();
+    //  var result = vm.FirstOrDefaultWithDefaultQuery();
+    //  var result = vm.FirstOrDefaultWithDefaultMethod();
+    //  var result = vm.SingleQuery();
+    //  var result = vm.SingleMethod();
+    var result = vm.SingleOrDefaultQuery();
+
 
   // Display Results
-  vm.Display(result);
+    vm.Display(result);
 }
 catch (ArgumentNullException ex)
 {

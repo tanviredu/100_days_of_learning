@@ -90,7 +90,8 @@
       List<Product> products = GetProducts();
       Product value = null;
 
-      // Write Method Syntax Here
+            // Write Method Syntax Here
+            value = products.FirstOrDefault(s => s.Color == "Red");
 
       return value;
     }
@@ -107,8 +108,16 @@
     {
       List<Product> products = GetProducts();
       Product value = null;
+            
+            // this will be the default value instead of None
+            var defaultvalue = new Product
+            {
+                ProductID = -1,
+                Name = "NOT FOUND"
+            };
+            // Write Query Syntax Here
+            value = (from prod in products select prod).FirstOrDefault(s => s.Color == "No Color", defaultvalue);
 
-      // Write Query Syntax Here
      
       // Test the exception handling
       
@@ -127,8 +136,13 @@
     {
       List<Product> products = GetProducts();
       Product value = null;
-
-      // Write Method Syntax Here
+      var defaultvalue = new Product
+      {
+         ProductID = -1,
+         Name = "NOT FOUND"
+      };
+            // Write Method Syntax Here
+            value = products.FirstOrDefault(s => s.Color == "NO COLOR", defaultvalue);
 
       return value;
     }
@@ -144,11 +158,12 @@
       List<Product> products = GetProducts();
       Product value = null;
 
-      // Write Query Syntax Here
-      
-      // Test the exception handling
-      
-      return value;
+            // Write Query Syntax Here
+
+            value = (from prod in products select prod).Last(s => s.Color == "Red");
+            // Test the exception handling
+
+            return value;
     }
     #endregion
 
@@ -162,10 +177,11 @@
       List<Product> products = GetProducts();
       Product value = null;
 
-      // Write Method Syntax Here
-      
+            // Write Method Syntax Here
+            value = products.Last(s => s.Color == "Red");
 
-      return value;
+
+            return value;
     }
     #endregion
 
@@ -179,12 +195,17 @@
       List<Product> products = GetProducts();
       Product value = null;
 
-      // Write Query Syntax Here
-     
+            // Write Query Syntax Here
+            var defaultvalue = new Product
+            {
+                ProductID = -1,
+                Name = "NOT FOUND"
+            };
+            value = (from prod in products select prod).LastOrDefault(s => s.Color == "Red", defaultvalue);
 
-      // Test the exception handling
-     
-      return value;
+            // Test the exception handling
+
+            return value;
     }
     #endregion
 
@@ -197,11 +218,16 @@
     {
       List<Product> products = GetProducts();
       Product value = null;
+            var defaultvalue = new Product
+            {
+                ProductID = -1,
+                Name = "NOT FOUND"
+            };
+            // Write Method Syntax Here
+            value = products.LastOrDefault(s => s.Color == "No COLOR", defaultvalue);
+            // this will return default value
 
-      // Write Method Syntax Here
-      
-
-      return value;
+            return value;
     }
     #endregion
 
@@ -216,13 +242,22 @@
       List<Product> products = GetProducts();
       Product value = null;
 
-      // Write Query Syntax Here
+            // Write Query Syntax Here
 
-      // Test the exception handling for finding multiple values
+            // 1) single method return a single element
+            // 2) if not found throw exception
+            // 3) if it finds multiple element that satisfies the criteria . it will also throw exception
+            // 4) single will return value if matching element is one in the list, no duplicate
 
-      // Test the exception handling for the list is null
 
-      return value;
+
+            // you will get a value because product id 706 has only one entri and no duplicate
+            //value = (from prod in products select prod).Single(s => s.ProductID == 706);
+
+            // this will throw error because multiple object have red color
+            //value = (from prod in products select prod).Single(s => s.Color== "Red");
+            // System.InvalidOperationException: Sequence contains more than one matching element
+            return value;
     }
     #endregion
 
@@ -237,8 +272,9 @@
       List<Product> products = GetProducts();
       Product value = null;
 
-      // Write Method Syntax Here
-
+            // Write Method Syntax Here
+            value = products.Single(s => s.ProductID == 706);
+            
       return value;
     }
     #endregion
@@ -253,18 +289,21 @@
     {
       List<Product> products = GetProducts();
       Product value = null;
+            var defaultvalue = new Product
+            {
+                ProductID = -1,
+                Name = "NOT FOUND"
+            };
 
-      // Write Query Syntax Here
+            // you will get the value
+            //value = (from prod in products select prod).SingleOrDefault(s => s.ProductID == 706);
 
+            // this will give you the default value
+            // because there is not value with productId = -1
+            // but remember if it get multiple record it does not give you default it throw error
+            products.Clear();
+            value = (from prod in products select prod).SingleOrDefault(s=>s.ProductID == -1, defaultvalue);
 
-      // Test the exception handling for finding multiple values
-
-
-      // Test the exception handling for the list is empty
-
-      // Test the exception handling for the list is empty and a default value is supplied
-
-      // Test the exception handling for the list is null
      
 
       return value;
