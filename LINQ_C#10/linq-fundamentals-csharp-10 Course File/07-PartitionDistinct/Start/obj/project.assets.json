@@ -1,0 +1,112 @@
+{
+  "version": 3,
+  "targets": {
+    "net6.0": {
+      "LINQSamples.Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "LINQSamples.DataLayer": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/LINQSamples.Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LINQSamples.Common.dll": {}
+        }
+      },
+      "LINQSamples.DataLayer/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/LINQSamples.DataLayer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LINQSamples.DataLayer.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "LINQSamples.Common/1.0.0": {
+      "type": "project",
+      "path": "../../LINQSamples.Common/LINQSamples.Common.csproj",
+      "msbuildProject": "../../LINQSamples.Common/LINQSamples.Common.csproj"
+    },
+    "LINQSamples.DataLayer/1.0.0": {
+      "type": "project",
+      "path": "../../LINQSamples.DataLayer/LINQSamples.DataLayer.csproj",
+      "msbuildProject": "../../LINQSamples.DataLayer/LINQSamples.DataLayer.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net6.0": [
+      "LINQSamples.Common >= 1.0.0",
+      "LINQSamples.DataLayer >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\DELL\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "F:\\100_days_of_learning\\LINQ_C#10\\linq-fundamentals-csharp-10 Course File\\07-PartitionDistinct\\Start\\LINQSamples.csproj",
+      "projectName": "LINQSamples",
+      "projectPath": "F:\\100_days_of_learning\\LINQ_C#10\\linq-fundamentals-csharp-10 Course File\\07-PartitionDistinct\\Start\\LINQSamples.csproj",
+      "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
+      "outputPath": "F:\\100_days_of_learning\\LINQ_C#10\\linq-fundamentals-csharp-10 Course File\\07-PartitionDistinct\\Start\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net6.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "projectReferences": {
+            "F:\\100_days_of_learning\\LINQ_C#10\\linq-fundamentals-csharp-10 Course File\\LINQSamples.Common\\LINQSamples.Common.csproj": {
+              "projectPath": "F:\\100_days_of_learning\\LINQ_C#10\\linq-fundamentals-csharp-10 Course File\\LINQSamples.Common\\LINQSamples.Common.csproj"
+            },
+            "F:\\100_days_of_learning\\LINQ_C#10\\linq-fundamentals-csharp-10 Course File\\LINQSamples.DataLayer\\LINQSamples.DataLayer.csproj": {
+              "projectPath": "F:\\100_days_of_learning\\LINQ_C#10\\linq-fundamentals-csharp-10 Course File\\LINQSamples.DataLayer\\LINQSamples.DataLayer.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net6.0": {
+        "targetAlias": "net6.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
