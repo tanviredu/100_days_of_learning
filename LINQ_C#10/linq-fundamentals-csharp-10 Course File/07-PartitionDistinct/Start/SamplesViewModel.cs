@@ -3,6 +3,7 @@
   public class SamplesViewModel : ViewModelBase
   {
     #region TakeQuery
+    /// SKIP WHILE AND TAKE WHILE ARE NOT WORKING
     /// <summary>
     /// Use Take() to select a specified number of items from the beginning of a collection
     /// </summary>
@@ -11,10 +12,13 @@
       List<Product> products = GetProducts();
       List<Product> list = new();
 
-      // Write Query Syntax Here
-      
+            // Write Query Syntax Here
+            list = (from prod in products
+                    orderby prod.Name
+                    select prod).Take(5).ToList();
 
-      return list;
+
+            return list;
     }
     #endregion
 
@@ -27,8 +31,10 @@
       List<Product> products = GetProducts();
       List<Product> list = new();
 
-      // Write Query Syntax Here
-     
+            // Write Query Syntax Here
+            // Take(5) will take the first 5 from rh list
+            list = products.OrderBy(s => s.Name).Take(5).ToList();
+            
 
       return list;
     }
@@ -43,10 +49,12 @@
       List<Product> products = GetProducts();
       List<Product> list = new();
 
-      // Write Query Syntax Here
+            // Write Query Syntax Here
+            list = (from prod in products
+                    orderby prod.Name
+                    select prod).Take(5..8).ToList();
 
-     
-      return list;
+            return list;
     }
     #endregion
 
@@ -59,10 +67,13 @@
       List<Product> products = GetProducts();
       List<Product> list = new();
 
-      // Write Query Syntax Here
-      
+            // take(5..8) will git you 5,6,7
+            // Write Query Syntax Here
+            
+            list = products.OrderBy(s => s.Name).Take(5..8).ToList();
 
-      return list;
+
+            return list;
     }
     #endregion
 
@@ -75,8 +86,9 @@
       List<Product> products = GetProducts();
       List<Product> list = new();
 
-      // Write Query Syntax Here
-      
+            // Write Query Syntax Here
+            list = (from prod in products select prod).TakeWhile(p=>p.Name.StartsWith("A")).ToList();
+            
 
       return list;
     }
@@ -91,7 +103,13 @@
       List<Product> products = GetProducts();
       List<Product> list = new();
 
-      // Write Method Syntax Here
+            // Write Method Syntax Here
+            // MOST IMPORTANT METHOD
+            // no need to filter data with for loop and if
+            // we cn directly do that
+            list = products.TakeWhile(s => s.ProductID >700).ToList();
+
+
      
 
       return list;
@@ -107,7 +125,7 @@
       List<Product> products = GetProducts();
       List<Product> list = new();
 
-      // Write Query Syntax Here
+            list = (from prod in products orderby prod.ProductID ascending select prod).Skip(1).ToList();
       
 
       return list;
@@ -123,7 +141,8 @@
       List<Product> products = GetProducts();
       List<Product> list = new();
 
-      // Write Method Syntax Here
+            // Write Method Syntax Here
+            list = products.Skip(1).ToList();
       
 
       return list;
@@ -139,8 +158,8 @@
       List<Product> products = GetProducts();
       List<Product> list = new();
 
-      // Write Query Syntax Here
-      
+            // Write Query Syntax Here
+            list = (from prod in products select prod).SkipWhile(s => s.ProductID > 700).ToList();
 
       return list;
     }
@@ -155,7 +174,7 @@
       List<Product> products = GetProducts();
       List<Product> list = new();
 
-      // Write Method Syntax Here
+            list = products.DistinctBy(s => s.Color).ToList();
      
 
       return list;
@@ -189,10 +208,11 @@
       List<Product> products = GetProducts();
       List<string> list = new();
 
-      // Write Method Syntax Here
-      
+            // Write Method Syntax Here
+            //list = (from prod in products select prod.Color).ToList();
+            list = (from prod in products select prod.Color).Distinct().ToList();
 
-      return list;
+            return list;
     }
     #endregion
 
@@ -202,7 +222,12 @@
       List<Product> products = GetProducts();
       List<Product> list = new();
 
-      // Write Query Syntax Here
+            // Write Query Syntax Here
+            // in the distinct we get all the distinct color
+            // but what happend if we ask we dont need the color we 
+            // need the whole object but it will be distict by color
+            // we need the whole prod but distinct by color
+            list = (from prod in products select prod).DistinctBy(d => d.Color).ToList();
 
 
       return list;
@@ -231,7 +256,16 @@
       List<Product> products = GetProducts();
       List<Product[]> list = new();
 
-      // Write Query Syntax Here
+            // Write Query Syntax Here
+            // chunk is important
+            // suppose you have a list 0f 10 eleiment
+            // and you chunk it with 3
+            // return list will be
+            //[[0,1,2],[3,4,5],[6,7,8],[9]]
+            // array of list
+
+            list = (from prod in products select prod).Chunk(5).ToList();
+
       
 
       return list;
