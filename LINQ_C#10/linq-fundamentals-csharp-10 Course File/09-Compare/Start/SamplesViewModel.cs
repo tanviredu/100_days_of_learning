@@ -15,8 +15,8 @@
       // Create a list of numbers
       List<int> list2 = new() { 1, 2, 3, 4, 5 };
 
-      // Write Query Syntax Here
-      
+            // Write Query Syntax Here
+            value = (from item in list1 select item).SequenceEqual(list2);
 
       return value;
     }
@@ -35,8 +35,8 @@
       // Create a list of numbers
       List<int> list2 = new() { 1, 2, 3, 4, 5 };
 
-      // Write Method Syntax Here
-     
+            // Write Method Syntax Here
+            value = list1.SequenceEqual(list2);
 
       return value;
     }
@@ -62,11 +62,15 @@
         new Product { ProductID = 2, Name = "Product 2" },
       };
 
-      // Make Collections the Same
-      // list2 = list1;
+            // Make Collections the Same
+            // list2 = list1;
 
-      // Write Query Syntax Here
-      
+            // Write Query Syntax Here
+            value = (from prod in list1 select prod).SequenceEqual(list2);
+            // it will return a false
+            // because it compaer the object referecnce 
+            // even the value are the same 
+            // object reference are different
 
       return value;
     }
@@ -92,61 +96,13 @@
         new Product { ProductID = 2, Name = "Product 2" },
       };
 
-      // Make Collections the Same
-      // list2 = list1;
-
-      // Write Method Syntax Here
+            value = list1.SequenceEqual(list2); // it will also return false
       
 
       return value;
     }
     #endregion
 
-    #region SequenceEqualUsingComparerQuery
-    /// <summary>
-    /// Use an EqualityComparer class to determine if the objects are the same based on the values in properties
-    /// </summary>
-    public bool SequenceEqualUsingComparerQuery()
-    {
-      bool value = false;
-      ProductComparer pc = new ProductComparer();
-      // Load all Product Data From Data Source 1
-      List<Product> list1 = ProductRepository.GetAll();
-      // Load all Product Data From Data Source 2
-      List<Product> list2 = ProductRepository.GetAll();
-
-      // Remove an element from 'list1' to make the collections different
-      //list1.RemoveAt(0);
-
-      // Write Query Syntax Here
-      
-
-      return value;
-    }
-    #endregion
-
-    #region SequenceEqualUsingComparerMethod
-    /// <summary>
-    /// Use an EqualityComparer class to determine if the objects are the same based on the values in properties
-    /// </summary>
-    public bool SequenceEqualUsingComparerMethod()
-    {
-      bool value = false;
-      ProductComparer pc = new ProductComparer();
-      // Load all Product Data From Data Source 1
-      List<Product> list1 = ProductRepository.GetAll();
-      // Load all Product Data From Data Source 2
-      List<Product> list2 = ProductRepository.GetAll();
-
-      // Remove an element from 'list1' to make the collections different
-      //list1.RemoveAt(0);
-
-      // Write Method Syntax Here
-      
-
-      return value;
-    }
-    #endregion
 
     #region ExceptIntegersQuery
     /// <summary>
@@ -160,8 +116,12 @@
       // Create a list of numbers
       List<int> list2 = new() { 3, 4, 5 };
 
-      // Write Query Syntax Here
-      
+            // Write Query Syntax Here
+            // except will return between two collection
+            // which is NOT COMMON
+
+            //list = list1.Except(list2).ToList();
+            list = list2.Except(list1).ToList();
 
       return list;
     }
@@ -197,6 +157,12 @@
       List<SalesOrder> sales = SalesOrderRepository.GetAll();
 
       // Write Query Syntax Here
+      // get all the productsId
+      // get All the sales Id
+      // which numbers are in products and not in sales
+      //list = (from prod in products select prod.ProductID).Except()
+
+
       
 
       return list;
