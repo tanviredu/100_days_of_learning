@@ -12,7 +12,8 @@
       // Load all Product Data
       List<Product> products = ProductRepository.GetAll();
 
-      // Write Query Syntax Here
+            // Write Query Syntax Here
+            value = (from prod in products select prod).Count();
       
 
       return value;
@@ -29,7 +30,8 @@
       // Load all Product Data
       List<Product> products = ProductRepository.GetAll();
 
-      // Write Method Syntax Here
+            // Write Method Syntax Here
+            value = products.Count();
       
 
       return value;
@@ -46,11 +48,16 @@
       // Load all Product Data
       List<Product> products = ProductRepository.GetAll();
 
-      // Write Query Syntax #1 Here
-      
 
-      // Write Query Syntax #2 Here
-     
+            value = (from prod in products
+                     where prod.Color == "Red"
+                     select prod).Count();
+
+            //alternative to
+            // this is complecated without any reason
+            // but it is possible 
+            var value1 = (from prod in products
+                          select prod).Count(prod => prod.Color == "Red");
 
       return value;
     }
@@ -86,10 +93,8 @@
       // Load all Product Data
       List<Product> products = ProductRepository.GetAll();
 
-      // Write Query Syntax #1 Here
-     
-
-      // Write Query Syntax #2 Here
+            // getting the minimum price of the product
+            value = (from prod in products select prod.ListPrice).Min();
       
 
       return value;
@@ -106,10 +111,7 @@
       // Load all Product Data
       List<Product> products = ProductRepository.GetAll();
 
-      // Write Method Syntax #1 Here
-      
-
-      // Write Method Syntax #2 Here
+            value = products.Select(s => s.ListPrice).Min();
       
 
       return value;
@@ -126,13 +128,13 @@
       // Load all Product Data
       List<Product> products = ProductRepository.GetAll();
 
-      // Write Query Syntax #1 Here
-      
+            // Write Query Syntax #1 Here
 
-      // Write Query Syntax #2 Here
-     
+            value = (from prod in products select prod.ListPrice).Max();
+            // Write Query Syntax #2 Here
 
-      return value;
+
+            return value;
     }
     #endregion
 
@@ -146,11 +148,8 @@
       // Load all Product Data
       List<Product> products = ProductRepository.GetAll();
 
-      // Write Method Syntax #1 Here
-      
 
-      // Write Method Syntax #2 Here
-      
+            value = products.Select(s => s.ListPrice).Max();
 
       return value;
     }
@@ -166,9 +165,12 @@
       // Load all Product Data
       List<Product> products = ProductRepository.GetAll();
 
-      // Write Query Syntax Here
-      
-
+            // Write Query Syntax Here
+            // in min you get the min value
+            // in munby you get the object
+            product = (from prod in products select prod).MinBy(s => s.ListPrice);
+            // it will return the product object
+            // having minimum price value
       return product;
     }
     #endregion
@@ -183,243 +185,12 @@
       // Load all Product Data
       List<Product> products = ProductRepository.GetAll();
 
-      // Write Method Syntax Here
+            // Write Method Syntax Here
+            // this is easier and make sense
+            product = products.MinBy(s => s.ListPrice);
       
 
       return product;
-    }
-    #endregion
-
-    #region MaxByQuery
-    /// <summary>
-    /// Get the maximum value of a single property in a collection, but return the object
-    /// </summary>
-    public Product MaxByQuery()
-    {
-      Product product = null;
-      // Load all Product Data
-      List<Product> products = ProductRepository.GetAll();
-
-      // Write Query Syntax Here
-      
-
-      return product;
-    }
-    #endregion
-
-    #region MaxByMethod
-    /// <summary>
-    /// Get the maximum value of a single property in a collection, but return the object
-    /// </summary>
-    public Product MaxByMethod()
-    {
-      Product product = null;
-      // Load all Product Data
-      List<Product> products = ProductRepository.GetAll();
-
-      // Write Method Syntax Here
-     
-
-      return product;
-    }
-    #endregion
-
-    #region AverageQuery
-    /// <summary>
-    /// Get the average of all values within a single property in a collection
-    /// </summary>
-    public decimal AverageQuery()
-    {
-      decimal value = 0;
-      // Load all Product Data
-      List<Product> products = ProductRepository.GetAll();
-
-      // Write Query Syntax #1 Here
-      
-
-      // Write Query Syntax #2 Here
-      
-
-      return value;
-    }
-    #endregion
-
-    #region AverageMethod
-    /// <summary>
-    /// Get the average of all values within a single property in a collection
-    /// </summary>
-    public decimal AverageMethod()
-    {
-      decimal value = 0;
-      // Load all Product Data
-      List<Product> products = ProductRepository.GetAll();
-
-      // Write Method Syntax #1 Here
-      
-
-      // Write Method Syntax #2 Here
-      
-
-      return value;
-    }
-    #endregion
-
-    #region SumQuery
-    /// <summary>
-    /// Gets the sum of the values of a single property in a collection
-    /// </summary>
-    public decimal SumQuery()
-    {
-      decimal value = 0;
-      // Load all Product Data
-      List<Product> products = ProductRepository.GetAll();
-
-      // Write Query Syntax #1 Here
-      
-
-      // Write Query Syntax #2 Here
-      
-
-      return value;
-    }
-    #endregion
-
-    #region SumMethod
-    /// <summary>
-    /// Gets the sum of the values of a single property in a collection
-    /// </summary>
-    public decimal SumMethod()
-    {
-      decimal value = 0;
-      // Load all Product Data
-      List<Product> products = ProductRepository.GetAll();
-
-      // Write Method Syntax #1 Here
-      
-
-      // Write Method Syntax #1 Here
-      
-
-      return value;
-    }
-    #endregion
-
-    #region AggregateQuery
-    /// <summary>
-    /// Aggregate allows you to iterate over a collection and perform an accumulation of values. With this operator you can simulate count, sum, etc.
-    /// </summary>
-    public decimal AggregateQuery()
-    {
-      decimal value = 0;
-      // Load all Product Data
-      List<Product> products = ProductRepository.GetAll();
-
-      // Write Query Syntax Here
-      
-
-      return value;
-    }
-    #endregion
-
-    #region AggregateMethod
-    /// <summary>
-    /// Aggregate allows you to iterate over a collection and perform an accumulation of values. With this operator you can simulate count, sum, etc.
-    /// </summary>
-    public decimal AggregateMethod()
-    {
-      decimal value = 0;
-      // Load all Product Data
-      List<Product> products = ProductRepository.GetAll();
-
-      // Write Method Syntax Here
-      
-
-      return value;
-    }
-    #endregion
-
-    #region AggregateCustomQuery
-    /// <summary>
-    /// Use Sales Orders and calculate the total Sales by multiplying OrderQty * UnitPrice for each order
-    /// </summary>
-    public decimal AggregateCustomQuery()
-    {
-      decimal value = 0;
-      // Load all Sales Data
-      List<SalesOrder> sales = SalesOrderRepository.GetAll();
-
-      // Write Query Syntax Here
-      
-
-      return value;
-    }
-    #endregion
-
-    #region AggregateCustomMethod
-    /// <summary>
-    /// Use Sales Orders and calculate the total Sales by multiplying OrderQty * UnitPrice for each order
-    /// </summary>
-    public decimal AggregateCustomMethod()
-    {
-      decimal value = 0;
-      // Load all Sales Data
-      List<SalesOrder> sales = SalesOrderRepository.GetAll();
-
-      // Write Method Syntax Here
-      
-
-      return value;
-    }
-    #endregion
-
-    #region AggregateUsingGroupByQuery
-    /// <summary>
-    /// Group products by Size property and calculate min/max/average prices
-    /// </summary>
-    public List<ProductStats> AggregateUsingGroupByQuery()
-    {
-      List<ProductStats> list = null;
-      // Load all Sales Data
-      List<Product> products = ProductRepository.GetAll();
-
-      // Write Query Syntax Here
-      
-
-      return list;
-    }
-    #endregion
-
-    #region AggregateUsingGroupByMethod
-    /// <summary>
-    /// Group products by Size property and calculate min/max/average prices
-    /// </summary>
-    public List<ProductStats> AggregateUsingGroupByMethod()
-    {
-      List<ProductStats> list = null;
-      // Load all Sales Data
-      List<Product> products = ProductRepository.GetAll();
-
-      // Write Method Syntax Here
-      
-
-      return list;
-    }
-    #endregion
-
-    #region AggregateMoreEfficientMethod
-    /// <summary>
-    /// Use Aggregate with some custom methods to gather the data in one pass 
-    /// </summary>
-    public List<ProductStats> AggregateMoreEfficientMethod()
-    {
-      List<ProductStats> list = null;
-      // Load all Sales Data
-      List<Product> products = ProductRepository.GetAll();
-
-      // Write Method Syntax Here
-      
-
-      return list;
     }
     #endregion
   }

@@ -15,8 +15,9 @@
       // Create a list of numbers
       List<int> list2 = new() { 1, 2, 3, 4, 5 };
 
-      // Write Query Syntax Here
-
+            // Write Query Syntax Here
+            list = (from item in list1 select item).Union(list2).ToList();
+            // UNION dont take duplicate valiuue
 
       return list;
     }
@@ -35,8 +36,9 @@
       // Create a list of numbers
       List<int> list2 = new() { 1, 2, 3, 4, 5 };
 
-      // Write Query Syntax Here
-     
+            // Write Query Syntax Here
+            list = list1.Union(list2).ToList();
+            // union does not take duplicate value
 
       return list;
     }
@@ -56,71 +58,14 @@
       // Load all Product Data
       List<Product> list2 = ProductRepository.GetAll();
 
-      // Write Query Syntax Here
+            // Write Query Syntax Here
+            list = (from item in list1 select item).Union(list2).ToList();
      
 
       return list;
     }
     #endregion
 
-    #region UnionMethod
-    /// <summary>
-    /// Union() combines two lists together, but skips duplicates by using a comparer class
-    /// This is like the UNION SQL operator
-    /// </summary>
-    public List<Product> UnionMethod()
-    {
-      List<Product> list = null;
-      ProductComparer pc = new();
-      // Load all Product Data
-      List<Product> list1 = ProductRepository.GetAll();
-      // Load all Product Data
-      List<Product> list2 = ProductRepository.GetAll();
-
-      // Write Method Syntax Here
-      
-
-      return list;
-    }
-    #endregion
-
-    #region UnionByQuery
-    /// <summary>
-    /// UnionBy() combines two lists together using DISTINCT on the property specified. 
-    /// </summary>
-    public List<Product> UnionByQuery()
-    {
-      List<Product> list = null;
-      // Load all Product Data
-      List<Product> list1 = ProductRepository.GetAll();
-      // Load all Product Data
-      List<Product> list2 = ProductRepository.GetAll();
-
-      // Write Query Syntax Here
-      
-
-      return list;
-    }
-    #endregion
-
-    #region UnionByMethod
-    /// <summary>
-    /// UnionBy() combines two lists together using DISTINCT on the property specified. 
-    /// </summary>
-    public List<Product> UnionByMethod()
-    {
-      List<Product> list = null;
-      // Load all Product Data
-      List<Product> list1 = ProductRepository.GetAll();
-      // Load all Product Data
-      List<Product> list2 = ProductRepository.GetAll();
-
-      // Write Method Syntax Here
-      
-
-      return list;
-    }
-    #endregion
 
     #region ConcatIntegersQuery
     /// <summary>
@@ -135,9 +80,11 @@
       // Create a list of numbers
       List<int> list2 = new() { 1, 2, 3, 4, 5 };
 
-      // Write Query Syntax Here
-      
-
+            // Write Query Syntax Here
+            // remember concat keep duplicate union dont
+            // concate keep duplicate
+            list = (from item in list1 select item).Concat(list2).ToList();
+            // result will be 1234512345
       return list;
     }
     #endregion
@@ -155,51 +102,15 @@
       // Create a list of numbers
       List<int> list2 = new() { 1, 2, 3, 4, 5 };
 
-      // Write Query Syntax Here
-      
+            // Write Query Syntax Here
+            list = list1.Concat(list2).ToList();
+            // 1234512345
+            // because concat keep duplicate unon not
 
       return list;
     }
     #endregion
 
-    #region ConcatQuery
-    /// <summary>
-    /// The Concat() operator combines two lists together and does NOT check for duplicates
-    /// This is like the UNION ALL SQL operator
-    /// </summary>
-    public List<Product> ConcatQuery()
-    {
-      List<Product> list = null;
-      // Load all Product Data
-      List<Product> list1 = ProductRepository.GetAll();
-      // Load all Product Data
-      List<Product> list2 = ProductRepository.GetAll();
-
-      // Write Query Syntax Here
-      
-
-      return list;
-    }
-    #endregion
-
-    #region ConcatMethod
-    /// <summary>
-    /// The Concat() operator combines two lists together and does NOT check for duplicates
-    /// This is like the UNION ALL SQL operator
-    /// </summary>
-    public List<Product> ConcatMethod()
-    {
-      List<Product> list = null;
-      // Load all Product Data
-      List<Product> list1 = ProductRepository.GetAll();
-      // Load all Product Data
-      List<Product> list2 = ProductRepository.GetAll();
-
-      // Write Method Syntax Here
-      
-
-      return list;
-    }
-    #endregion
+   
   }
 }

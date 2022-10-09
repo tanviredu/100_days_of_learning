@@ -169,70 +169,7 @@
     }
     #endregion
 
-    #region ExceptProductSalesMethod
-    /// <summary>
-    /// Find all products that do not have sales
-    /// </summary>
-    public List<int> ExceptProductSalesMethod()
-    {
-      List<int> list = null;
-      List<Product> products = ProductRepository.GetAll();
-      List<SalesOrder> sales = SalesOrderRepository.GetAll();
-
-      // Write Method Syntax Here
-
-
-      return list;
-    }
-    #endregion
-
-    #region ExceptUsingComparerQuery
-    /// <summary>
-    /// Find all products that are in one list but not the other using a comparer class
-    /// </summary>
-    public List<Product> ExceptUsingComparerQuery()
-    {
-      List<Product> list = null;
-      ProductComparer pc = new();
-      // Load all Product Data From Data Source 1
-      List<Product> list1 = ProductRepository.GetAll();
-      // Load all Product Data From Data Source 2
-      List<Product> list2 = ProductRepository.GetAll();
-
-      // Remove all products with color = "Black" from 'list2'
-      // to give us a difference in the two lists
-      list2.RemoveAll(prod => prod.Color == "Black");
-
-      // Write Query Syntax Here
-      
-
-      return list;
-    }
-    #endregion
-
-    #region ExceptUsingComparerMethod
-    /// <summary>
-    /// Find all products that are in one list but not the other using a comparer class
-    /// </summary>
-    public List<Product> ExceptUsingComparerMethod()
-    {
-      List<Product> list = null;
-      ProductComparer pc = new();
-      // Load all Product Data
-      List<Product> list1 = ProductRepository.GetAll();
-      // Load all Product Data
-      List<Product> list2 = ProductRepository.GetAll();
-
-      // Remove all products with color = "Black" from 'list2'
-      // to give us a difference in the two lists
-      list2.RemoveAll(prod => prod.Color == "Black");
-
-      // Write Method Syntax Here
-      
-
-      return list;
-    }
-    #endregion
+    
 
     #region ExceptByQuery
     /// <summary>
@@ -241,6 +178,9 @@
     /// </summary>
     public List<Product> ExceptByQuery()
     {
+
+
+      // This is important
       List<Product> list = null;
       // Load all Product Data
       List<Product> products = ProductRepository.GetAll();
@@ -255,62 +195,6 @@
     }
     #endregion
 
-    #region ExceptByMethod
-    /// <summary>
-    /// ExceptBy() finds products within a collection that DO NOT compare to a List<string> against a specified property in the collection.
-    /// The default comparer for ExceptBy() is 'string'
-    /// </summary>
-    public List<Product> ExceptByMethod()
-    {
-      List<Product> list = null;
-      // Load all Product Data
-      List<Product> products = ProductRepository.GetAll();
-
-      // The list of colors to exclude from the list
-      List<string> colors = new() { "Red", "Black" };
-
-      // Write Method Syntax Here
-      
-
-      return list;
-    }
-    #endregion
-
-    #region ExceptByProductSalesQuery
-    /// <summary>
-    /// Find all products that do not have sales
-    /// Change the default comparer for ExceptBy()
-    /// </summary>
-    public List<Product> ExceptByProductSalesQuery()
-    {
-      List<Product> list = null;
-      List<Product> products = ProductRepository.GetAll();
-      List<SalesOrder> sales = SalesOrderRepository.GetAll();
-
-      // Write Query Syntax Here
-      
-
-      return list;
-    }
-    #endregion
-
-    #region ExceptByProductSalesMethod
-    /// <summary>
-    /// Find all products that do not have sales
-    /// Change the default comparer for ExceptBy()
-    /// </summary>
-    public List<Product> ExceptByProductSalesMethod()
-    {
-      List<Product> list = null;
-      List<Product> products = ProductRepository.GetAll();
-      List<SalesOrder> sales = SalesOrderRepository.GetAll();
-
-      // Write Method Syntax Here
-
-
-      return list;
-    }
-    #endregion
 
     #region IntersectIntegersQuery
     /// <summary>
@@ -326,6 +210,8 @@
 
       // Write Query Syntax Here
       
+            list = (from prod in list1 select prod).Intersect(list2).ToList();
+
 
       return list;
     }
@@ -343,8 +229,8 @@
       // Create a list of numbers
       List<int> list2 = new() { 3, 4, 5 };
 
-      // Write Method Syntax Here
-      
+            // Write Method Syntax Here
+            list = list1.Intersect(list2).ToList();
 
       return list;
     }
@@ -377,135 +263,14 @@
       List<Product> products = ProductRepository.GetAll();
       List<SalesOrder> sales = SalesOrderRepository.GetAll();
 
-      // Write Method Syntax Here
-
-
+            //list = (from prod in products select prod.ProductID).Intersect(from sale in sales select sale.ProductID).ToList();
+            list = products.Select(s => s.ProductID).Intersect(sales.Select(s => s.ProductID)).ToList();
       return list;
     }
     #endregion
 
-    #region IntersectUsingComparerQuery
-    /// <summary>
-    /// Intersect() finds all products that are in common between two collections using a comparer class
-    /// </summary>
-    public List<Product> IntersectUsingComparerQuery()
-    {
-      List<Product> list = null;
-      ProductComparer pc = new();
-      // Load all Product Data
-      List<Product> list1 = ProductRepository.GetAll();
-      // Load all Product Data
-      List<Product> list2 = ProductRepository.GetAll();
+   
 
-      // Remove 'black' products from 'list1'
-      list1.RemoveAll(prod => prod.Color == "Black");
-      // Remove 'red' products from 'list2'
-      list2.RemoveAll(prod => prod.Color == "Red");
-
-      // Write Query Syntax Here
-     
-
-      return list;
-    }
-    #endregion
-
-    #region IntersectUsingComparerMethod
-    /// <summary>
-    /// Intersect() finds all products that are in common between two collections using a comparer class
-    /// </summary>
-    public List<Product> IntersectUsingComparerMethod()
-    {
-      List<Product> list = null;
-      ProductComparer pc = new();
-      // Load all Product Data
-      List<Product> list1 = ProductRepository.GetAll();
-      // Load all Product Data
-      List<Product> list2 = ProductRepository.GetAll();
-
-      // Remove 'black' products from 'list1'
-      list1.RemoveAll(prod => prod.Color == "Black");
-      // Remove 'red' products from 'list2'
-      list2.RemoveAll(prod => prod.Color == "Red");
-
-      // Write Method Syntax Here
-      
-
-      return list;
-    }
-    #endregion
-
-    #region IntersectByQuery
-    /// <summary>
-    /// Find products within a collection by comparing a List<string> against a specified property in the collection.
-    /// </summary>
-    public List<Product> IntersectByQuery()
-    {
-      List<Product> list = null;
-      List<Product> products = ProductRepository.GetAll();
-
-      // The list of colors to locate in the list
-      List<string> colors = new() { "Red", "Black" };
-
-      // Write Query Syntax Here
-      
-
-      return list;
-    }
-    #endregion
-
-    #region IntersectByMethod
-    /// <summary>
-    /// IntersectBy() finds DISTINCT products within a collection by comparing a List<string> against a specified property in the collection.
-    /// </summary>
-    public List<Product> IntersectByMethod()
-    {
-      List<Product> list = null;
-      List<Product> products = ProductRepository.GetAll();
-
-      // The list of colors to locate in the list
-      List<string> colors = new() { "Red", "Black" };
-
-      // Write Method Syntax Here
-      
-
-      return list;
-    }
-    #endregion
-
-    #region IntersectByProductSalesQuery
-    /// <summary>
-    /// Find all products that have sales using a 'int' key selector
-    /// Change the default comparer for IntersectBy()
-    /// </summary>
-    public List<Product> IntersectByProductSalesQuery()
-    {
-      List<Product> list = null;
-      List<Product> products = ProductRepository.GetAll();
-      List<SalesOrder> sales = SalesOrderRepository.GetAll();
-
-      // Write Query Syntax Here
-      
-
-      return list;
-    }
-    #endregion
-
-    #region IntersectByProductSalesMethod
-    /// <summary>
-    /// Find all products that have sales using a 'int' key selector
-    /// Change the default comparer for IntersectBy()
-    /// </summary>
-    public List<Product> IntersectByProductSalesMethod()
-    {
-      List<Product> list = null;
-      List<Product> products = ProductRepository.GetAll();
-      List<SalesOrder> sales = SalesOrderRepository.GetAll();
-
-      // Write Method Syntax Here
-
-
-      return list;
-    }
-    #endregion
+   
   }
 }

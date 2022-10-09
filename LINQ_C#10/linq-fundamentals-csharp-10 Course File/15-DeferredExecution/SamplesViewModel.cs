@@ -2,6 +2,24 @@
 {
   public class SamplesViewModel : ViewModelBase
   {
+
+
+
+/*
+ * 
+ *   VERY VERY IMPORTANT
+ *  ForEach(),ToList(),OrderBy() when they are called execution
+ * happend 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ 
+ 
+ */
     #region DeferredExecution
     /// <summary>
     /// Illustrate the concept of LINQ deferred execution using foreach()

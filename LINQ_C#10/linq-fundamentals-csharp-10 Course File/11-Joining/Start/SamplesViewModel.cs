@@ -15,7 +15,23 @@
       // Load all Sales Order Data
       List<SalesOrder> sales = SalesOrderRepository.GetAll();
 
-      // Write Query Syntax Here
+            // Write Query Syntax Here
+            list = (from prod in products
+                    join sale in sales
+                    on prod.ProductID equals sale.ProductID
+                    select new ProductOrder
+                    {
+                        ProductID = prod.ProductID,
+                        Color = prod.Color,
+                        LineTotal = sale.LineTotal,
+                        ListPrice = prod.ListPrice,
+                        Name = prod.Name,
+                        OrderQty = sale.OrderQty,
+                        SalesOrderID = sale.SalesOrderID,
+                        Size = prod.Size,
+                        StandardCost = prod.StandardCost,
+                        UnitPrice = sale.UnitPrice 
+                    }).ToList();
 
 
       return list;
@@ -35,50 +51,28 @@
       // Load all Sales Order Data
       List<SalesOrder> sales = SalesOrderRepository.GetAll();
 
-      // Write Method Syntax Here
+            list = products.Join(sales, prod => prod.ProductID, sale => sale.ProductID
+            , (prod, sale) => new ProductOrder
+            {
+                ProductID = prod.ProductID,
+                Color = prod.Color,
+                LineTotal = sale.LineTotal,
+                ListPrice = prod.ListPrice,
+                Name = prod.Name,
+                OrderQty = sale.OrderQty,
+                SalesOrderID = sale.SalesOrderID,
+                Size = prod.Size,
+                StandardCost = prod.StandardCost,
+                UnitPrice = sale.UnitPrice
+
+            }).ToList();
 
 
       return list;
     }
     #endregion
 
-    #region InnerJoinTwoFieldsQuery
-    /// <summary>
-    /// Join a Sales Order collection with Products collection using two fields
-    /// </summary>
-    public List<ProductOrder> InnerJoinTwoFieldsQuery()
-    {
-      List<ProductOrder> list = null;
-      // Load all Product Data
-      List<Product> products = ProductRepository.GetAll();
-      // Load all Sales Order Data
-      List<SalesOrder> sales = SalesOrderRepository.GetAll();
 
-      // Write Query Syntax Here
-
-
-      return list;
-    }
-    #endregion
-
-    #region InnerJoinTwoFieldsMethod
-    /// <summary>
-    /// Join a Sales Order collection with Products collection using two fields
-    /// </summary>
-    public List<ProductOrder> InnerJoinTwoFieldsMethod()
-    {
-      List<ProductOrder> list = null;
-      // Load all Product Data
-      List<Product> products = ProductRepository.GetAll();
-      // Load all Sales Order Data
-      List<SalesOrder> sales = SalesOrderRepository.GetAll();
-
-      // Write Method Syntax Here
-
-
-      return list;
-    }
-    #endregion
 
     #region JoinIntoQuery
     /// <summary>
@@ -95,7 +89,16 @@
       // Load all Sales Order Data
       List<SalesOrder> sales = SalesOrderRepository.GetAll();
 
-      // Write Query Syntax Here
+            list = (from prod in products
+                    join sale in sales
+                    on prod.ProductID equals sale.ProductID
+                    into newsales
+                    select new ProductSales
+                    {
+                        Product = prod,
+                        Sales = newsales.ToList()
+                    }).ToList();
+              
 
 
       return list;
@@ -123,10 +126,7 @@
     }
     #endregion
 
-    #region LeftOuterJoinQuery
-    /// <summary>
-    /// Perform a left join between Products and Sales using DefaultIfEmpty() and SelectMany()
-    /// </summary>
+    
     public List<ProductOrder> LeftOuterJoinQuery()
     {
       List<ProductOrder> list = null;
@@ -137,28 +137,43 @@
 
       // Write Query Syntax Here
 
+      // this is the left join
+
+
+
+        /*
+         * 
+         * 
+         * left join
+            from prod in products
+        join sale in sales
+        on prod.ProductID equals sale.ProductID
+        into newsales
+        from sale in new sales.DefaultIfEmpty()
+         
+         
+         
+         */
+      list = (from prod in products
+              join sale in sales
+              on prod.ProductID equals sale.ProductID
+              into newsales
+              from sale in newsales.DefaultIfEmpty()
+              select new ProductOrder{
+                  ProductID = prod.ProductID,
+                  Color = prod.Color,
+                  LineTotal = sale.LineTotal,
+                  ListPrice = prod.ListPrice,
+                  Name = prod.Name,
+                  OrderQty = sale.OrderQty,
+                  SalesOrderID = sale.SalesOrderID,
+                  Size = prod.Size,
+                  StandardCost = prod.StandardCost,
+                  UnitPrice = sale.UnitPrice
+              }).ToList();
 
       return list;
     }
-    #endregion
-
-    #region LeftOuterJoinMethod
-    /// <summary>
-    /// Perform a left join between Products and Sales using DefaultIfEmpty() and SelectMany()
-    /// </summary>
-    public List<ProductOrder> LeftOuterJoinMethod()
-    {
-      List<ProductOrder> list = null;
-      // Load all Product Data
-      List<Product> products = ProductRepository.GetAll();
-      // Load all Sales Order Data
-      List<SalesOrder> sales = SalesOrderRepository.GetAll();
-
-      // Write Method Syntax Here
-
-
-      return list;
-    }
-    #endregion
+    
   }
 }
