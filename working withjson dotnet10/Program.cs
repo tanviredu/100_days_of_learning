@@ -1,6 +1,7 @@
 ﻿using System.Text.Json;
 using System.IO;
 using working_withjson_dotnet10.POCO;
+using working_withjson_dotnet10;
 
 var wb_object = new WeatherForeCast()
 {
@@ -25,8 +26,8 @@ var wb_object = new WeatherForeCast()
 // that are fill with value will show up
 
 // //1 basic serialization
- var jsonstring = JsonSerializer.Serialize(wb_object);
- Console.WriteLine(jsonstring);
+// var jsonstring = JsonSerializer.Serialize(wb_object);
+// Console.WriteLine(jsonstring);
  //Console.Clear();
 
 
@@ -36,12 +37,12 @@ var wb_object = new WeatherForeCast()
 //  Console.WriteLine(jsonstringgenerics);
 //  Console.Clear();
 
-//  string fileName1 = "WeatherForeCast.json";
+ // string fileName1 = "WeatherForeCast.json";
 
 // // // since the json string is just a string
 // // // we can use the File.WriteAllText method
 // // // to dump the json to a file
-//  File.WriteAllText(fileName1,jsonstring);
+ // File.WriteAllText(fileName1,jsonstring);
 
 // string fileName = "weatherForecastasync.json";
 
@@ -57,3 +58,8 @@ var wb_object = new WeatherForeCast()
 // in synchoronous programming you just give the filename and the jsonstring
 // in the async programming you give the file stream and the object
 
+var d = new Deser();
+//var result = d.Des1();
+//Console.WriteLine($"Date: {result.Date}\n Humidity: {result.Humidity} \n Coordinates: Lat- {result.coordinates.Lat} lon= {result.coordinates.Lon}");
+var result = await d.Des1FromFile();
+Console.WriteLine($"Date: {result.Date}\n Humidity: {result.Humidity} \n Coordinates: Lat- {result.coordinates.Lat} lon= {result.coordinates.Lon}");
