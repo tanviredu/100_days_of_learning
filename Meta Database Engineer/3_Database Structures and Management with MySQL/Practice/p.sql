@@ -259,3 +259,40 @@ CREATE TABLE ORDERS
 -- ADD -- ADD COLUMN TO TABLE
 -- DROP -- DROP COLUMN TO A TABLE
 
+-- ALTER TABLE <TABLE_NAME>
+-- MODIFY/ADD/DROP <COLUMN_NAME>
+-- <DATA TYPE(LENGTH)> <CONSTRAINT>
+
+CREATE TABLE Machinery
+(
+		EmployeeID  VARCHAR(10),
+		FullName    VARCHAR(100),
+        County     VARCHAR(100),
+        PhoneNumber INT
+
+);
+
+-- DROP TABLE Machinery;
+
+DESCRIBE Machinery;
+
+
+-- ALTER THE  Table
+ALTER TABLE Machinery
+		MODIFY EmployeeID  VARCHAR(10)  NOT NULL PRIMARY KEY,
+        MODIFY FullName    VARCHAR(100) NOT NULL,
+        MODIFY County      VARCHAR(100) NOT NULL,
+        MODIFY PhoneNumber INT          NOT NULL UNIQUE;
+
+
+DESCRIBE Machinery;
+
+ALTER TABLE Machinery 
+		ADD COLUMN Age INT CHECK(Age >=18);
+        
+DESCRIBE Machinery;
+
+
+
+-- BACKUP 
+-- COPY TABLE
