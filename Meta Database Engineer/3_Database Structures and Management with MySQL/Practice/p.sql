@@ -193,15 +193,122 @@ SELECT * FROM Orders;
 6) FOREIGN KEY
 */
 
+
+/*
+WHAT GROUP BY DO IS BREAKS THE 
+RESULT OF THE QUERY INTO SUBSETS
+AND THEN RUN THE FUNCTIONS(COUNT,MAX,MIN,AVG)
+ON INDIVIDUAL SUBSETS 
+AND RETURN 1 ROW PER SUBSET 
+THATS WHY GROUP BY COLUM MUST APPEAR AFTER
+THE SELECT AND FROM AND WHERE 
+
+
+*/
+DESCRIBE `customers`;
+
+INSERT INTO customers(FullName,PhoneNumber)
+VALUES
+("Tanvir Rahman",00001),
+("Tanvir Rahman",00002),
+("Tanvir Rahman",00003),
+("Aaaron",00004),
+("Aaaron",00005),
+("Aaaron",00006),
+("Hasnat",00007),
+("Hasnat",00008),
+("Hasnat",00009);
+INSERT INTO customers(FullName,PhoneNumber)
+VALUES
+("Foysal",000010),
+("Foysal",000011),
+("Foysal",000012),
+("Foysal",000013),
+("Foysal",000014);
+
+
+
+SELECT `customers`.`CustomerId`,
+    `customers`.`FullName`,
+    `customers`.`PhoneNumber`
+FROM `little_lemon`.`customers`;
+
+-- Select it group by name
+-- how many phone number 
+-- does 4 people has
+SELECT Count(PhoneNumber),FullName FROM Customers GROUP BY FullName;
+-- remember when agragate function and normal row
+-- are in a select statement there will be a group by statement
+-- to break the full result into subsets
+-- it must happen
+
+-- HAVING CLAUSE IS LIKE A WHERE CALUSE
+-- BUT IT ONLY OPERATES ON THE GROUP BY
+-- FILTER THE GROUP BY IS THE JOB OF HAVING CLAUSE
+SELECT Count(PhoneNumber) AS NUM_OF_PHONE,FullName FROM Customers GROUP BY FullName HAVING (NUM_OF_PHONE > 3);
+-- WE GROUP BY THE THE CUSTOMER WITH THE NUMBER OF PHONE NUMBER THEY HAS
+-- AND WITH 'HAVING' WE FILTER WHO HAS MORE THAN 3
+-- AFTER GROUP BY WHERE CLAUSE WONT WORK YOU HAVE TO USE HAVING
+-- AND IF THERE IS NO GROUP BY STATEMENT
+-- HAVING WORK LIKE WHERE CLAUSE 
+
+SELECT * FROM Customers HAVING FullName = 'Tanvir Rahman';
+-- here we use the having insted of where (not recomended)
+
+-- bulk insert
+-- we can take value/values from one o r multiple value and
+-- insert into another table in one statement
+-- bulk insert from one table and other
+-- we can even put filter while inserting
+
+-- create another table for that
+
+CREATE TABLE CUSTOMERS_BACKUP
+(
+		CustomerId  INT(11)      NOT NULL PRIMARY KEY AUTO_INCREMENT,
+        FullName    VARCHAR(100) NOT NULL,
+        PhoneNumber INT(11)      NOT NULL UNIQUE
+
+);
+
+
+-- NOW BULK INSERT WHERE CUSTOMER PHONE NUMBER IS GREATER THAN 5
+
+INSERT INTO CUSTOMERS_BACKUP 
+SELECT * FROM Customers C
+WHERE C.PhoneNumber >5;
+
+SELECT * FROM CUSTOMERS_BACKUP;
+-- it is now stored the value of the customers table having phonenumber 
+-- greater than 5
+
+
+-- 
+SELECT DISTINCT FullName FROM CUSTOMERS_BACKUP;
+
+-- we omit one data using not equal to operator '<>' 
+SELECT DISTINCT
+    FullName
+FROM
+    CUSTOMERS_BACKUP
+WHERE
+    FullName <> 'Aaaron';
+    
+SELECT 
+    *
+FROM
+    CUSTOMERS_BACKUP
+WHERE
+    PhoneNumber BETWEEN 7 AND 10;
+
 CREATE DATABASE Little_Lemon;
 USE Little_Lemon;
 
 -- create a customer table with proper constrains
-CREATE TABLE Customers
-(
-		CustomerId  INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-        FullName    VARCHAR(100) NOT NULL,
-        PhoneNumber INT NOT NULL UNIQUE
+CREATE TABLE Customers (
+    CustomerId INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    FullName VARCHAR(100) NOT NULL,
+    PhoneNumber INT NOT NULL UNIQUE
 );
 
 SHOW COLUMNS FROM Customers;
@@ -212,7 +319,7 @@ CREATE TABLE Bookings
         BookingDate    DATE NOT NULL,
         TableNumber    INT NOT NULL,
         NumberOfGuests INT NOT NULL CHECK(NumberOfGuests <=8),
-        CustomerId    INT NOT NULL,
+        CustomerId     INT NOT NULL,
         FOREIGN KEY(CustomerId)
         REFERENCES
         Customers(CustomerId)
@@ -296,3 +403,29 @@ DESCRIBE Machinery;
 
 -- BACKUP 
 -- COPY TABLE
+SHOW TABLES;
+
+
+USE little_lemon;
+
+ALTER TABLE  clients
+	ADD COLUMN Location VARCHAR(100) NOT NULL;
+
+SELECT * FROM clients;
+DESCRIBE clients;
+
+INSERT INTO clients(CLIENTID,FULLNAME,PHONENUMBER,Location)
+VALUES
+(1,'Name1','00001','loc1'),
+(2,'Name2','00002','loc2'),
+(3,'Name3','00003','loc3'),
+(4,'Name4','00004','loc4'),
+(5,'Name5','00005','loc5');
+
+SELECT * FROM clients;
+
+
+-- COPY TABLE 
+-- 1) FIRST CLIENT TABLE
+-- SEE THE TABLE FIRST
+--
