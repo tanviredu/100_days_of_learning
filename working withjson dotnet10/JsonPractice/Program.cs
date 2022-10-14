@@ -3,6 +3,7 @@ using JsonPractice.Entity;
 using System.Net.Http;
 using System.IO;
 using JsonPractice;
+using System.Text.Json.Serialization;
 
 // create a new Weather Forecast Object 
 // this is a POCO object
@@ -57,8 +58,14 @@ static async Task  GetWeatherForecaseSyncWayAsync(WeatherForecast weatherForecas
 }
 
 // await GetWeatherForecaseSyncWayAsync(weatherForecast);
+// we will add json serialize options
+var options = new JsonSerializerOptions(){
+    WriteIndented = true,
+    PropertyNamingPolicy = JsonNamingPolicy.CamelCase // all will be  converted to camal case
+};
 
-static void nestedweatherForecast(){
+
+void nestedweatherForecast(){
     var wf = new WeatherForecast{
         Date = DateTime.Parse("2022-12-23"),
         TemparetureCelsius = 23,
@@ -82,7 +89,7 @@ static void nestedweatherForecast(){
         }
     };
 
-    var jsonstring = JsonSerializer.Serialize(wf);
+    var jsonstring = JsonSerializer.Serialize(wf,options);
     Console.WriteLine(jsonstring);
     Console.Read();
 
@@ -98,7 +105,7 @@ static void basicDeserializer(){
 	""TemparetureCelsius"": 23,
 	""Summery"": ""Cloundy"",
 	""Pressure"": 1018,
-	""Humidity"": 85,
+	""Humid"": 85,
 	""Coordinates"": {
 		""Lon"": 23.5,
 		""Lat"": 10.3
@@ -133,7 +140,7 @@ static void PropertyReader(WeatherForecast weatherForecast){
     }
 }
 
-//basicDeserializer();
+// basicDeserializer();
 
 
 
@@ -174,7 +181,7 @@ static async Task GetUsersfunc(){
     await wj.getUsers();
 }
  
-// await GetUsersfunc();
+//await GetUsersfunc();
 
 static async Task PostUsersfunc(){
     var wj = new WorkJson();
@@ -208,4 +215,50 @@ static void getwindsserialized(){
     ww.get_wind_serializer();
     Console.ReadLine();
 }
-getwindsserialized();
+//getwindsserialized();
+
+
+// serialized wih Enums
+// REMEMBER BY DEFAULT ENUMS ARE SERIALIZED AS NUMBERS
+// BUT WE CAN CHANGE THAT WITH SERIALIZE OPTIONS
+void enumconversionwithoutoption(){
+    var weather = new tmpForcast
+    {
+        Date = DateTime.Parse("2022-12-23"),
+        Summery = "Hot",
+        TemparetureCelsius = 28,
+        FeelsLike = Feels.Warm
+    };
+    var jsonstring = JsonSerializer.Serialize(weather);
+    Console.WriteLine(jsonstring);
+
+
+}
+enumconversionwithoutoption();
+
+
+JsonSerializerOptions opt = new JsonSerializerOptions{
+    WriteIndented = true,
+    PropertyNameCaseInsensitive = true,
+    Converters = {
+        new JsonStringEnumConverter()
+    }
+
+};
+
+
+
+void enumconversionwithoptions(){
+    var weather = new tmpForcast
+    {
+        Date = DateTime.Parse("2022-12-23"),
+        Summery = "Hot",
+        TemparetureCelsius = 28,
+        FeelsLike = Feels.Warm
+    };
+    var jsonstring = JsonSerializer.Serialize(weather,opt);
+    Console.WriteLine(jsonstring);
+
+
+}
+enumconversionwithoptions();

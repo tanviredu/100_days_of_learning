@@ -15,9 +15,11 @@ namespace JsonPractice
 
         public SerializationOpt()
         {
+            
             options = new JsonSerializerOptions();
             options.WriteIndented = true;
-            
+            options.PropertyNameCaseInsensitive = true; //it will omit the ccase when serializing and deserializing
+            options.PropertyNamingPolicy = JsonNamingPolicy.CamelCase; // this will convert the json property name camelcase
         }
     
 

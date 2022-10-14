@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace JsonPractice.Entity
@@ -13,6 +14,7 @@ namespace JsonPractice.Entity
         public string email { get; set; }
         public Address address { get; set; }
         public string phone { get; set; }
+        
         public string website { get; set; }
         public Company company { get; set; }
     }

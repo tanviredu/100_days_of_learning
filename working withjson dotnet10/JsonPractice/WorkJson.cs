@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using JsonPractice.Entity;
 using System.Net.Http.Json;
+using System.Text.Json;
 
 namespace JsonPractice
 {
@@ -12,7 +13,7 @@ namespace JsonPractice
     {
         public readonly HttpClient client;
         public WorkJson()
-        {
+        {  
             client = new HttpClient(){
                 BaseAddress = new Uri("https://jsonplaceholder.typicode.com")
             };
