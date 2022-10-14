@@ -1,0 +1,15 @@
+F:\100_days_of_learning\working withjson dotnet10\JsonPractice\bin\Debug\net6.0\JsonPractice.exe
+F:\100_days_of_learning\working withjson dotnet10\JsonPractice\bin\Debug\net6.0\JsonPractice.deps.json
+F:\100_days_of_learning\working withjson dotnet10\JsonPractice\bin\Debug\net6.0\JsonPractice.runtimeconfig.json
+F:\100_days_of_learning\working withjson dotnet10\JsonPractice\bin\Debug\net6.0\JsonPractice.dll
+F:\100_days_of_learning\working withjson dotnet10\JsonPractice\bin\Debug\net6.0\ref\JsonPractice.dll
+F:\100_days_of_learning\working withjson dotnet10\JsonPractice\bin\Debug\net6.0\JsonPractice.pdb
+F:\100_days_of_learning\working withjson dotnet10\JsonPractice\obj\Debug\net6.0\JsonPractice.csproj.AssemblyReference.cache
+F:\100_days_of_learning\working withjson dotnet10\JsonPractice\obj\Debug\net6.0\JsonPractice.GeneratedMSBuildEditorConfig.editorconfig
+F:\100_days_of_learning\working withjson dotnet10\JsonPractice\obj\Debug\net6.0\JsonPractice.AssemblyInfoInputs.cache
+F:\100_days_of_learning\working withjson dotnet10\JsonPractice\obj\Debug\net6.0\JsonPractice.AssemblyInfo.cs
+F:\100_days_of_learning\working withjson dotnet10\JsonPractice\obj\Debug\net6.0\JsonPractice.csproj.CoreCompileInputs.cache
+F:\100_days_of_learning\working withjson dotnet10\JsonPractice\obj\Debug\net6.0\JsonPractice.dll
+F:\100_days_of_learning\working withjson dotnet10\JsonPractice\obj\Debug\net6.0\ref\JsonPractice.dll
+F:\100_days_of_learning\working withjson dotnet10\JsonPractice\obj\Debug\net6.0\JsonPractice.pdb
+F:\100_days_of_learning\working withjson dotnet10\JsonPractice\obj\Debug\net6.0\JsonPractice.genruntimeconfig.cache

@@ -1,0 +1,165 @@
+﻿using System.Text.Json;
+using JsonPractice.Entity;
+using System.IO;
+
+// create a new Weather Forecast Object 
+// this is a POCO object
+// plain old clr object
+var weatherForecast = new WeatherForecast
+{
+    Date = DateTime.Parse("2022-12-23"),
+    TemparetureCelsius = 25,
+    Summery = "Hot Wather"
+
+};
+
+
+static string getTheFilePath(string filename){
+    var currentDirectory = Directory.GetCurrentDirectory();
+    var filepath = Path.Combine(currentDirectory,filename);
+    return filepath;
+}
+
+
+static void  GetWeatherForecaseSyncWay(WeatherForecast weatherForecast){
+
+    var jsonString = JsonSerializer.Serialize(weatherForecast);
+    Console.WriteLine(jsonString);
+    Console.Clear();
+    // there is another implementation with generics
+    // incase you want which case you want to serialize
+    var jsonString2 = JsonSerializer.Serialize<WeatherForecast>(weatherForecast);
+    Console.WriteLine(jsonString2);
+    Console.Clear();
+    // Writing with the file
+    var fileName = "WeatherForecast.json";
+    var filePath = getTheFilePath(fileName);
+
+    File.WriteAllText(filePath,jsonString2);
+    Console.WriteLine("Data Is Written in the Directory");
+
+
+}
+
+
+//GetWeatherForecaseSyncWay(weatherForecast);
+
+static async Task  GetWeatherForecaseSyncWayAsync(WeatherForecast weatherForecast){
+
+    // you need a  file stream to store json in the async way
+    var filePath = getTheFilePath("AsyncWeatherForecast.json");
+    // you need File Stream to work with the 
+    // async method
+    using var FileStream = File.Create(filePath);
+    await JsonSerializer.SerializeAsync(FileStream,weatherForecast);
+}
+
+// await GetWeatherForecaseSyncWayAsync(weatherForecast);
+
+static void nestedweatherForecast(){
+    var wf = new WeatherForecast{
+        Date = DateTime.Parse("2022-12-23"),
+        TemparetureCelsius = 23,
+        Humidity = 85,
+        Pressure = 1018,
+        Summery = "Cloundy",
+        Coordinates = new Coordinates{
+            Lat = 10.3,
+            Lon = 23.5
+        },
+        Wind = new Wind {
+          Degree = 10,
+          Gust = 3.56,
+          Speed = 20.34
+      
+        },
+        SummeryWords = new List<string>{
+            "windy",
+            "Hot",
+            "Pressure"
+        }
+    };
+
+    var jsonstring = JsonSerializer.Serialize(wf);
+    Console.WriteLine(jsonstring);
+    Console.Read();
+
+}
+
+//nestedweatherForecast();
+
+// Desirialize 
+
+static void basicDeserializer(){
+    var jsonString = @"{
+	""Date"": ""2022-12-23T00:00:00"",
+	""TemparetureCelsius"": 23,
+	""Summery"": ""Cloundy"",
+	""Pressure"": 1018,
+	""Humidity"": 85,
+	""Coordinates"": {
+		""Lon"": 23.5,
+		""Lat"": 10.3
+	},
+	""Wind"": {
+		""Speed"": 20.34,
+		""Degree"": 10,
+		""Gust"": 3.56
+	},
+	""SummeryWords"": [""windy"", ""Hot"", ""Pressure""]
+}";
+
+var weatherForecast = JsonSerializer.Deserialize<WeatherForecast>(jsonString);
+PropertyReader(weatherForecast);
+// put the break pount in bellow line
+Console.ReadLine();
+
+}
+
+
+static void PropertyReader(WeatherForecast weatherForecast){
+    if(weatherForecast != null){
+        Console.WriteLine($"Date     : {weatherForecast.Date}");
+        Console.WriteLine($"Humidity : {weatherForecast.Humidity}");
+        Console.WriteLine($"Latitude : {weatherForecast.Coordinates.Lat}");
+        Console.WriteLine($"Logitude : {weatherForecast.Coordinates.Lon}");
+        Console.WriteLine($"Words Summery");
+        
+        foreach(var item in weatherForecast.SummeryWords){
+        Console.WriteLine($"words : {item.ToString()}");    
+        }
+    }
+}
+
+//basicDeserializer();
+
+
+
+// working ok
+
+// decsirializationFrom File
+static void DeseriaizefromFile(string filename){
+    var filepath = getTheFilePath(filename);
+    var jsonString = File.ReadAllText(filepath);
+    // desirializing from json
+    var weatherForecast = JsonSerializer.Deserialize<WeatherForecast>(jsonString);
+    PropertyReader(weatherForecast);
+    
+}
+
+//DeseriaizefromFile("Deweather.json");
+
+
+static async Task DeserializefromFileAsync(string filename){
+    // REMEMBER ASYNC DESERIALIZATION 
+    // WORK WITH THE FILE STREAM
+    // LIKE THE SERIALIZER YOU WILL CREATE FILE STREAM
+    // BUT NOT WITH File.Create() because its already there
+    // use File.Open() to open the existing file 
+    var filepath = getTheFilePath(filename);
+    var fileStream = File.OpenRead(filepath);
+    var weatherForecast = await JsonSerializer.DeserializeAsync<WeatherForecast>(fileStream);
+    Console.ReadLine();
+}   
+
+DeserializefromFileAsync("Deweather.json");

@@ -1,0 +1,17 @@
+{
+	"Date": "2022-12-23T00:00:00",
+	"TemparetureCelsius": 90,
+	"Summery": "Sunny",
+	"Pressure": 1018,
+	"Humidity": 85,
+	"Coordinates": {
+		"Lon": 11.5,
+		"Lat": 11.3
+	},
+	"Wind": {
+		"Speed": 20.34,
+		"Degree": 10,
+		"Gust": 3.56
+	},
+	"SummeryWords": ["Sunny", "Hot", "Pressure"]
+}
