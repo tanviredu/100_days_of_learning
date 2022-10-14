@@ -1,6 +1,8 @@
 ﻿using System.Text.Json;
 using JsonPractice.Entity;
+using System.Net.Http;
 using System.IO;
+using JsonPractice;
 
 // create a new Weather Forecast Object 
 // this is a POCO object
@@ -162,4 +164,48 @@ static async Task DeserializefromFileAsync(string filename){
     Console.ReadLine();
 }   
 
-DeserializefromFileAsync("Deweather.json");
+//DeserializefromFileAsync("Deweather.json");
+
+
+// FROM net
+
+static async Task GetUsersfunc(){
+    var wj = new WorkJson();
+    await wj.getUsers();
+}
+ 
+// await GetUsersfunc();
+
+static async Task PostUsersfunc(){
+    var wj = new WorkJson();
+    await wj.PostUser();
+}
+
+// await PostUsersfunc();
+
+
+static void getserializerwithOptions1(){
+    var sopt = new SerializationOpt();
+    sopt.serialize_coordinate();
+    Console.ReadLine();
+
+
+}
+
+//getserializerwithOptions1();
+
+static void getserializerwithOptions2(){
+    var sopt = new SerializationOpt();
+    
+    // we will get a formatted ans
+    sopt.serialize_coordinate_with_opt();
+    Console.ReadLine();
+}
+//getserializerwithOptions2();
+
+static void getwindsserialized(){
+    var ww = new SerializationOpt();
+    ww.get_wind_serializer();
+    Console.ReadLine();
+}
+getwindsserialized();
