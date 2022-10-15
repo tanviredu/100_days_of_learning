@@ -141,3 +141,35 @@ FROM Customers C
 RIGHT JOIN Bookings B
 ON
 C.CUstomerID = B.CUstomerID;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

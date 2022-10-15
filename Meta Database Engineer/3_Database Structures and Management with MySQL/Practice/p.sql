@@ -476,3 +476,97 @@ SELECT * FROM clients;
 
 SELECT * FROM NEW_CLIENT_TABLE_3;
 
+
+-- Subquery
+CREATE  DATABASE LITTLE_LEMON2;
+USE LITTLE_LEMON2;
+
+CREATE TABLE Employees
+(
+		EmployeeID   INT          NOT NULL PRIMARY KEY,
+        EmployeeName VARCHAR(100) NOT NULL,
+        Role         VARCHAR(100) NOT NULL,
+        AnnualSalary INT          NOT NULL
+
+);
+
+INSERT INTO Employees
+(EmployeeID,EmployeeName,Role,AnnualSalary)
+VALUES
+(1,'Mario Gollini','Manager',70000),
+(2,'Adrian Gollini','Assistant Manager',65000),
+(3,'Giorgos Dioudis','Head Chef',50000),
+(4,'Fatma Kaya','Assistant Chef',45000),
+(5,'Elena Salvai','Head Waiter',40000),
+(6,'John Miller','Receptionist',35000);
+
+SELECT * FROM Employees;
+
+-- NOW IDENTIFY WHICH EMPLOYEES EARN SALARY
+-- HIGHER THEN ASSISTANT CHEF
+-- DO IT WITH SUBQUERY
+
+SELECT * FROM Employees  
+WHERE AnnualSalary 
+>(SELECT AnnualSalary FROM Employees WHERE Role = 'Assistant Chef');
+
+-- SUB QUERIES AND COMPLEX DATA RETRIVAL
+
+-- OPERATORS
+-- ANY
+-- ALL
+-- SOME
+-- EXISTS
+-- NOT EXISTS
+
+
+-- CHALLANGE 
+-- IDENTIFY ALL EMPLOYEES WHOSE ANUAL SALARY IS LESS THAN OR EQUAL
+-- THE EMPLOYEES WHO HAS ROLE 'MANAGER','ASSISTANT MANAGER','HEAD CHEF','HEAD WAITER'
+
+SELECT * FROM Employees WHERE AnnualSalary <= ALL(SELECT AnnualSalary from Employees WHERE Role IN('Manager','Assistant Manager','Head Chef','Head Waiter'));
+
+-- THIS QUERY RETURN TWO PERSON . THAT MEANS THIS TWO PERSON HAVE LESS OR EQUAL
+-- THEN THE ALL EMPLOYEE WORKING AS 'MANAGER','ASSISTANT MANAGER','HEAD CHEF','HEAD WAITER'
+
+-- CHALLANGE 
+-- IDENTIFY ALL EMPLOYEES WHOSE ANUAL SALARY IS GREATER THAN OR EQUAL TO ANY
+-- EMPLOYEES WHO HAS ROLE 'MANAGER','ASSISTANT MANAGER','HEAD CHEF','HEAD WAITER'
+
+SELECT * FROM Employees WHERE AnnualSalary >= ANY(SELECT AnnualSalary from Employees WHERE role IN ('Manager','Assistant Manager','Head Chef','Head Waiter'));
+
+CREATE TABLE Bookings
+(
+		BookingID         INT NOT NULL PRIMARY KEY,
+        TableNO           INT NOT NULL,
+        GuestFirstName    VARCHAR(100),
+        GuestLastName     VARCHAR(100),
+        BookingSlot       DATETIME,
+        EmployeeID        INT
+        
+);
+
+INSERT INTO Bookings(BookingID,TableNO,GuestFirstName,GuestLastName,BookingSlot,EmployeeID)
+VALUES (1,12,'Anna','Iversion','2022-12-23',1);
+INSERT INTO Bookings(BookingID,TableNO,GuestFirstName,GuestLastName,BookingSlot,EmployeeID)
+VALUES (2,12,'joakim','Iversion','2022-12-23',1),
+(3,19,'Venesa','Mckarthy','2022-12-23',3),
+(4,15,'Macros','Romio','2022-12-23',4),
+(5,5,'Hiroki','Yamne','2022-12-23',2),
+(6,8,'Diana','Pinto','2022-12-23',5);
+		
+
+SELECT * FROM Bookings;
+-- find if the HeadChef and Head waiter are in the booking or not
+-- in subquery
+-- sub query will return true and false
+-- and exists work in true and false
+-- this is a co related query
+-- for each of the inner query out query will run
+
+SELECT * FROM Employees E WHERE EXISTS(SELECT * FROM Bookings B WHERE B.EmployeeID = E.EmployeeID AND Role IN ('Head Chef','Head Waiter'));
+
+-- in the sub query 1) first check if the employee id there 
+--  				2) then it checks  if he in the ('Head Chef','Head Waiter')
+--                  3) if true then outer query print the employee details of that iteration
+
