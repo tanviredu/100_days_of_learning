@@ -18,14 +18,16 @@ var weatherForecast = new WeatherForecast
 };
 
 
-static string getTheFilePath(string filename){
+static string getTheFilePath(string filename)
+{
     var currentDirectory = Directory.GetCurrentDirectory();
-    var filepath = Path.Combine(currentDirectory,filename);
+    var filepath = Path.Combine(currentDirectory, filename);
     return filepath;
 }
 
 
-static void  GetWeatherForecaseSyncWay(WeatherForecast weatherForecast){
+static void GetWeatherForecaseSyncWay(WeatherForecast weatherForecast)
+{
 
     var jsonString = JsonSerializer.Serialize(weatherForecast);
     Console.WriteLine(jsonString);
@@ -39,7 +41,7 @@ static void  GetWeatherForecaseSyncWay(WeatherForecast weatherForecast){
     var fileName = "WeatherForecast.json";
     var filePath = getTheFilePath(fileName);
 
-    File.WriteAllText(filePath,jsonString2);
+    File.WriteAllText(filePath, jsonString2);
     Console.WriteLine("Data Is Written in the Directory");
 
 
@@ -48,40 +50,46 @@ static void  GetWeatherForecaseSyncWay(WeatherForecast weatherForecast){
 
 //GetWeatherForecaseSyncWay(weatherForecast);
 
-static async Task  GetWeatherForecaseSyncWayAsync(WeatherForecast weatherForecast){
+static async Task GetWeatherForecaseSyncWayAsync(WeatherForecast weatherForecast)
+{
 
     // you need a  file stream to store json in the async way
     var filePath = getTheFilePath("AsyncWeatherForecast.json");
     // you need File Stream to work with the 
     // async method
     using var FileStream = File.Create(filePath);
-    await JsonSerializer.SerializeAsync(FileStream,weatherForecast);
+    await JsonSerializer.SerializeAsync(FileStream, weatherForecast);
 }
 
 // await GetWeatherForecaseSyncWayAsync(weatherForecast);
 // we will add json serialize options
-var options = new JsonSerializerOptions(){
+var options = new JsonSerializerOptions()
+{
     WriteIndented = true,
     PropertyNamingPolicy = JsonNamingPolicy.CamelCase // all will be  converted to camal case
 };
 
 
-void nestedweatherForecast(){
-    var wf = new WeatherForecast{
+void nestedweatherForecast()
+{
+    var wf = new WeatherForecast
+    {
         Date = DateTime.Parse("2022-12-23"),
         TemparetureCelsius = 23,
         Humidity = 85,
         Pressure = 1018,
         Summery = "Cloundy",
-        Coordinates = new Coordinates{
+        Coordinates = new Coordinates
+        {
             Lat = 10.3,
             Lon = 23.5
         },
-        Wind = new Wind {
-          Degree = 10,
-          Gust = 3.56,
-          Speed = 20.34
-      
+        Wind = new Wind
+        {
+            Degree = 10,
+            Gust = 3.56,
+            Speed = 20.34
+
         },
         SummeryWords = new List<string>{
             "windy",
@@ -90,7 +98,7 @@ void nestedweatherForecast(){
         }
     };
 
-    var jsonstring = JsonSerializer.Serialize(wf,options);
+    var jsonstring = JsonSerializer.Serialize(wf, options);
     Console.WriteLine(jsonstring);
     Console.Read();
 
@@ -100,7 +108,8 @@ void nestedweatherForecast(){
 
 // Desirialize 
 
-static void basicDeserializer(){
+static void basicDeserializer()
+{
     var jsonString = @"{
 	""Date"": ""2022-12-23T00:00:00"",
 	""TemparetureCelsius"": 23,
@@ -119,24 +128,27 @@ static void basicDeserializer(){
 	""SummeryWords"": [""windy"", ""Hot"", ""Pressure""]
 }";
 
-var weatherForecast = JsonSerializer.Deserialize<WeatherForecast>(jsonString);
-PropertyReader(weatherForecast);
-// put the break pount in bellow line
-Console.ReadLine();
+    var weatherForecast = JsonSerializer.Deserialize<WeatherForecast>(jsonString);
+    PropertyReader(weatherForecast);
+    // put the break pount in bellow line
+    Console.ReadLine();
 
 }
 
 
-static void PropertyReader(WeatherForecast weatherForecast){
-    if(weatherForecast != null){
+static void PropertyReader(WeatherForecast weatherForecast)
+{
+    if (weatherForecast != null)
+    {
         Console.WriteLine($"Date     : {weatherForecast.Date}");
         Console.WriteLine($"Humidity : {weatherForecast.Humidity}");
         Console.WriteLine($"Latitude : {weatherForecast.Coordinates.Lat}");
         Console.WriteLine($"Logitude : {weatherForecast.Coordinates.Lon}");
         Console.WriteLine($"Words Summery");
-        
-        foreach(var item in weatherForecast.SummeryWords){
-        Console.WriteLine($"words : {item.ToString()}");    
+
+        foreach (var item in weatherForecast.SummeryWords)
+        {
+            Console.WriteLine($"words : {item.ToString()}");
         }
     }
 }
@@ -148,19 +160,21 @@ static void PropertyReader(WeatherForecast weatherForecast){
 // working ok
 
 // decsirializationFrom File
-static void DeseriaizefromFile(string filename){
+static void DeseriaizefromFile(string filename)
+{
     var filepath = getTheFilePath(filename);
     var jsonString = File.ReadAllText(filepath);
     // desirializing from json
     var weatherForecast = JsonSerializer.Deserialize<WeatherForecast>(jsonString);
     PropertyReader(weatherForecast);
-    
+
 }
 
 //DeseriaizefromFile("Deweather.json");
 
 
-static async Task DeserializefromFileAsync(string filename){
+static async Task DeserializefromFileAsync(string filename)
+{
     // REMEMBER ASYNC DESERIALIZATION 
     // WORK WITH THE FILE STREAM
     // LIKE THE SERIALIZER YOU WILL CREATE FILE STREAM
@@ -170,21 +184,23 @@ static async Task DeserializefromFileAsync(string filename){
     var fileStream = File.OpenRead(filepath);
     var weatherForecast = await JsonSerializer.DeserializeAsync<WeatherForecast>(fileStream);
     Console.ReadLine();
-}   
+}
 
 //DeserializefromFileAsync("Deweather.json");
 
 
 // FROM net
 
-static async Task GetUsersfunc(){
+static async Task GetUsersfunc()
+{
     var wj = new WorkJson();
     await wj.getUsers();
 }
- 
+
 //await GetUsersfunc();
 
-static async Task PostUsersfunc(){
+static async Task PostUsersfunc()
+{
     var wj = new WorkJson();
     await wj.PostUser();
 }
@@ -192,7 +208,8 @@ static async Task PostUsersfunc(){
 // await PostUsersfunc();
 
 
-static void getserializerwithOptions1(){
+static void getserializerwithOptions1()
+{
     var sopt = new SerializationOpt();
     sopt.serialize_coordinate();
     Console.ReadLine();
@@ -202,16 +219,18 @@ static void getserializerwithOptions1(){
 
 //getserializerwithOptions1();
 
-static void getserializerwithOptions2(){
+static void getserializerwithOptions2()
+{
     var sopt = new SerializationOpt();
-    
+
     // we will get a formatted ans
     sopt.serialize_coordinate_with_opt();
     Console.ReadLine();
 }
 //getserializerwithOptions2();
 
-static void getwindsserialized(){
+static void getwindsserialized()
+{
     var ww = new SerializationOpt();
     ww.get_wind_serializer();
     Console.ReadLine();
@@ -222,7 +241,8 @@ static void getwindsserialized(){
 // serialized wih Enums
 // REMEMBER BY DEFAULT ENUMS ARE SERIALIZED AS NUMBERS
 // BUT WE CAN CHANGE THAT WITH SERIALIZE OPTIONS
-void enumconversionwithoutoption(){
+void enumconversionwithoutoption()
+{
     var weather = new tmpForcast
     {
         Date = DateTime.Parse("2022-12-23"),
@@ -238,7 +258,8 @@ void enumconversionwithoutoption(){
 //enumconversionwithoutoption();
 
 
-JsonSerializerOptions opt = new JsonSerializerOptions{
+JsonSerializerOptions opt = new JsonSerializerOptions
+{
     WriteIndented = true,
     PropertyNameCaseInsensitive = true,
     Converters = {
@@ -249,7 +270,8 @@ JsonSerializerOptions opt = new JsonSerializerOptions{
 
 
 
-void enumconversionwithoptions(){
+void enumconversionwithoptions()
+{
     var weather = new tmpForcast
     {
         Date = DateTime.Parse("2022-12-23"),
@@ -257,7 +279,7 @@ void enumconversionwithoptions(){
         TemparetureCelsius = 28,
         FeelsLike = Feels.Warm
     };
-    var jsonstring = JsonSerializer.Serialize(weather,opt);
+    var jsonstring = JsonSerializer.Serialize(weather, opt);
     Console.WriteLine(jsonstring);
 
 
@@ -305,47 +327,76 @@ IT CAN ALSO HOLD MULTIPLE JSON OBJECT INSIDE IT
 
 
 // we are going to find avg temp and avg humidity from the json data
-var fileName    = "data.json";
-var jsonsString = File.ReadAllText(fileName);
-double sum = 0;
-int count = 0; 
-using(var document = JsonDocument.Parse(jsonsString))
+void jsondoc()
 {
-    var root = document.RootElement;
-    //Console.WriteLine(root.ToString());
-    
-    var tmplist = new List<TempHumid>();
-    var temp = root.GetProperty("temperaturecelsius");
-    //Console.WriteLine(temp.ToString());
+    var fileName = "data.json";
+    var jsonsString = File.ReadAllText(fileName);
+    double sum = 0;
+    int count = 0;
+    using (var document = JsonDocument.Parse(jsonsString))
+    {
+        var root = document.RootElement;
+        //Console.WriteLine(root.ToString());
 
-    var temp1 = root.GetProperty("last7days");
-    foreach(var item in temp1.EnumerateArray()){
-        var data1 = item.GetProperty("temperature").GetDouble();
-        var data2 = item.GetProperty("humidity").GetDouble();
-        var th = new TempHumid{
-            Tempareture= data1,
-            Humidity = data2
-        };
-        tmplist.Add(th);
-        
+        var tmplist = new List<TempHumid>();
+        var temp = root.GetProperty("temperaturecelsius");
+        //Console.WriteLine(temp.ToString());
+
+        var temp1 = root.GetProperty("last7days");
+        foreach (var item in temp1.EnumerateArray())
+        {
+            var data1 = item.GetProperty("temperature").GetDouble();
+            var data2 = item.GetProperty("humidity").GetDouble();
+            var th = new TempHumid
+            {
+                Tempareture = data1,
+                Humidity = data2
+            };
+            tmplist.Add(th);
+
+        }
+
+        var countdata = tmplist.Count();
+        double sumtemp = 0;
+        double sumhum = 0;
+        foreach (var item in tmplist)
+        {
+            sumtemp += item.Tempareture;
+        }
+        foreach (var item in tmplist)
+        {
+            sumhum += item.Humidity;
+        }
+
+        var avgTemp = sumtemp / countdata;
+        Console.WriteLine("Average temp: " + avgTemp);
+        var avghum = sumhum / countdata;
+        Console.WriteLine("Average hum: " + avghum);
+
+
     }
 
-    var countdata = tmplist.Count();
-    double sumtemp = 0;
-    double sumhum = 0;
-    foreach(var item in tmplist){
-        sumtemp += item.Tempareture;
-    }
-    foreach(var item in tmplist){
-        sumhum += item.Humidity;
-    }
-
-    var avgTemp = sumtemp / countdata;
-    Console.WriteLine("Average temp: " + avgTemp);
-    var avghum = sumhum / countdata;
-    Console.WriteLine("Average hum: " + avghum);
-
-   
 }
 
+
+
+
+// ERROR HANLING IN JSON SERIALIZATION AND DESERIALIZATION
+// 1) json does not support trailling commas
+// 2) json does not support commenting in it 
+
+// BUT WE CAN ACCEPT IT AND WORKWITH IT IF WE 
+// ADD IT TO JSON_SERIALIZATION_OPTIONS
+
+void ErrorHandJson(){
+    var eh = new ErrorHandlingJson();   
+    eh.deserobject();
+}
+
+
+void dtoj(){
+    var dj = new DictToJson();
+    dj.dicttojson();
+}
+dtoj();
 

@@ -1,0 +1,6 @@
+{
+    "Date": "2022-12-23T00:00:00",
+    "TemparetureCelsius": 25, // this is a comment that can produce error
+    "Summery": "Hot Wather", // this is trailing commans
+  }
+  
