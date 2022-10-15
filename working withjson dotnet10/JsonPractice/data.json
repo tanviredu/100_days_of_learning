@@ -1,0 +1,37 @@
+{
+    "data":"2021-12-23",
+    "temperaturecelsius":7,
+    "feelsLike":3.14,
+    "last7days":
+    [
+        {
+            "temperature":1,
+            "humidity":1
+        },
+        {
+            "temperature":2,
+            "humidity":2
+        },
+        {
+            "temperature":3,
+            "humidity":3
+        },
+        {
+            "temperature":4,
+            "humidity":4
+        },
+        {
+            "temperature":5,
+            "humidity":5
+        },
+        {
+            "temperature":6,
+            "humidity":6
+        },
+        {
+            "temperature":7,
+            "humidity":7
+        }
+    ]
+
+}

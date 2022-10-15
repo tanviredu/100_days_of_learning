@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.IO;
 using JsonPractice;
 using System.Text.Json.Serialization;
+using System.Linq;
 
 // create a new Weather Forecast Object 
 // this is a POCO object
@@ -234,7 +235,7 @@ void enumconversionwithoutoption(){
 
 
 }
-enumconversionwithoutoption();
+//enumconversionwithoutoption();
 
 
 JsonSerializerOptions opt = new JsonSerializerOptions{
@@ -261,4 +262,90 @@ void enumconversionwithoptions(){
 
 
 }
-enumconversionwithoptions();
+//enumconversionwithoptions();
+
+
+
+/*
+ working with DOM
+ when you desirialize you need to know the structure 
+ and the json object might be too big and yo dont want to
+ include everything  
+ then youu should working with JSON ducoments
+
+
+THE JSON DOCUMENT API IS USEFUL FOR READING JSON DOCUMENT (STRINGS)
+FOR WHICH THE STRUCTURE IS UNKNOWN AND WHERE THEY ARE TOO BIG
+JSON IS LIKE A TREE WITH ROOT ELEMENT , THIS ELEMENT CAN CONTAINS JSON ELEMENT 
+IT CAN ALSO HOLD MULTIPLE JSON OBJECT INSIDE IT
+
+ public class User
+    {
+        public int id { get; set; }
+        public string name { get; set; }
+        public string username { get; set; }
+        public string email { get; set; }
+        public Address address { get; set; }
+        public string phone { get; set; }
+        
+        public string website { get; set; }
+        public Company company { get; set; }
+    }
+
+    User -> ROOT
+    Id -> Element
+    username -> Element
+    Address -> json object (nested)
+    Address.street -> json element 
+
+    json document is inherited from IDisposable
+    remember to use using keyword when working with json document
+
+*/
+
+
+// we are going to find avg temp and avg humidity from the json data
+var fileName    = "data.json";
+var jsonsString = File.ReadAllText(fileName);
+double sum = 0;
+int count = 0; 
+using(var document = JsonDocument.Parse(jsonsString))
+{
+    var root = document.RootElement;
+    //Console.WriteLine(root.ToString());
+    
+    var tmplist = new List<TempHumid>();
+    var temp = root.GetProperty("temperaturecelsius");
+    //Console.WriteLine(temp.ToString());
+
+    var temp1 = root.GetProperty("last7days");
+    foreach(var item in temp1.EnumerateArray()){
+        var data1 = item.GetProperty("temperature").GetDouble();
+        var data2 = item.GetProperty("humidity").GetDouble();
+        var th = new TempHumid{
+            Tempareture= data1,
+            Humidity = data2
+        };
+        tmplist.Add(th);
+        
+    }
+
+    var countdata = tmplist.Count();
+    double sumtemp = 0;
+    double sumhum = 0;
+    foreach(var item in tmplist){
+        sumtemp += item.Tempareture;
+    }
+    foreach(var item in tmplist){
+        sumhum += item.Humidity;
+    }
+
+    var avgTemp = sumtemp / countdata;
+    Console.WriteLine("Average temp: " + avgTemp);
+    var avghum = sumhum / countdata;
+    Console.WriteLine("Average hum: " + avghum);
+
+   
+}
+
+
