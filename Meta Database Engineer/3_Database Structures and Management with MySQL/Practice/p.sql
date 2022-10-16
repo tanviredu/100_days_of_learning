@@ -564,9 +564,265 @@ SELECT * FROM Bookings;
 -- this is a co related query
 -- for each of the inner query out query will run
 
-SELECT * FROM Employees E WHERE EXISTS(SELECT * FROM Bookings B WHERE B.EmployeeID = E.EmployeeID AND Role IN ('Head Chef','Head Waiter'));
+SELECT 
+    *
+FROM
+    Employees E
+WHERE
+    EXISTS( SELECT 
+            *
+        FROM
+            Bookings B
+        WHERE
+            B.EmployeeID = E.EmployeeID
+                AND Role IN ('Head Chef' , 'Head Waiter'));
 
 -- in the sub query 1) first check if the employee id there 
 --  				2) then it checks  if he in the ('Head Chef','Head Waiter')
 --                  3) if true then outer query print the employee details of that iteration
 
+-- the other way around
+SELECT 
+    *
+FROM
+    Employees E
+WHERE
+    NOT EXISTS( SELECT 
+            *
+        FROM
+            Bookings B
+        WHERE
+            B.EmployeeID = E.EmployeeID
+                AND Role IN ('Head Chef' , 'Head Waiter'));
+
+
+
+-- creating view
+-- syntax
+
+-- CREATE VIEW <VIEW_NAME> AS
+-- QUERY FROM TABLE WHERE CONDITION
+
+-- RENAME THE  TABLE (NORMAL AND VIRTUAL)
+-- RENAME TABLE <OLD_NAME> TO <NEW_NAME>
+-- REMOVE VIEW
+-- DROP VIEW <VIEW_NAME>
+
+
+-- ------------------MYSQL FUNCTION -------------------
+CREATE TABLE Employees2
+(
+		EmployeeID   INT          NOT NULL PRIMARY KEY,
+        EmployeeName VARCHAR(100) NOT NULL,
+        Role         VARCHAR(100) NOT NULL,
+        AnnualSalary DOUBLE          NOT NULL
+
+);
+
+INSERT INTO Employees2
+(EmployeeID,EmployeeName,Role,AnnualSalary)
+VALUES
+(1,'Mario Gollini','Manager',70000.123342),
+(2,'Adrian Gollini','Assistant Manager',65000.214231),
+(3,'Giorgos Dioudis','Head Chef',50000.346546),
+(4,'Fatma Kaya','Assistant Chef',45000.3452),
+(5,'Elena Salvai','Head Waiter',40000.3425),
+(6,'John Miller','Receptionist',35000.456);
+
+
+SELECT * FROM Employees2;
+
+
+
+-- SEPARATE TEST BEFORE CREATING TRIGGER
+-- SUBSTRING(string, startindex, length)
+SELECT SUBSTRING("tanVIR",2,2);
+SELECT UPPER(SUBSTRING("tanVIR",1,1));
+SELECT SUBSTRING("tanVIR",2,LENGTH("tanvVIR"));
+SELECT LOWER(SUBSTRING("tanVIR",2,LENGTH("tanvIR")));
+SELECT CONCAT(UPPER(SUBSTRING("tanVIR",1,1)),LOWER(SUBSTRING("tanVIR",2,LENGTH("tanVIR"))));
+
+
+
+
+-- MYSQL HAS 5 TYPES OD FUNCTION
+/*
+	1) NUMERIC FUNCTIONS
+		*) AGGRAGATE FUNCTION
+			->SUM()
+            ->AVG()
+            ->MAX()
+            ->MIN()
+            ->COUNT()
+            
+        *) MATH FUNCTION
+			->ROUND()
+				
+            ->MOD()
+    2) STRING FUNCTIONS
+    3) DATE FUNCTIONS
+    4) COMPARISON FUNCTIONS
+    5) CONTROL FLOW FUNCTIONS
+
+*/
+
+
+-- ROUND FUNCTION 
+SELECT * FROM Employees2;
+SELECT AnnualSalary FROM Employees2;
+-- now round it to two decimal point
+SELECT AnnualSalary, ROUND(AnnualSalary,2) AS ROUNDED FROM Employees2;
+
+-- MATH MOD FUNCTION
+SELECT AnnualSalary,MOD(ROUND(AnnualSalary),2) AS MODVALUE FROM Employees2;
+SELECT MOD(ROUND(111),2) AS MODVALUE;
+
+-- create a procedure to get the rounded value
+-- input a big decimal
+-- output rounded 2 decimal
+
+DELIMITER //
+CREATE PROCEDURE CONVERT_ROUNDED(IN INPUTNUM DOUBLE,OUT OUTPUTNUM DOUBLE)
+BEGIN
+	SELECT ROUND(INPUTNUM,2) INTO OUTPUTNUM;
+END//
+DELIMITER ;
+
+
+-- FORMAT NAME 
+SELECT CONCAT(UCASE(SUBSTR('taAvir',1,1)),LCASE(SUBSTR('taAvir',2,LENGTH('taAvir'))));
+
+
+-- DATE FUNCTION
+SELECT CURRENT_DATE();
+SELECT CURRENT_TIME();
+SELECT CURRENT_TIMESTAMP();
+SELECT DATE_FORMAT('1993-12-23',"%a");
+SELECT DATE_FORMAT('1993-12-23',"%M");
+SELECT DATE_FORMAT('1993-12-23',"%Y");
+SELECT DATE_FORMAT('1993-12-23',"%c");
+SELECT DATE_FORMAT('1993-12-23',"%D %M");
+
+SELECT DATEDIFF('2022-10-16','1993-12-23');
+
+-- make a stored procedure with that
+SELECT DATE_FORMAT('1993-12-23',"%D %M");
+
+DELIMITER //
+CREATE PROCEDURE DATE_CONVERSION(IN DATE_Y_M_D VARCHAR(100),OUT OUTPUT VARCHAR(100))
+BEGIN 
+	SELECT DATE_FORMAT(DATE_Y_M_D,"%D %M") INTO OUTPUT;
+END//
+DELIMITER ;
+
+CALL DATE_CONVERSION('1993-12-23',@out);
+SELECT @out;
+
+/*
+Format	Description
+%a	Abbreviated weekday name (Sun to Sat)
+%b	Abbreviated month name (Jan to Dec)
+%c	Numeric month name (0 to 12)
+%D	Day of the month as a numeric value, followed by suffix (1st, 2nd, 3rd, ...)
+%d	Day of the month as a numeric value (01 to 31)
+%e	Day of the month as a numeric value (0 to 31)
+%f	Microseconds (000000 to 999999)
+%H	Hour (00 to 23)
+%h	Hour (00 to 12)
+%I	Hour (00 to 12)
+%i	Minutes (00 to 59)
+%j	Day of the year (001 to 366)
+%k	Hour (0 to 23)
+%l	Hour (1 to 12)
+%M	Month name in full (January to December)
+%m	Month name as a numeric value (00 to 12)
+%p	AM or PM
+%r	Time in 12 hour AM or PM format (hh:mm:ss AM/PM)
+%S	Seconds (00 to 59)
+%s	Seconds (00 to 59)
+%T	Time in 24 hour format (hh:mm:ss)
+%U	Week where Sunday is the first day of the week (00 to 53)
+%u	Week where Monday is the first day of the week (00 to 53)
+%V	Week where Sunday is the first day of the week (01 to 53). Used with %X
+%v	Week where Monday is the first day of the week (01 to 53). Used with %x
+%W	Weekday name in full (Sunday to Saturday)
+%w	Day of the week where Sunday=0 and Saturday=6
+%X	Year for the week where Sunday is the first day of the week. Used with %V
+%x	Year for the week where Monday is the first day of the week. Used with %v
+%Y	Year as a numeric, 4-digit value
+%y	Year as a numeric, 2-digit value
+*/
+
+
+-- ________________COMPARISON FUNCTION______________
+
+-- FIRST REMEMBER MAX(),MIN()  ARE COLUMN FUNCTION
+-- THEY FIND THE MAX VALUE AND MIN VALUE IN THE COLUMN
+-- BUT SUPPOSE INA TTABLE THERE ARE TWO DIFFERENT COLUM
+-- AND PRICE1 AND PRICE2
+-- A RECORD/ROW HAS VALUE IN PRICE1 AND PRICE2
+-- IF YOU WANT THE ROW BASE CALCULATION WHICH ONE IS
+-- MAXIMUN AND WHICH ONE IS MINIMUM THEN 
+-- THREE ROW BASE COMPARISON FUNCTION
+
+-- GREATEST();
+-- LEAST();
+-- ISNULL();
+CREATE TABLE AUDITTABLE (
+    ItemID INT NOT NULL PRIMARY KEY,
+    INV_INCOME1 DECIMAL NOT NULL,
+    INV_INCOME2 DECIMAL NOT NULL,
+    INV_INCOME3 DECIMAL NOT NULL,
+    INV_INCOME4 DECIMAL NOT NULL
+);
+
+
+
+
+DELIMITER //
+CREATE PROCEDURE INSERTAUDITTABLE(IN VItemID INT,IN VINV_INCOME1 DOUBLE,IN VINV_INCOME2 DOUBLE,IN VINV_INCOME3 DOUBLE,IN VINV_INCOME4 DOUBLE)
+BEGIN
+	INSERT INTO AUDITTABLE(ItemID,INV_INCOME1,INV_INCOME2,INV_INCOME3,INV_INCOME4)
+	VALUES
+    (VItemID,VINV_INCOME1,VINV_INCOME2,VINV_INCOME3,VINV_INCOME4);
+END//
+DELIMITER ;
+
+CALL INSERTAUDITTABLE(1,125000.00,500000.00,100000.00,138000.00);
+
+CALL INSERTAUDITTABLE(2,30000.00,200000.00,100000.00,35000.00);
+CALL INSERTAUDITTABLE(3,30000.00,1500000.00,23000.00,29000.00);
+CALL INSERTAUDITTABLE(4,28000.00,700000.00,17000.00,110000.00);
+CALL INSERTAUDITTABLE(5,100000.00,350000.00,84000.00,52000.00);
+CALL INSERTAUDITTABLE(6,90000.00,540000.00,85000.00,95000.00);
+
+SELECT * FROM AUDITTABLE;
+SELECT ItemID,INV_INCOME1,INV_INCOME2,INV_INCOME3,INV_INCOME4 FROM AUDITTABLE;
+SELECT ItemID,GREATEST(INV_INCOME1,INV_INCOME2,INV_INCOME3,INV_INCOME4) AS HEIGHST_INCOME, LEAST(INV_INCOME1,INV_INCOME2,INV_INCOME3,INV_INCOME4) AS LOWEST_INCOME FROM AUDITTABLE;
+
+-- ____________________CONTROL FLOW(IF ELSE CONDITION) IN SQL_____________________________
+
+-- syntax
+
+
+SELECT * FROM AUDITTABLE;
+
+SELECT ItemID,
+	CASE
+		WHEN LEAST(INV_INCOME1,INV_INCOME2,INV_INCOME3,INV_INCOME4) >= 230 THEN "LOSS"
+	    ELSE "Profit"
+    END AS PROFIT_OR_LOSS
+FROM  AUDITTABLE;
+
+/*
+CASE
+	WHEN<condition> THEN <result>,
+    WHEN<condition> THEN <result>,
+    WHEN<condition> THEN <result>,
+    WHEN<condition> THEN <result>,.
+    ....
+    ELSE result
+    
+END AS ALIAS
+
+*/
