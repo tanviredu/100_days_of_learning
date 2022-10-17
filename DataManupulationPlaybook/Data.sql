@@ -291,11 +291,105 @@ AND  film_actor.actor_id = actor.actor_id;
 
 */
 
-
-
-
-
-
-
-
 -- you can edit the primarykey with autoincrement
+
+
+
+
+-- _______________________UPDATE TRANSACTION__________________________
+
+-- same as insert
+SELECT * FROM actor;
+-- we change actor_id = 2
+
+
+START TRANSACTION;
+	
+    UPDATE actor
+    SET first_name = "Tanvir Updated" 
+    WHERE actor_id = 2;
+	-- see the result by exectuing line 302 row changed
+COMMIT;
+-- see the result by exectuing line 302,Data Persisted
+
+
+SELECT * FROM actor;
+-- we change actor_id = 2
+
+
+START TRANSACTION;
+	
+    UPDATE actor
+    SET first_name = "Tanvir Updated WILL NOT HAPPEN FOR ROLLBACK" 
+    WHERE actor_id = 2;
+	-- see the result by exectuing line 302 row changed
+ROLLBACK;
+-- see the result by exectuing line 302,Data RolledBack
+
+
+-- --------------------------DELETE & TRUNCATE-----------------------
+
+-- DELETE FROM <table>
+-- WHERE <condition>
+-- LIMIT <number>   -- for safety
+
+-- DELETE DATA FROm SINGLE TABLE
+
+SELECT * FROM actor a
+join film_actor fa
+ON a.actor_id = fa.actor_id
+Join film f
+ON f.film_id = fa.film_id
+WHERE a.actor_id = 2;
+
+SET FOREIGN_KEY_CHECKS=OFF;
+
+DELETE a,fa,f FROM actor a
+INNER join film_actor fa
+ON a.actor_id = fa.actor_id
+INNER Join film f
+ON f.film_id = fa.film_id
+WHERE a.actor_id = 2;
+
+SET FOREIGN_KEY_CHECKS=ON;
+
+
+-- with Transaction -- same as insert and update
+
+START TRANSACTION;
+	DELETE FROM rental;
+COMMIT;
+
+
+
+START TRANSACTION;
+	DELETE FROM rental;
+ROLLBACK;
+
+
+-- WHAT IS TRUNCATE AND HOW IT IS DIFFERENT FROM DELETE
+-- syntax -- TRUNCATE TABLE <table_name>
+
+/*
+1) Truncate removes all the rows -- DELETE removes all or selected rows
+2) TRUNCATE actually first drop and then create thats why all the constraints 
+are gone just a table . DELETE removes all the data but it keeps the constraints
+3) TRUNCATE directly drop and then create so it is faster
+Delete is not faster like Truncate
+
+*/
+
+SET FOREIGN_KEY_CHECKS=OFF;
+
+
+
+SELECT * FROM actor;
+-- TRUNCATE TABLE payment;
+
+START TRANSACTION;
+
+	TRUNCATE TABLE actor;
+ROLLBACK;
+
+-- you cant rolback truncate
+-- TRUNCATE HAS NO RELATION WITH TRANSACTION
