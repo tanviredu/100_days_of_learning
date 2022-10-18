@@ -1,0 +1,15 @@
+F:\100_days_of_learning\DateAndTime\TimeProject\bin\Debug\net6.0\TimeProject.exe
+F:\100_days_of_learning\DateAndTime\TimeProject\bin\Debug\net6.0\TimeProject.deps.json
+F:\100_days_of_learning\DateAndTime\TimeProject\bin\Debug\net6.0\TimeProject.runtimeconfig.json
+F:\100_days_of_learning\DateAndTime\TimeProject\bin\Debug\net6.0\TimeProject.dll
+F:\100_days_of_learning\DateAndTime\TimeProject\bin\Debug\net6.0\ref\TimeProject.dll
+F:\100_days_of_learning\DateAndTime\TimeProject\bin\Debug\net6.0\TimeProject.pdb
+F:\100_days_of_learning\DateAndTime\TimeProject\obj\Debug\net6.0\TimeProject.csproj.AssemblyReference.cache
+F:\100_days_of_learning\DateAndTime\TimeProject\obj\Debug\net6.0\TimeProject.GeneratedMSBuildEditorConfig.editorconfig
+F:\100_days_of_learning\DateAndTime\TimeProject\obj\Debug\net6.0\TimeProject.AssemblyInfoInputs.cache
+F:\100_days_of_learning\DateAndTime\TimeProject\obj\Debug\net6.0\TimeProject.AssemblyInfo.cs
+F:\100_days_of_learning\DateAndTime\TimeProject\obj\Debug\net6.0\TimeProject.csproj.CoreCompileInputs.cache
+F:\100_days_of_learning\DateAndTime\TimeProject\obj\Debug\net6.0\TimeProject.dll
+F:\100_days_of_learning\DateAndTime\TimeProject\obj\Debug\net6.0\ref\TimeProject.dll
+F:\100_days_of_learning\DateAndTime\TimeProject\obj\Debug\net6.0\TimeProject.pdb
+F:\100_days_of_learning\DateAndTime\TimeProject\obj\Debug\net6.0\TimeProject.genruntimeconfig.cache
