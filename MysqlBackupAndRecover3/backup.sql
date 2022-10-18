@@ -60,9 +60,9 @@
 
 -- common syntax for mysql restore
 -- taking backup
-	-- mysqldump options > back.sql
+	-- mysqldump <databas> > back.sql
 -- taking restore
-	-- mysql options < back.sql
+	-- mysql <database> < back.sql
     
     
 -- restore single database
