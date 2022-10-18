@@ -141,6 +141,89 @@ void always_saved_as_utc(){
 
 void CalculationWithDateTime(){
 
+    // calculating time difference 
+    // adding days ,months,year,seconds
+    // changing date 
+    // extending time 
+    // calculating week numbers
+
+    // REMEMBER TIMESPAN MEANS TIMEINTERVAL 
+
+    var timespan = new TimeSpan(60,100,200);
+
+    // we create a time interval of 60 hours, 100 minutes, and 200 seconds
+    // that is total interval of 2 Days 13 hours 43 minutes and 20 seconds 
+    var days  = timespan.Days;
+    var hours = timespan.Hours;
+    var minutes = timespan.Minutes;
+    var seconds = timespan.Seconds;
+    
+    
+    Console.WriteLine($"Timespan : {timespan}");
+    Console.WriteLine($"Days    : {days}");
+    Console.WriteLine($"hours   : {hours}");
+    Console.WriteLine($"minutes : {minutes}");
+    Console.WriteLine($"seconds : {seconds}");
+    
+
+
+    var total_days     = timespan.TotalDays;
+    var total_hours    = timespan.TotalHours;
+    var total_minutes  = timespan.TotalMinutes;
+    var total_seconds  = timespan.TotalSeconds;
+    var total_millisec = timespan.TotalMilliseconds;
+    // you can convert the timespan into total hourse ,minutes or seconds
+    Console.WriteLine("-----------------------------------");
+    Console.WriteLine($"Total Days     : {total_days}");
+    Console.WriteLine($"Total Hours    : {total_hours}");
+    Console.WriteLine($"Total Minutes  : {total_minutes}");
+    Console.WriteLine($"Total Seconds  : {total_seconds}");
+    Console.WriteLine($"Total Millisec : {total_millisec}");
+
+
+    // you can add this time stamp with date
+    // time difference 
+    // when you minus one date from another remember the result is a TimeSpan
+    // you can write all the function like this 
+    // and use datetime offset and utc time
+    var start1 = DateTimeOffset.UtcNow;
+    var end1  = start1.AddDays(1);
+    
+    var start2 = DateTimeOffset.UtcNow;
+    var end2  = start2.AddHours(20);
+    
+    var start3 = DateTimeOffset.UtcNow;
+    var end3  = start3.AddMonths(2);
+    
+    var start4 = DateTimeOffset.UtcNow;
+    var end4  = start4.AddYears(1);
+    
+    Console.WriteLine("-------------------------------------");
+    
+    TimeSpan difference1 = end1-start1;
+    Console.WriteLine(difference1);
+    Console.WriteLine(difference1.Days); // 1 days
+    Console.WriteLine(difference1.TotalHours); // it will convert it to hours .in ths case 24
+    Console.WriteLine(difference1.TotalMinutes); // it will convert it to minutes
+
+    Console.WriteLine("-------------------------------------");
+    
+    TimeSpan difference2 = end2-start2;
+    Console.WriteLine(difference2);
+    Console.WriteLine(difference2.TotalDays); // 1 days
+    Console.WriteLine(difference2.TotalHours); // it will convert it to hours .in ths case 24
+    Console.WriteLine(difference2.TotalMinutes); // it will convert it to minutes
+
+
+    // Alyaws work on DateTimeOffset insted of Datetime
+    // but if you need just Datetime in any case
+    // you can extract from the DateTimeOffset 
+    Console.WriteLine("-------------------------------------");
+    Console.WriteLine(DateTimeOffset.UtcNow);
+    Console.WriteLine(DateTimeOffset.UtcNow.DateTime);
+    Console.WriteLine("-------------------------------------");
+    
+
 }
 
 CalculationWithDateTime();
