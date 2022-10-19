@@ -81,3 +81,6 @@
 -- -> mysql -h 127.0.0.1 -u root -p  < F:\100_days_of_learning\BACKUP_GENERATED_BY_MYSQLDUMP\sakilabackup.sql;
 -- Then the database will replace the existing database sakila
 -- so be careful about that
+
+-- restore all the database 
+=>mysql -h <host> -u <user> -p <sqlfile.sql>

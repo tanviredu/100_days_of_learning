@@ -1,0 +1,64 @@
+USE SAKILA;
+-- CONTROLL OPERATOR
+-- THERE ARE TWO VERSIONS OF THE CSAE STATEMENT
+-- BELLOW THE FIRST VERSION
+
+/*
+	CASE
+    WHEN <CONDITION> THEN <RESULT>
+    WHEN <CONDITION> THEN <RESULT>
+    WHEN <CONDITION> THEN <RESULT>
+    ...
+    ELSE RESULT	END
+*/
+
+SELECT first_name,last_name,address_id FROM customer;
+-- assigning then to a group of 100 with CASE
+
+SELECT first_name,last_name,address_id,
+	
+    
+    CASE
+		WHEN address_id BETWEEN 1 AND 100 THEN "Group ONE"
+        WHEN address_id BETWEEN 101 AND 200 THEN "Group TWO"
+        WHEN address_id BETWEEN 201 AND 300 THEN "Group THREE"
+        WHEN address_id BETWEEN 301 AND 400 THEN "Group FOUR"
+        WHEN address_id BETWEEN 401 AND 500 THEN "Group FIVE"
+	ELSE "NO ZONE" END AS ZONEINFORMATION
+	-- NoneINformation will be a new column showing in customer
+FROM customer;
+
+
+
+SELECT max(length) FROM film;
+SELECT min(length) FROM film;
+SELECT * FROM  film;
+SELECT COUNT(*) FROM film;
+
+SELECT film_id,title,
+CASE
+	WHEN rating = "G" THEN "GENERAL"
+    WHEN rating IN ("PG","PG-13") THEN "PARENTAL GUIDENCE"
+ELSE "NOT FOR KIDS" END VIEWSTATUS
+FROM film; 
+
+
+SELECT film_id,title,length,
+	CASE 
+		WHEN length BETWEEN 46 AND 70 THEN "SMALL LENGTH FILM"
+		WHEN length BETWEEN 71 AND 110 THEN "MEDIUM LENGTH FILM" 
+        WHEN length BETWEEN 111 AND 185 THEN "LONG LENGTH FILM"
+    ELSE "UNKNOWN LENGTH" END AS DUR 
+FROM film;
+
+
+
+
+-- ANOTHER ONE IS JUST LIKE THE EXACT PROGRAMMING LENGUAGE
+SELECT title,rating,
+	CASE rating
+		WHEN "G" THEN "GENERAL"
+		WHEN "PG" THEN "PARENTAL GUIDENCE"
+		WHEN "PG-13" THEN "PARENTAL GUIDENCE"
+	ELSE "NOT FOR KIDS" END AS RATING_GUIDENCE
+FROM film;
