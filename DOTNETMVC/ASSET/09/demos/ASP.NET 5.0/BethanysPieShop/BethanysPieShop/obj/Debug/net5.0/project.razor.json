@@ -16,11 +16,6 @@
   "RootNamespace": "BethanysPieShop",
   "Documents": [
     {
-      "FilePath": "f:\\100_days_of_learning\\DOTNETMVC\\ASSET\\09\\demos\\ASP.NET 5.0\\BethanysPieShop\\BethanysPieShop\\Views\\Shared\\_Layout.cshtml",
-      "TargetPath": "Views\\Shared\\_Layout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "f:\\100_days_of_learning\\DOTNETMVC\\ASSET\\09\\demos\\ASP.NET 5.0\\BethanysPieShop\\BethanysPieShop\\Views\\Contact\\Index.cshtml",
       "TargetPath": "Views\\Contact\\Index.cshtml",
       "FileKind": "mvc"
