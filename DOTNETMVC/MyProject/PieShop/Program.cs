@@ -1,9 +1,19 @@
+using PieShop.Service.CategoryService;
+using PieShop.Service.PieService;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+// adding services
+builder.Services.AddScoped<IPieRepository,MockPieRepository>();
+builder.Services.AddScoped<ICategoryRepository,MockCategoryRepository>();
 var app = builder.Build();
+
+
+
+
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
