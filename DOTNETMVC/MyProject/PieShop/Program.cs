@@ -12,8 +12,11 @@ builder.Services.AddDbContext<AppDbContext>(opt=>opt.UseSqlite($"Data Source={db
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 // adding services
-builder.Services.AddScoped<IPieRepository,MockPieRepository>();
-builder.Services.AddScoped<ICategoryRepository,MockCategoryRepository>();
+//builder.Services.AddScoped<IPieRepository,MockPieRepository>();
+builder.Services.AddScoped<IPieRepository,PieRepository>();
+
+//builder.Services.AddScoped<ICategoryRepository,MockCategoryRepository>();
+builder.Services.AddScoped<ICategoryRepository,CategoryRepository>();
 
 var app = builder.Build();
 

@@ -1172,11 +1172,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "f:\\100_days_of_learning\\DOTNETMVC\\MyProject\\PieShop\\PieShop.csproj",
+      "projectUniqueName": "F:\\100_days_of_learning\\DOTNETMVC\\MyProject\\PieShop\\PieShop.csproj",
       "projectName": "PieShop",
-      "projectPath": "f:\\100_days_of_learning\\DOTNETMVC\\MyProject\\PieShop\\PieShop.csproj",
+      "projectPath": "F:\\100_days_of_learning\\DOTNETMVC\\MyProject\\PieShop\\PieShop.csproj",
       "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "f:\\100_days_of_learning\\DOTNETMVC\\MyProject\\PieShop\\obj\\",
+      "outputPath": "F:\\100_days_of_learning\\DOTNETMVC\\MyProject\\PieShop\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
