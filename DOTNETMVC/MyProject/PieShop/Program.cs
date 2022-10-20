@@ -1,8 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using PieShop.DataAccess;
 using PieShop.Service.CategoryService;
 using PieShop.Service.PieService;
 
+var dirPath = Directory.GetCurrentDirectory();
+var dbpath  = Path.Combine(dirPath,"app.db"); 
 var builder = WebApplication.CreateBuilder(args);
 
+// adding database connection
+builder.Services.AddDbContext<AppDbContext>(opt=>opt.UseSqlite($"Data Source={dbpath}"));
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 // adding services
