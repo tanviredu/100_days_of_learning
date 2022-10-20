@@ -8,6 +8,7 @@ builder.Services.AddControllersWithViews();
 // adding services
 builder.Services.AddScoped<IPieRepository,MockPieRepository>();
 builder.Services.AddScoped<ICategoryRepository,MockCategoryRepository>();
+
 var app = builder.Build();
 
 
@@ -24,7 +25,7 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseStaticFiles();
+app.UseStaticFiles(); // it will search the static file in wwwroot folder
 
 app.UseRouting();
 

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using PieShop.Service.CategoryService;
 using PieShop.Service.PieService;
+using PieShop.ViewModels;
 
 namespace PieShop.Controllers
 {
@@ -23,8 +24,12 @@ namespace PieShop.Controllers
        }
 
        public ViewResult List()
-       {
-            return View(_pieRepository.AllPies);
+       {    
+            var pieListViewModel = new PieListViewModel();
+            pieListViewModel.Pies = _pieRepository.AllPies;
+            pieListViewModel.CurrentCategory = "Cheese Cake";
+            //return View(_pieRepository.AllPies);
+            return View(pieListViewModel);
        }
     }
 }

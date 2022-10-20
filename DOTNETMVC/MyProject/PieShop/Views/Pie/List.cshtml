@@ -1,0 +1,22 @@
+@model PieListViewModel
+
+    <p class="text-center">@Model.CurrentCategory</p>
+    <div>
+            <table class="table">
+                <tr>
+                    <th>Pie Name</th>
+                    <th>Pie Price</th>
+                    <th>Pie Category</th>
+                </tr>
+        
+    @foreach (var pie in Model.Pies)
+    {
+                <tr>
+                    <td>@pie.Name</td>
+                    <td>@pie.Price</td>
+                    <td>@pie.Category?.CategoryName</td>
+                </tr>
+            
+    }
+            </table>
+    </div>
