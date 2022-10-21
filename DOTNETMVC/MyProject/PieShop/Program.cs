@@ -18,13 +18,9 @@ builder.Services.AddScoped<IPieRepository,PieRepository>();
 //builder.Services.AddScoped<ICategoryRepository,MockCategoryRepository>();
 builder.Services.AddScoped<ICategoryRepository,CategoryRepository>();
 builder.Services.AddControllersWithViews();
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddSession();
 var app = builder.Build();
-
-
-
-
-
-
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
@@ -35,6 +31,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles(); // it will search the static file in wwwroot folder
+app.UseSession();
 app.UseRouting();
 app.UseAuthorization();
 /* app.MapControllerRoute(
