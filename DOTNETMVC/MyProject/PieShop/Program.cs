@@ -17,7 +17,7 @@ builder.Services.AddScoped<IPieRepository,PieRepository>();
 
 //builder.Services.AddScoped<ICategoryRepository,MockCategoryRepository>();
 builder.Services.AddScoped<ICategoryRepository,CategoryRepository>();
-
+builder.Services.AddControllersWithViews();
 var app = builder.Build();
 
 
@@ -35,13 +35,16 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles(); // it will search the static file in wwwroot folder
-
 app.UseRouting();
-
 app.UseAuthorization();
+/* app.MapControllerRoute(
+     name: "default",
+     pattern: "{controller=Pie}/{action=List}/{id?}");
+*/
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+});
 
 app.Run();

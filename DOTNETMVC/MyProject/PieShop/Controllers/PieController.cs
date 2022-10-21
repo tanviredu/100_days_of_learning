@@ -22,14 +22,24 @@ namespace PieShop.Controllers
             _pieRepository      = pieRepository;
             _categoryRepository = categoryRepository;
        }
-
-       public ViewResult List()
+     
+       [Route("list")]
+       public IActionResult List()
        {    
             var pieListViewModel = new PieListViewModel();
             pieListViewModel.Pies = _pieRepository.AllPies;
             pieListViewModel.CurrentCategory = "Cheese Cake";
             //return View(_pieRepository.AllPies);
             return View(pieListViewModel);
+       }
+       [Route("Details/{id:int}")]
+       public IActionResult Details(int id)
+       {
+            var pie = _pieRepository.GetPieById(id);
+            if(pie == null){
+               return NotFound();
+            }
+            return View(pie);
        }
     }
 }
