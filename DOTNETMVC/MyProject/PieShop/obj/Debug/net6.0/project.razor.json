@@ -12050,6 +12050,40 @@
         }
       },
       {
+        "HashCode": -1918704765,
+        "Kind": "ITagHelper",
+        "Name": "PieShop.TagHelpers.EmailTagHelper",
+        "AssemblyName": "PieShop",
+        "CaseSensitive": false,
+        "TagMatchingRules": [
+          {
+            "TagName": "email"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "ITagHelper",
+            "Name": "address",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Address"
+            }
+          },
+          {
+            "Kind": "ITagHelper",
+            "Name": "content",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Content"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "ITagHelper",
+          "Common.TypeName": "PieShop.TagHelpers.EmailTagHelper"
+        }
+      },
+      {
         "HashCode": -1650897486,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper",
@@ -14262,6 +14296,23 @@
         }
       },
       {
+        "HashCode": 2111535798,
+        "Kind": "MVC.ViewComponent",
+        "Name": "__Generated__CategoryMenuViewComponentTagHelper",
+        "AssemblyName": "PieShop",
+        "CaseSensitive": false,
+        "TagMatchingRules": [
+          {
+            "TagName": "vc:category-menu"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "ITagHelper",
+          "Common.TypeName": "__Generated__CategoryMenuViewComponentTagHelper",
+          "MVC.ViewComponent.Name": "CategoryMenu"
+        }
+      },
+      {
         "HashCode": 1756162027,
         "Kind": "Components.Bind",
         "Name": "Bind",
@@ -16355,6 +16406,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "f:\\100_days_of_learning\\DOTNETMVC\\MyProject\\PieShop\\Views\\Shared\\Components\\CategoryMenu\\Default.cshtml",
+      "TargetPath": "Views\\Shared\\Components\\CategoryMenu\\Default.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "f:\\100_days_of_learning\\DOTNETMVC\\MyProject\\PieShop\\Views\\ShoppingCart\\Index.cshtml",
       "TargetPath": "Views\\ShoppingCart\\Index.cshtml",
       "FileKind": "mvc"
@@ -16362,6 +16418,11 @@
     {
       "FilePath": "f:\\100_days_of_learning\\DOTNETMVC\\MyProject\\PieShop\\Views\\Home\\Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "f:\\100_days_of_learning\\DOTNETMVC\\MyProject\\PieShop\\Views\\Contact\\Index.cshtml",
+      "TargetPath": "Views\\Contact\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
