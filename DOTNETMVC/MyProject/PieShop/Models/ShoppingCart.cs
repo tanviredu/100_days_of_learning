@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using PieShop.DataAccess;
 
+
 namespace PieShop.Models
 {
     public class ShoppingCart
@@ -14,7 +15,7 @@ namespace PieShop.Models
         {
             _appDbContext = appDbContext;
         }
-        public string? ShoppingCartId { get; set; } // this will be a GUID
+        public string ShoppingCartId { get; set; } // this will be a GUID
         public List<ShoppingCartItem>? ShoppingCartItems { get; set; }
 
         public void AddToCart(Pie pie, int amount)
@@ -32,7 +33,7 @@ namespace PieShop.Models
                     Pie = pie,
                     ShoppingCartId = ShoppingCartId
                 };
-                _appDbContext?.ShoppingCartItems?.Add(scartitem);
+                _appDbContext.ShoppingCartItems.Add(scartitem);
             }
             else
             {
@@ -80,11 +81,13 @@ namespace PieShop.Models
 
         }
 
-        public decimal? GetShoppingCartTotal()
+        public int GetShoppingCartTotal()
         {
-            var total = _appDbContext?.ShoppingCartItems?.Where(s => s.ShoppingCartId == ShoppingCartId)
-                        .Select(s => s.Pie.Price * s.Amount).Sum();
+            var total = _appDbContext.ShoppingCartItems.Where(s => s.ShoppingCartId == ShoppingCartId)
+                        .Select(s => s.Pie.Price * s.Amount).Sum(); 
+                        
             return total;
+          
 
         }
 
@@ -108,7 +111,19 @@ namespace PieShop.Models
         // but in Service you need call the IHttpContextAccessor 
 
         public static ShoppingCart GetCart(IServiceProvider service)
-        {   
+        { 
+            // in short service.getservice will give you an object
+            // of that class
+            // we get session object
+            // we get AppDbContext object 
+            // with that 
+            // this is a static class that returns the object of its own class
+            // it can do that because it is a static method
+            // and one more thing
+            // in the Program.cs service.AddScoped<>(sp=>());
+            // this sp is IServiceProvider
+            // and i scoped will give you a scoped object
+
             // this is the way of getting session object from Session service in the service leel
             var session = service.GetRequiredService<IHttpContextAccessor>()?.HttpContext?.Session;
             // we need context object
@@ -118,9 +133,11 @@ namespace PieShop.Models
             string  certId = session.GetString("certId") ?? Guid.NewGuid().ToString();
             
             // now store in th esession
-            session.SetString("CertId", certId);
+            session.SetString("certId", certId);
 
             // now return an object on ShoppingCart with ShoppingCartId
+            // its like giving you a empty cart with a label naming your id
+            // in a supermarket that you will fill with item 
             return new ShoppingCart(context)
             {
                 ShoppingCartId = certId

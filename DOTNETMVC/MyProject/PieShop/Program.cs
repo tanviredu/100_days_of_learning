@@ -31,7 +31,7 @@ builder.Services.AddScoped<ICategoryRepository,CategoryRepository>();
 // shopping cart with a GUID label everytime user visits
 // say addscoped and you get a sp(service provider) that you feed 
 // into GetCart static method
-// since it is AddScoped you get new <ShppongCart> in return everytime
+// since it is AddScoped you get new ShppongCart() in return everytime
 
 
 

@@ -12,7 +12,7 @@ namespace PieShop.Models
         public string? ShortDescription {get;set;}
         public string? LongDescription {get;set;}
         public string? Allergyinformation {get;set;}
-        public Decimal Price {get;set;}
+        public int Price {get;set;} // this price is set to int sqlite3 does not support linq SUM() on decimal
         public string? ImageUrl {get;set;}
         public string? ImageThumbnailUrl {get;set;}
         public bool IsPieOfTheWeek {get;set;}

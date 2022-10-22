@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "B3DVb6d4pY+GgbEvr70DLtuKSrAO6lRkkYZtqLymCmg=",
+  "Hash": "20Cbzfaw0M0xdlZWQwWyOvu0pB5WbOhznbQim2/8Fbs=",
   "Source": "PieShop",
   "BasePath": "_content/PieShop",
   "Mode": "Default",
@@ -66,6 +66,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\bethanylogo.png"
+    },
+    {
+      "Identity": "F:\\100_days_of_learning\\DOTNETMVC\\MyProject\\PieShop\\wwwroot\\Images\\bethanylogo2.PNG",
+      "SourceId": "PieShop",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\100_days_of_learning\\DOTNETMVC\\MyProject\\PieShop\\wwwroot\\",
+      "BasePath": "_content/PieShop",
+      "RelativePath": "Images/bethanylogo2.PNG",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\bethanylogo2.PNG"
+    },
+    {
+      "Identity": "F:\\100_days_of_learning\\DOTNETMVC\\MyProject\\PieShop\\wwwroot\\Images\\bethanylogo3.png",
+      "SourceId": "PieShop",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\100_days_of_learning\\DOTNETMVC\\MyProject\\PieShop\\wwwroot\\",
+      "BasePath": "_content/PieShop",
+      "RelativePath": "Images/bethanylogo3.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\bethanylogo3.png"
     },
     {
       "Identity": "F:\\100_days_of_learning\\DOTNETMVC\\MyProject\\PieShop\\wwwroot\\Images\\carousel1.jpg",
