@@ -14245,6 +14245,23 @@
         }
       },
       {
+        "HashCode": 2013631308,
+        "Kind": "MVC.ViewComponent",
+        "Name": "__Generated__ShoppingCartSummeryViewComponentTagHelper",
+        "AssemblyName": "PieShop",
+        "CaseSensitive": false,
+        "TagMatchingRules": [
+          {
+            "TagName": "vc:shopping-cart-summery"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "ITagHelper",
+          "Common.TypeName": "__Generated__ShoppingCartSummeryViewComponentTagHelper",
+          "MVC.ViewComponent.Name": "ShoppingCartSummery"
+        }
+      },
+      {
         "HashCode": 1756162027,
         "Kind": "Components.Bind",
         "Name": "Bind",
@@ -16297,6 +16314,11 @@
   },
   "RootNamespace": "PieShop",
   "Documents": [
+    {
+      "FilePath": "f:\\100_days_of_learning\\DOTNETMVC\\MyProject\\PieShop\\Views\\Shared\\Components\\ShoppingCartSummery\\Default.cshtml",
+      "TargetPath": "Views\\Shared\\Components\\ShoppingCartSummery\\Default.cshtml",
+      "FileKind": "mvc"
+    },
     {
       "FilePath": "f:\\100_days_of_learning\\DOTNETMVC\\MyProject\\PieShop\\Views\\Pie\\List.cshtml",
       "TargetPath": "Views\\Pie\\List.cshtml",
