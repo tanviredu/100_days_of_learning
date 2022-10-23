@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "20Cbzfaw0M0xdlZWQwWyOvu0pB5WbOhznbQim2/8Fbs=",
+  "Hash": "5ywzI6V9/hT7eJ4/2AwimbBwB3JjpS7o+lFQ0Ie3dEc=",
   "Source": "PieShop",
   "BasePath": "_content/PieShop",
   "Mode": "Default",
@@ -151,6 +151,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\carousel3.jpg"
+    },
+    {
+      "Identity": "F:\\100_days_of_learning\\DOTNETMVC\\MyProject\\PieShop\\wwwroot\\Images\\carousel4.jpg",
+      "SourceId": "PieShop",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\100_days_of_learning\\DOTNETMVC\\MyProject\\PieShop\\wwwroot\\",
+      "BasePath": "_content/PieShop",
+      "RelativePath": "Images/carousel4.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\carousel4.jpg"
+    },
+    {
+      "Identity": "F:\\100_days_of_learning\\DOTNETMVC\\MyProject\\PieShop\\wwwroot\\Images\\carousel5.jpg",
+      "SourceId": "PieShop",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\100_days_of_learning\\DOTNETMVC\\MyProject\\PieShop\\wwwroot\\",
+      "BasePath": "_content/PieShop",
+      "RelativePath": "Images/carousel5.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\carousel5.jpg"
     },
     {
       "Identity": "F:\\100_days_of_learning\\DOTNETMVC\\MyProject\\PieShop\\wwwroot\\Images\\pattern.png",

@@ -16,43 +16,8 @@
   "RootNamespace": "BethanysPieShop",
   "Documents": [
     {
-      "FilePath": "f:\\100_days_of_learning\\DOTNETMVC\\ASSET\\09\\demos\\ASP.NET 5.0\\BethanysPieShop\\BethanysPieShop\\Views\\Contact\\Index.cshtml",
-      "TargetPath": "Views\\Contact\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "f:\\100_days_of_learning\\DOTNETMVC\\ASSET\\09\\demos\\ASP.NET 5.0\\BethanysPieShop\\BethanysPieShop\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Login.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "f:\\100_days_of_learning\\DOTNETMVC\\ASSET\\09\\demos\\ASP.NET 5.0\\BethanysPieShop\\BethanysPieShop\\Views\\Shared\\Components\\CategoryMenu\\Default.cshtml",
-      "TargetPath": "Views\\Shared\\Components\\CategoryMenu\\Default.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "f:\\100_days_of_learning\\DOTNETMVC\\ASSET\\09\\demos\\ASP.NET 5.0\\BethanysPieShop\\BethanysPieShop\\Views\\Shared\\_Carousel.cshtml",
-      "TargetPath": "Views\\Shared\\_Carousel.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "f:\\100_days_of_learning\\DOTNETMVC\\ASSET\\09\\demos\\ASP.NET 5.0\\BethanysPieShop\\BethanysPieShop\\Views\\Shared\\_PieCard.cshtml",
-      "TargetPath": "Views\\Shared\\_PieCard.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "f:\\100_days_of_learning\\DOTNETMVC\\ASSET\\09\\demos\\ASP.NET 5.0\\BethanysPieShop\\BethanysPieShop\\Views\\Pie\\Details.cshtml",
-      "TargetPath": "Views\\Pie\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "f:\\100_days_of_learning\\DOTNETMVC\\ASSET\\09\\demos\\ASP.NET 5.0\\BethanysPieShop\\BethanysPieShop\\Views\\Shared\\_CookieConsentPartial.cshtml",
-      "TargetPath": "Views\\Shared\\_CookieConsentPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "f:\\100_days_of_learning\\DOTNETMVC\\ASSET\\09\\demos\\ASP.NET 5.0\\BethanysPieShop\\BethanysPieShop\\Areas\\Identity\\Pages\\_ViewStart.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\_ViewStart.cshtml",
+      "FilePath": "f:\\100_days_of_learning\\DOTNETMVC\\ASSET\\09\\demos\\ASP.NET 5.0\\BethanysPieShop\\BethanysPieShop\\Views\\Order\\CheckoutComplete.cshtml",
+      "TargetPath": "Views\\Order\\CheckoutComplete.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -61,8 +26,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "f:\\100_days_of_learning\\DOTNETMVC\\ASSET\\09\\demos\\ASP.NET 5.0\\BethanysPieShop\\BethanysPieShop\\Views\\_ViewImports.cshtml",
-      "TargetPath": "Views\\_ViewImports.cshtml",
+      "FilePath": "f:\\100_days_of_learning\\DOTNETMVC\\ASSET\\09\\demos\\ASP.NET 5.0\\BethanysPieShop\\BethanysPieShop\\Views\\Pie\\Details.cshtml",
+      "TargetPath": "Views\\Pie\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -71,28 +36,18 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "f:\\100_days_of_learning\\DOTNETMVC\\ASSET\\09\\demos\\ASP.NET 5.0\\BethanysPieShop\\BethanysPieShop\\Views\\Shared\\Components\\ShoppingCartSummary\\Default.cshtml",
-      "TargetPath": "Views\\Shared\\Components\\ShoppingCartSummary\\Default.cshtml",
+      "FilePath": "f:\\100_days_of_learning\\DOTNETMVC\\ASSET\\09\\demos\\ASP.NET 5.0\\BethanysPieShop\\BethanysPieShop\\Views\\_ViewStart.cshtml",
+      "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "f:\\100_days_of_learning\\DOTNETMVC\\ASSET\\09\\demos\\ASP.NET 5.0\\BethanysPieShop\\BethanysPieShop\\Views\\Order\\CheckoutComplete.cshtml",
-      "TargetPath": "Views\\Order\\CheckoutComplete.cshtml",
+      "FilePath": "f:\\100_days_of_learning\\DOTNETMVC\\ASSET\\09\\demos\\ASP.NET 5.0\\BethanysPieShop\\BethanysPieShop\\Areas\\Identity\\Pages\\_ViewStart.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\_ViewStart.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "f:\\100_days_of_learning\\DOTNETMVC\\ASSET\\09\\demos\\ASP.NET 5.0\\BethanysPieShop\\BethanysPieShop\\Views\\Order\\Checkout.cshtml",
-      "TargetPath": "Views\\Order\\Checkout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "f:\\100_days_of_learning\\DOTNETMVC\\ASSET\\09\\demos\\ASP.NET 5.0\\BethanysPieShop\\BethanysPieShop\\Areas\\Identity\\Pages\\_ViewImports.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "f:\\100_days_of_learning\\DOTNETMVC\\ASSET\\09\\demos\\ASP.NET 5.0\\BethanysPieShop\\BethanysPieShop\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Register.cshtml",
+      "FilePath": "f:\\100_days_of_learning\\DOTNETMVC\\ASSET\\09\\demos\\ASP.NET 5.0\\BethanysPieShop\\BethanysPieShop\\Views\\Shared\\_Carousel.cshtml",
+      "TargetPath": "Views\\Shared\\_Carousel.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -101,18 +56,13 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "f:\\100_days_of_learning\\DOTNETMVC\\ASSET\\09\\demos\\ASP.NET 5.0\\BethanysPieShop\\BethanysPieShop\\Views\\Shared\\_LoginPartial.cshtml",
-      "TargetPath": "Views\\Shared\\_LoginPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "f:\\100_days_of_learning\\DOTNETMVC\\ASSET\\09\\demos\\ASP.NET 5.0\\BethanysPieShop\\BethanysPieShop\\Views\\_ViewStart.cshtml",
-      "TargetPath": "Views\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "f:\\100_days_of_learning\\DOTNETMVC\\ASSET\\09\\demos\\ASP.NET 5.0\\BethanysPieShop\\BethanysPieShop\\Areas\\Identity\\Pages\\Account\\Logout.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Logout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "f:\\100_days_of_learning\\DOTNETMVC\\ASSET\\09\\demos\\ASP.NET 5.0\\BethanysPieShop\\BethanysPieShop\\Areas\\Identity\\Pages\\_ViewImports.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\_ViewImports.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -121,8 +71,58 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "f:\\100_days_of_learning\\DOTNETMVC\\ASSET\\09\\demos\\ASP.NET 5.0\\BethanysPieShop\\BethanysPieShop\\Views\\Shared\\Components\\ShoppingCartSummary\\Default.cshtml",
+      "TargetPath": "Views\\Shared\\Components\\ShoppingCartSummary\\Default.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "f:\\100_days_of_learning\\DOTNETMVC\\ASSET\\09\\demos\\ASP.NET 5.0\\BethanysPieShop\\BethanysPieShop\\Views\\Shared\\Components\\CategoryMenu\\Default.cshtml",
+      "TargetPath": "Views\\Shared\\Components\\CategoryMenu\\Default.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "f:\\100_days_of_learning\\DOTNETMVC\\ASSET\\09\\demos\\ASP.NET 5.0\\BethanysPieShop\\BethanysPieShop\\Views\\Contact\\Index.cshtml",
+      "TargetPath": "Views\\Contact\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "f:\\100_days_of_learning\\DOTNETMVC\\ASSET\\09\\demos\\ASP.NET 5.0\\BethanysPieShop\\BethanysPieShop\\Views\\ShoppingCart\\Index.cshtml",
       "TargetPath": "Views\\ShoppingCart\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "f:\\100_days_of_learning\\DOTNETMVC\\ASSET\\09\\demos\\ASP.NET 5.0\\BethanysPieShop\\BethanysPieShop\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Register.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "f:\\100_days_of_learning\\DOTNETMVC\\ASSET\\09\\demos\\ASP.NET 5.0\\BethanysPieShop\\BethanysPieShop\\Views\\Shared\\_PieCard.cshtml",
+      "TargetPath": "Views\\Shared\\_PieCard.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "f:\\100_days_of_learning\\DOTNETMVC\\ASSET\\09\\demos\\ASP.NET 5.0\\BethanysPieShop\\BethanysPieShop\\Views\\Shared\\_CookieConsentPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_CookieConsentPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "f:\\100_days_of_learning\\DOTNETMVC\\ASSET\\09\\demos\\ASP.NET 5.0\\BethanysPieShop\\BethanysPieShop\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Login.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "f:\\100_days_of_learning\\DOTNETMVC\\ASSET\\09\\demos\\ASP.NET 5.0\\BethanysPieShop\\BethanysPieShop\\Views\\_ViewImports.cshtml",
+      "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "f:\\100_days_of_learning\\DOTNETMVC\\ASSET\\09\\demos\\ASP.NET 5.0\\BethanysPieShop\\BethanysPieShop\\Views\\Shared\\_LoginPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_LoginPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "f:\\100_days_of_learning\\DOTNETMVC\\ASSET\\09\\demos\\ASP.NET 5.0\\BethanysPieShop\\BethanysPieShop\\Views\\Order\\Checkout.cshtml",
+      "TargetPath": "Views\\Order\\Checkout.cshtml",
       "FileKind": "mvc"
     }
   ],
