@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using PieShop.DataAccess;
 using PieShop.Models;
 using PieShop.Service.CategoryService;
+using PieShop.Service.OrderService;
 using PieShop.Service.PieService;
 
 var dirPath = Directory.GetCurrentDirectory();
@@ -37,6 +38,8 @@ builder.Services.AddScoped<ICategoryRepository,CategoryRepository>();
 
 // FULLY UNDERSTOOD AND EASY
 builder.Services.AddScoped<ShoppingCart>(sp=>ShoppingCart.GetCart(sp));
+
+builder.Services.AddScoped<IOrderRepository,OrderRepository>();
 
 builder.Services.AddControllersWithViews();
 

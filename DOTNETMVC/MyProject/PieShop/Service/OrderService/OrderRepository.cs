@@ -29,7 +29,8 @@ namespace PieShop.Service.OrderService
             // based on the guid all the products
             // will be added in the order
             // with user information
-            
+            // simple and easy
+
             
 
             var shoppingCartItem = _shoppingCart.ShoppingCartItems;

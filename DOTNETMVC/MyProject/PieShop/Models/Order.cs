@@ -12,7 +12,8 @@ namespace PieShop.Models
         [Key]
         [BindNever]
         public int OrderId {get;set;}
-        public List<OrderDetail> OrderDetails {get;set;}
+        public List<OrderDetail>? OrderDetails {get;set;}
+
         [Required(ErrorMessage = "Please Enter Your First Name ")]
         [Display(Name ="First Name")]
         [StringLength(50)]

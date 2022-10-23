@@ -11,8 +11,8 @@ using PieShop.DataAccess;
 namespace PieShop.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20221023053358_Order")]
-    partial class Order
+    [Migration("20221023080342_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
