@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\100_days_of_learning\\AUTHENTICATION_AND_AUTHORIZATION_REFERENCE\\AuthProject\\AuthProject.csproj": {}
+    "f:\\100_days_of_learning\\AUTHENTICATION_AND_AUTHORIZATION_REFERENCE\\AuthProject\\AuthProject.csproj": {}
   },
   "projects": {
-    "F:\\100_days_of_learning\\AUTHENTICATION_AND_AUTHORIZATION_REFERENCE\\AuthProject\\AuthProject.csproj": {
+    "f:\\100_days_of_learning\\AUTHENTICATION_AND_AUTHORIZATION_REFERENCE\\AuthProject\\AuthProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\100_days_of_learning\\AUTHENTICATION_AND_AUTHORIZATION_REFERENCE\\AuthProject\\AuthProject.csproj",
+        "projectUniqueName": "f:\\100_days_of_learning\\AUTHENTICATION_AND_AUTHORIZATION_REFERENCE\\AuthProject\\AuthProject.csproj",
         "projectName": "AuthProject",
-        "projectPath": "F:\\100_days_of_learning\\AUTHENTICATION_AND_AUTHORIZATION_REFERENCE\\AuthProject\\AuthProject.csproj",
+        "projectPath": "f:\\100_days_of_learning\\AUTHENTICATION_AND_AUTHORIZATION_REFERENCE\\AuthProject\\AuthProject.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "F:\\100_days_of_learning\\AUTHENTICATION_AND_AUTHORIZATION_REFERENCE\\AuthProject\\obj\\",
+        "outputPath": "f:\\100_days_of_learning\\AUTHENTICATION_AND_AUTHORIZATION_REFERENCE\\AuthProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,24 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
