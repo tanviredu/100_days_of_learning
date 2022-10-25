@@ -30,3 +30,8 @@ EXEC INSERTSTUDENTWITHOUTPUT
 @NewContactId = @LastRowId OUTPUT; -- this OUTPUT KEYWORD MUST BE HERE OTHERWISE Value will  be NULL
 
 SELECT * FROM Contacts WHERE ContactId = @LastRowId;
+
+SET NOCOUNT ON; -- it will turn off the msg about how many row affected
+SELECT * FROM Contacts ORDER BY ContactId DESC;
+
+DROP PROCEDURE INSERTSTUDENTWITHOUTPUT;

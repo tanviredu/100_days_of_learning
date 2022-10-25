@@ -19,3 +19,9 @@ INSERT INTO Contacts(FirstName,LastName,DateOfBirth,AllowContactByPhone)
 VALUES (@FirstName,@LastName,@DateOfBirth,@AllowContactByPhone);
 
 END;
+
+
+
+EXEC INSERTCONTACT;
+
+SELECT * FROM Contacts ORDER BY ContactId DESC;
