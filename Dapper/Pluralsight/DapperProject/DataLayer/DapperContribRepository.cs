@@ -8,7 +8,7 @@ using DapperProject.POCO;
 
 namespace DapperProject.DataLayer
 {
-    public class DapperContribRepository : IContactRepository
+    public class DapperContribRepository //: IContactRepository
     {
         private SqlConnection _context;
 

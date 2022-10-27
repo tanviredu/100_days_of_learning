@@ -4,6 +4,7 @@ namespace DapperProject.POCO;
 
 public class Contact
 {
+    
     public int Id { get; set; }
     public string? FirstName {get;set;}
     public string? LastName {get;set;}
@@ -11,7 +12,7 @@ public class Contact
     public string? Company {get;set;}
     public string? Title {get;set;}
     [Write(false)]
-    public List<Address>? Addresses {get;set;}
+    public List<Address>? Addresses {get;set;} = new List<Address>();
 }
 
 // [Write(false)] will not try to write the Addresses into the database

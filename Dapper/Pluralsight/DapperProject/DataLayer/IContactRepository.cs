@@ -13,5 +13,11 @@ namespace DapperProject.DataLayer
         Contact Add(Contact contact);
         Contact Update(Contact contact);
         void Remove(int Id);
+        Contact GetFullCOntact(int Id);
+        dynamic GetEverything();
+        void Save(Contact contact);
+        Address AddrssUpdate(Address address);
+        Address AddressAdd(Address address);
+
     }
 }

@@ -149,7 +149,47 @@ static void UpdateContactsContrib(int Id){
     conn.Remove(id);
     GetAllContacts();
 }
-Deletecontrib(6);
+//Deletecontrib(6);
 
 // REMEMBER ONLY USE DAPPER CONTRIB IF THE QUERY IS SIMPLE
 // MOST OF THE TIME IT IS NOT
+
+
+
+static void getFullContact(int Id){
+    var repository = new ContactRepository();
+    var data = repository.GetFullCOntact(Id);
+    var options = new JsonSerializerOptions();
+    options.WriteIndented = true;
+    var jsonstring = JsonSerializer.Serialize(data,options);
+    Console.WriteLine(jsonstring);
+
+}
+//getFullContact(1);
+static void geteve(){
+    var repository = new ContactRepository();
+    var data = repository.GetEverything();
+    Console.ReadLine();
+}
+
+//geteve();
+
+
+
+static void INSERTADDRESS(){
+    var conn = new ContactRepository();
+    var addr = new Address{
+        ContactId = 1,
+        AddressType = "Office",
+        StreetAddress = "CDA23",
+        City = "Chittagong",
+        StateId = 30,
+        PostalCode = "4204"
+    };
+    var new_address = conn.AddressAdd(addr);
+    var jsonString = JsonSerializer.Serialize(new_address);
+    Console.WriteLine(jsonString);
+
+}
+
+INSERTADDRESS();
