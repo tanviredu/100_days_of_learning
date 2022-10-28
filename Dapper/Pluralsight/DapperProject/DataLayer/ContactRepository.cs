@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Transactions;
 using Dapper;
 using DapperProject.POCO;
 
@@ -98,14 +99,32 @@ namespace DapperProject.DataLayer
 
         public void Save(Contact contact)
         {
-            throw new NotImplementedException();
+           // savinf nested data
+            this.Add(contact);
+            foreach(var addr in contact.Addresses)
+            {
+
+                addr.ContactId = contact.Id;
+                Console.WriteLine(addr.ContactId);
+                this.AddressAdd(addr);
+            }
+
+        }
+
+        public void nestedupdate(Contact contact)
+        {
+            this.Update(contact);
+            foreach(var addr in contact.Addresses){
+
+                this.AddrssUpdate(addr);
+            }
         }
 
         public Contact Update(Contact contact)
         {
             var sql = "UPDATE Contacts SET FirstName = @FirstName, LastName = @LastName,Email = @Email,Company = @Company,Title = @Title WHERE Id = @Id";
             _context.Execute(sql,contact);
-            Console.WriteLine("Deleted");
+            Console.WriteLine("Updated");
             return contact;
 
         }
