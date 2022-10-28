@@ -79,6 +79,7 @@ namespace DapperProject.DataLayer
 
         public void Save(Contact contact)
         {
+            // separate the procedure 
             // make one for only insert with nested 
             // not with update
 
@@ -87,6 +88,7 @@ namespace DapperProject.DataLayer
 
         public Contact Update(Contact contact)
         {
+            // separate the procedure
             // make this for update only (nested)
 
             throw new NotImplementedException();
