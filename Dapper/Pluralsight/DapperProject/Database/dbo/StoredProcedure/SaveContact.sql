@@ -2,7 +2,7 @@
 
 
 create procedure [dbo].[SaveContact]
-	@Id     	int output,
+	@Id     	int output, 
 	@FirstName	varchar(50),
 	@LastName	varchar(50),	
 	@Company	varchar(50),

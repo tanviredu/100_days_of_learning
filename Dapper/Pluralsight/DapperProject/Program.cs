@@ -279,7 +279,7 @@ static void updateContactwithaddress(){
         Console.WriteLine("Update Complete");
 
 }
-updateContactwithaddress();
+//updateContactwithaddress();
 
 //addContactwithAddress();
 //INSERTADDRESS();
@@ -292,3 +292,27 @@ updateContactwithaddress();
 //UpdateAddress();
 //Console.WriteLine("---------------------------------------------");
 //getFullContact(1);
+
+//--------------------- StoredProcedure-----------------------------
+
+static void GetFullContactsSP(int Id){
+    var conn = new ContactRepositoryProcedure();
+    var contact = conn.GetFullCOntact(Id);
+    var options = new JsonSerializerOptions();
+    options.WriteIndented = true;
+    var jsonstring = JsonSerializer.Serialize(contact,options);
+    Console.WriteLine(jsonstring);
+}
+
+//GetFullContactsSP(1);
+
+static void FindSP(int Id){
+    var conn = new ContactRepositoryProcedure();
+    var contact = conn.Find(Id);
+     var options = new JsonSerializerOptions();
+    options.WriteIndented = true;
+    var jsonstring = JsonSerializer.Serialize(contact,options);
+    Console.WriteLine(jsonstring);
+
+}
+FindSP(1);
