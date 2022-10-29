@@ -30,7 +30,7 @@ CREATE TABLE Addresses
 	PostalCode    VARCHAR(20)          NOT NULL,
 	CONSTRAINT Pk_address PRIMARY KEY (Id),
 	CONSTRAINT ContactsRel	FOREIGN KEY(ContactId) REFERENCES Contacts(Id) ON DELETE CASCADE,
-	CONSTRAINT StateRel     FOREIGN KEY(StateId)   REFERENCES States(Id)
+	CONSTRAINT StateRel     FOREIGN KEY(StateId)   REFERENCES States(Id) ON UPDATE CASCADE
 			  
 );
 
