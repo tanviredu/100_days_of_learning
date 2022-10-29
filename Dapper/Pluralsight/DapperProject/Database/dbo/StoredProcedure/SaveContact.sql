@@ -1,37 +1,37 @@
-﻿
-
-
-create procedure [dbo].[SaveContact]
-	@Id     	int output, 
-	@FirstName	varchar(50),
-	@LastName	varchar(50),	
-	@Company	varchar(50),
-	@Title		varchar(50),
-	@Email		varchar(50)
+﻿USE [ContactsDB]
+GO
+/****** Object:  StoredProcedure [dbo].[SaveContact]    Script Date: 10/29/2022 2:04:49 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[SaveContact]
+(
+	@Id         INT OUTPUT,
+	@FirstName  VARCHAR(50),
+	@LastName   VARCHAR(50),
+	@Company    VARCHAR(50),
+	@Title      VARCHAR(50),
+	@Email      VARCHAR(50)
+)
 AS
-BEGIN
-	UPDATE	Contacts
-	SET		FirstName = @FirstName,
-			LastName  = @LastName,
-			Company   = @Company,
-			Title     = @Title,
-			Email     = @Email
-	WHERE	Id        = @Id
+BEGIN;
+	INSERT INTO Contacts
+	(
+		FirstName,
+		LastName,
+		Company,
+		Title,
+		Email
+	)
+	VALUES
+	(
+		@FirstName,
+		@LastName,
+		@Company,
+		@Title,
+		@Email
+	);
+	SELECT @Id = CAST(SCOPE_IDENTITY() AS INT);
 
-	IF @@ROWCOUNT = 0
-	BEGIN
-		INSERT INTO [dbo].[Contacts]
-           ([FirstName]
-           ,[LastName]
-           ,[Company]
-           ,[Title]
-           ,[Email])
-		VALUES
-           (@FirstName,
-           @LastName, 
-           @Company,
-           @Title,
-           @Email);
-		SET @Id = cast(scope_identity() as int)
-	END;
 END;
