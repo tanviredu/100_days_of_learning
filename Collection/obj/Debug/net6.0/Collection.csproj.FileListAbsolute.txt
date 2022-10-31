@@ -1,0 +1,15 @@
+F:\100_days_of_learning\Collection\bin\Debug\net6.0\Collection.exe
+F:\100_days_of_learning\Collection\bin\Debug\net6.0\Collection.deps.json
+F:\100_days_of_learning\Collection\bin\Debug\net6.0\Collection.runtimeconfig.json
+F:\100_days_of_learning\Collection\bin\Debug\net6.0\Collection.dll
+F:\100_days_of_learning\Collection\bin\Debug\net6.0\ref\Collection.dll
+F:\100_days_of_learning\Collection\bin\Debug\net6.0\Collection.pdb
+F:\100_days_of_learning\Collection\obj\Debug\net6.0\Collection.csproj.AssemblyReference.cache
+F:\100_days_of_learning\Collection\obj\Debug\net6.0\Collection.GeneratedMSBuildEditorConfig.editorconfig
+F:\100_days_of_learning\Collection\obj\Debug\net6.0\Collection.AssemblyInfoInputs.cache
+F:\100_days_of_learning\Collection\obj\Debug\net6.0\Collection.AssemblyInfo.cs
+F:\100_days_of_learning\Collection\obj\Debug\net6.0\Collection.csproj.CoreCompileInputs.cache
+F:\100_days_of_learning\Collection\obj\Debug\net6.0\Collection.dll
+F:\100_days_of_learning\Collection\obj\Debug\net6.0\ref\Collection.dll
+F:\100_days_of_learning\Collection\obj\Debug\net6.0\Collection.pdb
+F:\100_days_of_learning\Collection\obj\Debug\net6.0\Collection.genruntimeconfig.cache
