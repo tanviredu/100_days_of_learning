@@ -60,7 +60,7 @@ BEGIN
     INTO c
     FROM Orders O
     WHERE O.OrderID = OrderID;
-    RETURN c;
+    RETURN c; -- no parenthesis
 END//
 DELIMITER ;
 SELECT FindCost(2);
@@ -91,3 +91,103 @@ DELIMITER ;
 
 CALL GetDiscount2(5);
 DROP PROCEDURE GetDiscount2;
+
+CREATE TABLE Products
+(
+	ProductID     VARCHAR(10),
+    ProductName   VARCHAR(100),
+    BuyPrice      DECIMAL(6,2),
+    SellPrice     DECIMAL(6,2),
+    NumberOfItems INT
+);
+
+INSERT INTO Products (ProductID, ProductName, BuyPrice, SellPrice, NumberOfITems)
+
+VALUES ("P1", "Artificial grass bags ", 40, 50, 100),  
+("P2", "Wood panels", 15, 20, 250),  
+("P3", "Patio slates",35, 40, 60),  
+("P4", "Sycamore trees ", 7, 10, 50),  
+("P5", "Trees and Shrubs", 35, 50, 75),  
+("P6", "Water fountain", 65, 80, 15);
+
+SELECT * FROM Products;
+
+CREATE TABLE Notifications
+(
+	NotificationID INT AUTO_INCREMENT,
+    Notification   VARCHAR(255),
+    DateTime       TIMESTAMP NOT NULL,
+    PRIMARY KEY(NotificationID)
+    
+);
+
+/*
+
+Create an INSERT trigger called "ProductSellPriceInsertCheck". This trigger must
+check if the SellPrice of the product is less than the BuyPrice after a new product
+is inserted in the Products table. If this occurs, then a notification must be
+added to the notifications table to inform the sales department. The sales department
+can then ensure that the incorrect values were not inserted by mistake.
+The notification message should be in the following
+format: 'A SellPrice less than the BuyPrice was inserted for ProductID ' + ProductID
+
+*/
+SELECT * FROM Products;
+
+DELIMITER //
+CREATE TRIGGER ProductSellPriceInsertCheck
+AFTER INSERT ON Products 
+FOR EACH ROW
+BEGIN
+	IF NEW.SellPrice < NEW.BuyPrice THEN
+		INSERT INTO Notifications(Notification,DateTime) VALUES(CONCAT('A SellPrice less than the BuyPrice was inserted for ProductID ' , NEW.ProductID),NOW());
+	END IF;
+END//
+
+DELIMITER ;
+
+INSERT INTO Products (ProductID, ProductName, BuyPrice, SellPrice, NumberOfITems)
+VALUES ("P8", "ProductP8 ", 60, 150, 100);
+SELECT * FROM Notifications;
+INSERT INTO Products (ProductID, ProductName, BuyPrice, SellPrice, NumberOfITems)
+VALUES ("P9", "ProductP9 ", 190, 170, 100);
+SELECT * FROM Notifications;
+-- TRUNCATE TABLE Notifications;
+DROP Trigger ProductSellPriceInsertCheck;
+
+DELIMITER //
+CREATE TRIGGER ProductSellPriceUpdateCheck
+AFTER UPDATE ON Products 
+FOR EACH ROW
+BEGIN
+	IF NEW.SellPrice <= NEW.BuyPrice THEN
+		INSERT INTO Notifications(Notification,DateTime) VALUES(CONCAT(NEW.ProductID ,' was updated with a SellPrice of ',NEW.SellPrice,' which is the same or less than the BuyPrice'),NOW());
+	END IF;
+END//
+
+DELIMITER ;
+
+UPDATE Products P
+SET SellPrice = 40.00
+WHERE P.ProductID = 'P1';
+SELECT * FROM Notifications;
+
+UPDATE Products P
+SET SellPrice = 42000.00
+WHERE P.ProductID = 'P2';
+SELECT * FROM Notifications;
+
+SELECT * FROM Products;
+
+DELIMITER //
+CREATE TRIGGER NotifyProductDelete AFTER DELETE ON Products  FOR EACH ROW
+BEGIN
+		INSERT INTO Notifications(Notification,DateTime) VALUES( CONCAT('The product with a ProductID ',OLD.ProductID,' was deleted'),NOW());
+		-- it is not replacing it is deleteing so no new value so no NEW Column
+END//
+DELIMITER ;
+
+DROP TRIGGER NotifyProductDelete;
+
+DELETE FROM Products WHERE ProductID = 'P7';
+SELECT * FROM Notifications;
