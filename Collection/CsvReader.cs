@@ -24,7 +24,7 @@ namespace Collection
             // omit the first row 
             // because its just the header in the csv file
             sr.ReadLine();
-            
+
             for(int i=0;i<nCountries;i++){
                 string csvLine = sr.ReadLine();
                 countries[i] = ReadCountryFromCsvLine(csvLine);
@@ -32,7 +32,50 @@ namespace Collection
         }
         return countries;
        }
-       public Country ReadCountryFromCsvLine(string csvLine){
+
+        public List<Country> ReadAllCountriesList(){
+            var countries = new List<Country>();
+            using(var sr = new StreamReader(_csvFilePath))
+            {
+                sr.ReadLine(); // omit the first row
+                string row;
+                while((row = sr.ReadLine()) !=null){
+                    countries.Add(ReadCountryFromCsvLineList(row));
+                }
+
+            }
+            return countries;
+
+        }
+
+        private Country ReadCountryFromCsvLineList(string row)
+        {
+            var parts = row.Split(',');
+            var length = parts.Count();
+            if(length>4)
+            {
+                var name = String.Concat(parts[0],parts[1]);
+                name = name.Replace("\"","").Trim(); /// this Code Replace \" with "" . Replace("\"","") means replace what is inside the "" which is \" and Replace with ""
+                var code = parts[2];
+                var region = parts[3];
+                int population;
+                int.TryParse(parts[4],out population);
+                return new Country(name, code, region, population);
+            }
+            else
+            {
+                var name = parts[0];
+                var code = parts[1];
+                var region = parts[2];
+                int population;
+                int.TryParse(parts[3],out population);
+                return new Country(name,code,region,population);
+            }
+            
+           
+        }
+
+        public Country ReadCountryFromCsvLine(string csvLine){
          var parts      = csvLine.Split(',');
          var name       = parts[0];
          var code       = parts[1];

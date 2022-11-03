@@ -15,11 +15,13 @@ static string getfilePath(){
 static void Main(){
     var path = getfilePath();
     CsvReader reader = new CsvReader(path);
-    var countries = reader.ReadFirstNCountries(10);
+    //var countries = reader.ReadFirstNCountries(10);
+    var countries = reader.ReadAllCountriesList();
     var options = new JsonSerializerOptions();
     options.WriteIndented = true;
     var jsonstring = JsonSerializer.Serialize(countries,options);
     Console.WriteLine(jsonstring);
+    Console.WriteLine("Total Countries: "+ countries.Count().ToString());
 
     
 }
