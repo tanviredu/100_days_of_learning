@@ -48,7 +48,25 @@ namespace Collection
 
         }
 
-        private Country ReadCountryFromCsvLineList(string row)
+        public Dictionary<string,Country> SaveCountriedwithCodeDict(){
+            var countries = new Dictionary<string,Country>();
+            //using stream reader to read 
+            using(StreamReader sr = new StreamReader(_csvFilePath))
+            {
+                sr.ReadLine();
+                string row;
+                while((row = sr.ReadLine())!= null){
+                    var country =  ReadCountryFromCsvLineList(row);
+                    countries.Add(country.Code,country);
+                }
+            }
+
+
+            return countries;
+        }
+
+
+        public Country ReadCountryFromCsvLineList(string row)
         {
             var parts = row.Split(',');
             var length = parts.Count();
@@ -74,6 +92,8 @@ namespace Collection
             
            
         }
+
+
 
         public Country ReadCountryFromCsvLine(string csvLine){
          var parts      = csvLine.Split(',');
