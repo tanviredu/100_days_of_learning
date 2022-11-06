@@ -1,0 +1,15 @@
+F:\100_days_of_learning\WorkingWithFilesC#\DataProcessor\bin\Debug\net6.0\DataProcessor.exe
+F:\100_days_of_learning\WorkingWithFilesC#\DataProcessor\bin\Debug\net6.0\DataProcessor.deps.json
+F:\100_days_of_learning\WorkingWithFilesC#\DataProcessor\bin\Debug\net6.0\DataProcessor.runtimeconfig.json
+F:\100_days_of_learning\WorkingWithFilesC#\DataProcessor\bin\Debug\net6.0\DataProcessor.dll
+F:\100_days_of_learning\WorkingWithFilesC#\DataProcessor\bin\Debug\net6.0\ref\DataProcessor.dll
+F:\100_days_of_learning\WorkingWithFilesC#\DataProcessor\bin\Debug\net6.0\DataProcessor.pdb
+F:\100_days_of_learning\WorkingWithFilesC#\DataProcessor\obj\Debug\net6.0\DataProcessor.csproj.AssemblyReference.cache
+F:\100_days_of_learning\WorkingWithFilesC#\DataProcessor\obj\Debug\net6.0\DataProcessor.GeneratedMSBuildEditorConfig.editorconfig
+F:\100_days_of_learning\WorkingWithFilesC#\DataProcessor\obj\Debug\net6.0\DataProcessor.AssemblyInfoInputs.cache
+F:\100_days_of_learning\WorkingWithFilesC#\DataProcessor\obj\Debug\net6.0\DataProcessor.AssemblyInfo.cs
+F:\100_days_of_learning\WorkingWithFilesC#\DataProcessor\obj\Debug\net6.0\DataProcessor.csproj.CoreCompileInputs.cache
+F:\100_days_of_learning\WorkingWithFilesC#\DataProcessor\obj\Debug\net6.0\DataProcessor.dll
+F:\100_days_of_learning\WorkingWithFilesC#\DataProcessor\obj\Debug\net6.0\ref\DataProcessor.dll
+F:\100_days_of_learning\WorkingWithFilesC#\DataProcessor\obj\Debug\net6.0\DataProcessor.pdb
+F:\100_days_of_learning\WorkingWithFilesC#\DataProcessor\obj\Debug\net6.0\DataProcessor.genruntimeconfig.cache
