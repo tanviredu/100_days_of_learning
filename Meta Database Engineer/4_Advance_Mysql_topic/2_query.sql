@@ -182,5 +182,83 @@ FROM 'SELECT AVG(Cost) AS "Average Sale" FROM Orders WHERE YEAR(DATE)=?';
 SET @year = 2021;
 EXECUTE GET_AVG_COST_BY_YEAR USING @year;
 
+CREATE TABLE locations (
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,  
+    type CHAR(1) NOT NULL,
+    latitude DECIMAL(9,6) NOT NULL,
+    longitude DECIMAL(9,6) NOT NULL,
+    attr JSON, 
+    PRIMARY KEY (id)
+);
+SHOW CREATE TABLE locations;
+INSERT INTO locations (type, name, latitude, longitude, attr) VALUES 
+     ('A', 'Cloud Gate', 41.8826572, -87.6233039, 
+'{"category": "Landmark", "lastVisitDate": "11/10/2019"}');
+
+SELECT * FROM locations;
+SELECT name, latitude, longitude, 
+    JSON_VALUE(attr, '$.category') AS food_type
+FROM locations
+WHERE type = 'A';
+
+
+
 
 -- WORKING WITH JSON IN MYSQL
+CREATE TABLE Activity(ActivityID INT PRIMARY KEY,Properties JSON);
+DESCRIBE Activity;
+
+INSERT INTO Activity(ActivityID,Properties)
+VALUES
+(1,'{"ClientID":"Cl1","ProductID":"P1","Order":"True"}'),
+(2,'{"ClientID":"Cl2","ProductID":"P2","Order":"False"}'),
+(3,'{"ClientID":"Cl3","ProductID":"P3","Order":"True"}');
+
+SELECT * FROM Activity; 
+DESCRIBE Activity;
+
+SELECT ActivityID,JSON_VALUE(Properties,'$.ClientID') AS CLIENTID ,JSON_VALUE(Properties,'$.ProductID') AS ProductID,JSON_VALUE(Properties,'$.Order') AS Ord
+FROM Activity;
+
+SELECT  COUNT(OrderID) AS "Total number of orders" FROM Orders WHERE YEAR(Date) = 2022 AND ClientID = "Cl1" UNION SELECT CONCAT("Cl2: ", COUNT(OrderID), "orders") FROM Orders WHERE YEAR(Date) = 2022 AND ClientID = "Cl2" UNION SELECT CONCAT("Cl3: ", COUNT(OrderID), "orders") FROM Orders WHERE YEAR(Date) = 2022 AND ClientID = "Cl3"; 
+
+WITH 
+t_order_cl1 AS (SELECT COUNT(OrderID) AS "TOTAL NUMBER OF ORDERS" FROM  Orders WHERE YEAR(Date) = 2022 AND ClientID = "Cl1"),
+t_order_cl2 AS (SELECT COUNT(OrderID) AS "TOTAL NUMBER OF ORDERS" FROM  Orders WHERE YEAR(Date) = 2022 AND ClientID = "Cl2"),
+t_order_cl3 AS (SELECT COUNT(OrderID) AS "TOTAL NUMBER OF ORDERS" FROM  Orders WHERE YEAR(Date) = 2022 AND ClientID = "Cl3")
+
+SELECT * FROM t_order_cl1
+UNION
+SELECT * FROM t_order_cl2
+UNION
+SELECT * FROM t_order_cl3;
+
+
+-- PREPARE GET_AVG_COST_BY_YEAR
+-- FROM 'SELECT AVG(Cost) AS "Average Sale" FROM Orders WHERE YEAR(DATE)=?';
+SELECT * FROM Orders;
+
+PREPARE GetOrderDetail FROM 'SELECT OrderID,Quantity,Cost,Date FROM Orders WHERE ClientID=? AND YEAR(Date) = ?';
+SET @ClientID =  'Cl1';
+SET @Year = '2020';
+SELECT OrderID,Quantity,Cost,Date FROM Orders WHERE ClientID='Cl1' AND YEAR(Date) = '2020';
+EXECUTE GetOrderDetail USING @ClientId , @Year;
+
+SELECT * FROM Activity;
+
+SELECT ActivityID,JSON_VALUE(Properties,'$.ClientID') AS CLIENTID ,JSON_VALUE(Properties,'$.ProductID') AS ProductID,JSON_VALUE(Properties,'$.Order') AS Ord
+FROM Activity;
+
+SELECT * FROM Products;
+
+SELECT  P.* FROM Products P
+WHERE P.ProductID IN 
+(SELECT JSON_VALUE(Properties,'$.ProductID') FROM Activity WHERE JSON_VALUE(Properties,'$.Order') = "True"
+);
+
+SELECT JSON_VALUE(A.Properties,'$.ProductID') AS ProductID,P.* FROM Activity A
+JOIN Products P
+ON JSON_VALUE(A.Properties,'$.ProductID') = P.ProductID
+WHERE JSON_VALUE(A.Properties,'$.Order') = 'True';
+
