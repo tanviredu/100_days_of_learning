@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Extended</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Extended Lab</title>
+        <meta name="description" content="A brief description">
+        <meta name="author" content="your Site Name">
+        <link rel="icon" href="./css/Icon/favicon.ico">
+        <link rel="icon" href="./css/Icon/favicon-16x16.png" type="image/svg+xml">
+        <link rel="apple-touch-icon" href="./css/Icon/apple-touch-icon.png">
+        <link rel="stylesheet" href="./css/styles.css">
+    </head>
+    <body>
+
+        <header>
+            <img src="./images/logo.png" alt="Little Lemon Logo">
+        </header>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="Blog.html">Blog</a></li>
+                <li><a href="index.html">Index</a></li>
+            </ul>
+        </nav>
+        <main>
+            <h1>Book A Table</h1>
+            <form method="POST">
+                <div>
+                    <label for="booking_date">Booking Date</label>
+                    <input type="date" id="booking_date" name="booking_date">
+                </div>
+                
+                
+                <!-- important -->
+                <div>
+                    <label for="peoplenumber">Number Of People</label>
+                    <input type="range" id="peoplenumber" name="peoplenumber" max="10" min="1" value="4" oninput="this.nextElementSibling.value = this.value">
+                    <output>4</output>
+                </div>
+                <div>
+                    <label for="booking_place">Booking Place</label>
+                    <input list="places" name="booking_place" id="booking_place">
+                    <datalist id="places">
+                        <option value="Updown"></option>
+                        <option value="Downtown"></option>
+                    </datalist>
+                </div>
+                <button type="submit">Book Table</button>
+            </form>
+        </main>
+        <footer>
+
+        </footer>
+    </body>
+</html>
+
+<!-- date rangeofpeople location-->

@@ -25,8 +25,27 @@
         </nav>
         <main>
             <h1>Login</h1>
-           <form action="test.com" method="post">
-            
+           <form method="post">
+            <div>
+                <label for="email_id">Email Address</label>
+                <input type="email" id="email_id" name="email_id">
+            </div>
+            <div>
+                <label for="date_booking">Date Of Booking</label>
+                <input type="date" id="date_booking" name="date">
+            </div>
+            <div>
+                <label for="amount">Number of people</label><br>
+                <input type="number" id="amount" name="amount" min="1" max="8">
+            </div>
+            <div>
+                
+                <input type="checkbox" id="isagree" name="isagree" required>
+                <label for="isagree">I agree to the cancellation policy</label>
+
+            </div>
+            <button type="submit">Book Now</
+                button>
            </form>
         </main>
         <footer>
