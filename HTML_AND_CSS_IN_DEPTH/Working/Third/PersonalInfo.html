@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Bare Bones Layout</title>
+        <meta name="description" content="A brief description">
+        <meta name="author" content="your Site Name">
+        <link rel="icon" href="./css/Icon/favicon.ico">
+        <link rel="icon" href="./css/Icon/favicon-16x16.png" type="image/svg+xml">
+        <link rel="apple-touch-icon" href="./css/Icon/apple-touch-icon.png">
+        <link rel="stylesheet" href="./css/styles.css">
+    </head>
+    <body>
+        <header>
+            <img src="./images/logo.png">
+
+        </header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Location.html">Location</a></li>
+                <li><a href="Blog.html">Blog</a></li>
+            </ul>
+        </nav>
+        <main>
+            <h1>Personal Information</h1>
+            <form method="post">      
+                <fieldset>
+                    <!-- legend shows the name of the block -->
+                    <legend>Personal Information</legend>
+                    <label for="fname">First Name</label><br>
+                    <input type="text" id="fname" name="fname" value="John"><br>
+                    <label for="lname">Last Name</label><br>
+                    <input type="text" id="lname" name="lname" value="Doe"><br>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Qualification</legend>
+                    <label for="degree">Primary Degree</label><br>
+                    <input type="text" id="degree" name="degree" value="masters"><br>
+                    <label for="fos">Field Of Study</label>
+                    <input type="text" id="fos" name="fos" value="Psychology"><br>
+                </fieldset>
+                <br>
+                <button type="submit">Enter</button>
+            </form>
+        </main>
+        <footer>
+            <p>Copyright Little Lemon</p>
+        </footer>
+        <script src="./js/scripts.js"></script>
+    </body>
+
+
+</html>
