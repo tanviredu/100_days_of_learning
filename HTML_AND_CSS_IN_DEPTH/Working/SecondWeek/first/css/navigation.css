@@ -1,0 +1,26 @@
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 60px;
+    background-color: azure;
+}
+
+/* list-style-type: none; - Removes the bullets. A navigation bar does not need list markers
+Set margin: 0; and padding: 0; to remove browser default settings */
+
+li a{
+    display: block;
+    color: red;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+li a:hover{
+    background-color: antiquewhite;
+    color: black;
+}
+.active{
+    background-color: blueviolet;
+    color: blue;
+}
