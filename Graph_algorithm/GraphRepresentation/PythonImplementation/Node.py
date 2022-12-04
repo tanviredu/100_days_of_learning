@@ -7,6 +7,8 @@ class Node:
         self.adj_set = set()
 
     def add_edge(self,v):
+
+        ## this is important you cant add itself
         if self.vertexId == v:
             raise ValueError("The vertext {} can't be adjacent to itself".format(v))
         self.adj_set.add(v)
