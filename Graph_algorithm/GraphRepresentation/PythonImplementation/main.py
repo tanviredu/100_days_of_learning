@@ -6,3 +6,15 @@
 # all nodes from a certain direction visited togather
 #
 
+class GraphTraversal:
+
+    @classmethod
+    def BFS():
+        pass
+
+
+    @classmethod
+    def DFS():
+        pass
+
+
