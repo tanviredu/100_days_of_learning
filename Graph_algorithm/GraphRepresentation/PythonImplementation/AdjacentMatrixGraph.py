@@ -78,48 +78,48 @@ class AdjanceyMatrixGraph(IBaseGraph):
                 print("{}------>{}".format(i,v))
 
 
-adjgraph = AdjanceyMatrixGraph(4)
-adjgraph.add_edge(0,1)
-adjgraph.add_edge(0,2)
-adjgraph.add_edge(2,3)
+# adjgraph = AdjanceyMatrixGraph(4)
+# adjgraph.add_edge(0,1)
+# adjgraph.add_edge(0,2)
+# adjgraph.add_edge(2,3)
 
-print("Adjacent Nodes")
-print("Adjacent Nodes Of 0 = {}".format(adjgraph.get_adjacent_nodes(0)))
-print("Adjacent Nodes Of 1 = {}".format(adjgraph.get_adjacent_nodes(1)))
-print("Adjacent Nodes Of 2 = {}".format(adjgraph.get_adjacent_nodes(2)))
-print("Adjacent Nodes Of 3 = {}".format(adjgraph.get_adjacent_nodes(3)))
+# print("Adjacent Nodes")
+# print("Adjacent Nodes Of 0 = {}".format(adjgraph.get_adjacent_nodes(0)))
+# print("Adjacent Nodes Of 1 = {}".format(adjgraph.get_adjacent_nodes(1)))
+# print("Adjacent Nodes Of 2 = {}".format(adjgraph.get_adjacent_nodes(2)))
+# print("Adjacent Nodes Of 3 = {}".format(adjgraph.get_adjacent_nodes(3)))
 
-print("Indegree")
-print("Indegree of 0 = {}".format(adjgraph.get_indegree(0)))
-print("Indegree of 1 = {}".format(adjgraph.get_indegree(1)))
-print("Indegree of 2 = {}".format(adjgraph.get_indegree(2)))
-print("Indegree of 3 = {}".format(adjgraph.get_indegree(3)))
-
-
-print("Path")
-adjgraph.display()
+# print("Indegree")
+# print("Indegree of 0 = {}".format(adjgraph.get_indegree(0)))
+# print("Indegree of 1 = {}".format(adjgraph.get_indegree(1)))
+# print("Indegree of 2 = {}".format(adjgraph.get_indegree(2)))
+# print("Indegree of 3 = {}".format(adjgraph.get_indegree(3)))
 
 
-print("------------------------------------------------")
-unadjgraph = AdjanceyMatrixGraph(4,directed=True)
-unadjgraph.add_edge(0,1)
-unadjgraph.add_edge(0,2)
-unadjgraph.add_edge(2,3)
-
-print("Adjacent Nodes")
-print("Adjacent Nodes Of 0 = {}".format(unadjgraph.get_adjacent_nodes(0)))
-print("Adjacent Nodes Of 1 = {}".format(unadjgraph.get_adjacent_nodes(1)))
-print("Adjacent Nodes Of 2 = {}".format(unadjgraph.get_adjacent_nodes(2)))
-print("Adjacent Nodes Of 3 = {}".format(unadjgraph.get_adjacent_nodes(3)))
-
-print("Indegree")
-print("Indegree of 0 = {}".format(unadjgraph.get_indegree(0)))
-print("Indegree of 1 = {}".format(unadjgraph.get_indegree(1)))
-print("Indegree of 2 = {}".format(unadjgraph.get_indegree(2)))
-print("Indegree of 3 = {}".format(unadjgraph.get_indegree(3)))
+# print("Path")
+# adjgraph.display()
 
 
-print("Path")
-unadjgraph.display()
+# print("------------------------------------------------")
+# unadjgraph = AdjanceyMatrixGraph(4,directed=True)
+# unadjgraph.add_edge(0,1)
+# unadjgraph.add_edge(0,2)
+# unadjgraph.add_edge(2,3)
+
+# print("Adjacent Nodes")
+# print("Adjacent Nodes Of 0 = {}".format(unadjgraph.get_adjacent_nodes(0)))
+# print("Adjacent Nodes Of 1 = {}".format(unadjgraph.get_adjacent_nodes(1)))
+# print("Adjacent Nodes Of 2 = {}".format(unadjgraph.get_adjacent_nodes(2)))
+# print("Adjacent Nodes Of 3 = {}".format(unadjgraph.get_adjacent_nodes(3)))
+
+# print("Indegree")
+# print("Indegree of 0 = {}".format(unadjgraph.get_indegree(0)))
+# print("Indegree of 1 = {}".format(unadjgraph.get_indegree(1)))
+# print("Indegree of 2 = {}".format(unadjgraph.get_indegree(2)))
+# print("Indegree of 3 = {}".format(unadjgraph.get_indegree(3)))
+
+
+# print("Path")
+# unadjgraph.display()
 
 
