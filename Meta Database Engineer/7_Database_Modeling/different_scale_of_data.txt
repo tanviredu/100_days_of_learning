@@ -1,0 +1,64 @@
+
+NOMINAL SCALE
+
+A nominal scale is a level of measurement in statistics that is used to categorize data into distinct groups, with no inherent order or hierarchy between them. This means that the data can only be classified into discrete categories, but it cannot be ranked or ordered in any meaningful way.
+
+A simple example of nominal scale is the classification of individuals based on their favorite color. In this case, the data can be categorized into different color groups such as blue, red, green, and so on, but there is no inherent order or ranking between the groups. The color groups are simply labels used to identify different categories, and each category is distinct from the others.
+
+Another example of nominal scale is the classification of animals based on their species. We can categorize different animals into species such as dog, cat, bird, fish, and so on, but there is no inherent order or ranking between the species. Each species is simply a label used to identify a distinct category of animals.
+
+
+
+
+
+
+
+
+
+
+Ordinal Scale:
+
+An ordinal scale is a level of measurement in statistics that is used to categorize data into distinct groups, with a specific order or ranking between them. This means that the data can be ranked or ordered, but the differences between the values cannot be measured or compared in a meaningful way.
+
+A simple example of ordinal scale is the ranking of students based on their grades in a test. In this case, the data can be ordered from the highest grade to the lowest grade, with each student occupying a specific position in the ranking. However, we cannot say that the difference between the first and second-ranked students is the same as the difference between the second and third-ranked students. The ranking simply represents a specific order or hierarchy between the students based on their grades.
+
+Another example of ordinal scale is the rating of a movie or restaurant on a scale of 1 to 5 stars. In this case, the data can be ordered from 1 star (the lowest rating) to 5 stars (the highest rating), with each rating representing a specific level of quality or satisfaction. However, we cannot say that the difference between a 2-star rating and a 3-star rating is the same as the difference between a 4-star rating and a 5-star rating. The rating simply represents a specific order or hierarchy between the levels of quality or satisfaction.
+
+
+
+Difference between Ordinal and Nominal
+
+The main difference between ordinal and nominal scales in statistics is that ordinal scales have a specific order or ranking between the categories, while nominal scales do not.
+
+Nominal scales are used to categorize data into distinct groups, with no inherent order or hierarchy between them. The categories in a nominal scale are simply labels used to identify different groups, and each category is distinct from the others. For example, the classification of animals into different species (dog, cat, bird, fish, etc.) is an example of nominal scale.
+
+On the other hand, ordinal scales are used to categorize data into distinct groups with a specific order or ranking between them. The categories in an ordinal scale can be ranked or ordered, but the differences between the values cannot be measured or compared in a meaningful way. For example, the ranking of students based on their grades in a test (first, second, third, etc.) is an example of ordinal scale.
+
+In summary, the main difference between nominal and ordinal scales is that nominal scales have no inherent order or ranking between the categories, while ordinal scales have a specific order or ranking between the categories.
+
+
+Interval Scale:
+An interval scale is a level of measurement in statistics that has a specific order or ranking between the data categories, and also has equal intervals between them. This means that the difference between two values is consistent and meaningful, and can be compared mathematically. However, interval scales do not have a true zero point.
+
+A simple example of an interval scale is temperature measurement in Celsius or Fahrenheit. The difference between 10°C and 20°C is the same as the difference between 20°C and 30°C, and so on. This means that the intervals between the temperature values are equal and consistent, and can be compared mathematically. However, a temperature of 0°C does not represent a true absence of heat, but rather a specific point on the Celsius scale.
+
+ratio scale:
+A ratio scale is the highest level of measurement in statistics that has a specific order or ranking between the data categories, equal intervals between them, and a true zero point. This means that the differences between the values are meaningful and can be compared mathematically, and the presence or absence of a value at the zero point is meaningful and represents an absence or a complete lack of the characteristic being measured.
+
+A simple example of a ratio scale is weight measurement using a digital scale. If a person weighs 60 kilograms, and another person weighs 80 kilograms, the difference between the weights is 20 kilograms, and this difference is meaningful and can be compared mathematically. Furthermore, a weight of 0 kilograms represents a complete absence of weight, and is a true zero point.
+
+Another example of a ratio scale is distance measurement in meters or feet. The difference between a distance of 10 meters and a distance of 20 meters is the same as the difference between a distance of 20 meters and a distance of 30 meters. Furthermore, a distance of 0 meters represents a complete absence of distance or length, and is a true zero point.
+
+In summary, a ratio scale has a specific order or ranking between the data categories, equal intervals between them, and a true zero point, which makes it possible to make meaningful comparisons and calculations between the values.
+
+Difference between interval scale and ratio scale:
+
+The main difference between an interval scale and a ratio scale is the presence of a true zero point. While interval scales have equal intervals between categories, ratio scales have equal intervals and a true zero point.
+
+On an interval scale, the zero point is arbitrary, meaning that it does not represent an absence of the attribute being measured. For example, temperature measured in Celsius or Fahrenheit is an interval scale because there is no absence of temperature at 0°C or 0°F. There is still heat present, but the scale has set a specific point to represent a particular value. In contrast, on a ratio scale, the zero point represents an absence of the attribute being measured. For example, weight measured in kilograms is a ratio scale because a weight of 0 kg represents the complete absence of weight.
+
+Another difference between the two scales is the range of values that can be measured. While interval scales can have negative values, ratio scales cannot. For example, a temperature of -10°C is meaningful on an interval scale, but a weight of -10 kg is not meaningful on a ratio scale.
+
+Finally, ratio scales allow for meaningful comparison of values using ratios, while interval scales do not. For example, if one person weighs 60 kg and another person weighs 80 kg, the ratio of their weights is 4:3 on a ratio scale. However, on an interval scale, there is no meaningful ratio between two temperatures such as 20°C and 40°C.
+
+In summary, the key difference between interval and ratio scales is the presence of a true zero point on the ratio scale, allowing for meaningful ratios and comparisons of values.
