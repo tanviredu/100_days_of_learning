@@ -3,5 +3,5 @@
 <img class="img-responsive" src="{{ post?.imagePath }}" />
 <p>{{ post?.author }}</p>
 <p>{{ post?.datetimeCreated }}}</p>
-<button>Edit</button> | <button (click)="onDelete()">Delete</button>
+<button (click)="onEdit()" class="btn btn-success">Edit</button> | <button class="btn btn-danger" (click)="onDelete()">Delete</button>
 <hr />

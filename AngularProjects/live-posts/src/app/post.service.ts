@@ -21,10 +21,14 @@ export class PostService{
       // facility 3
       addPost(post:Post){
         this.listOfPosts.push(post)
+      
       }
 
       updatePost(index:number,post:Post){
         this.listOfPosts[index] = post;
+      }
+      getpost(index:number){
+        return this.listOfPosts[index];
       }
 
 

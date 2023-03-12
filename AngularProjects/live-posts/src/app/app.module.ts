@@ -26,7 +26,12 @@ const routes:Routes = [
   {
     path:'post-add',
     component:PostEditComponent
+  },
+  {
+    path:'post-edit/:index',
+    component:PostEditComponent
   }
+
 ];
 
 
