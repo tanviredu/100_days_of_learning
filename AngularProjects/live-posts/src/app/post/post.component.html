@@ -2,6 +2,9 @@
 <p>{{ post?.description }}</p>
 <img class="img-responsive" src="{{ post?.imagePath }}" />
 <p>{{ post?.author }}</p>
-<p>{{ post?.datetimeCreated }}}</p>
+<p>{{ post?.datetimeCreated }}</p>
+<button (click)="likePost()" class="btn btn-info btn-lg">
+    <span class="glyphicon glyphicon-thumbs-up"></span> Like : {{post?.numberOfLikes}}
+</button><br><br>
 <button (click)="onEdit()" class="btn btn-success">Edit</button> | <button class="btn btn-danger" (click)="onDelete()">Delete</button>
 <hr />

@@ -27,5 +27,8 @@ export class PostComponent implements OnInit {
     console.log("onEdit() function is called");
     this.router.navigate(['post-edit',this.index])
   }
+  likePost(){
+    this.postService.likePost(this.index);
+  }
 
 }

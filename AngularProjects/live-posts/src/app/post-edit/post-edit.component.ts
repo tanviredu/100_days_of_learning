@@ -36,8 +36,8 @@ export class PostEditComponent implements OnInit{
     })
 
     this.form = new FormGroup({
-      title: new FormControl(this.title,[Validators.required,Validators.maxLength(10)]),
-      description: new FormControl(this.description,[Validators.maxLength(300),Validators.required]),
+      title: new FormControl(this.title,[Validators.required,Validators.maxLength(100)]),
+      description: new FormControl(this.description,[Validators.maxLength(500),Validators.required]),
       imagePath: new FormControl(this.imagePath,[Validators.required])
     });
   }
@@ -47,8 +47,14 @@ export class PostEditComponent implements OnInit{
     const title = this.form.value.title;
     const description = this.form.value.description;
     const imagePath = this.form.value.imagePath;
-    const post : Post = new Post(title,description,imagePath,'test@test.com',new Date())
-    this.postService.addPost(post);
+    const post : Post = new Post(title,description,imagePath,'test@test.com',new Date(),0)
+   
+    if(this.editMode){
+      this.postService.updatePost(this.index,post)
+    }else{
+      this.postService.addPost(post);
+    }
+    
     this.router.navigate(['post-list'])
   };
 
