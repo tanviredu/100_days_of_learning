@@ -1,10 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { BackEndService } from '../back-end.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
+  
+ constructor(private backendService:BackEndService){}
+  
+  ngOnInit(): void {
+   
+  }
+
+  onSave(){
+    this.backendService.saveData();
+  }
+  onFetch(){
+    this.backendService.fetchData();
+  }
 
 }

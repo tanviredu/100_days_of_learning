@@ -16,15 +16,12 @@ export class PostComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    console.log(this.post);
-    console.log(this.index);
   }
   onDelete(){
     this.postService.deletePost(this.index);
   }
 
   onEdit(){
-    console.log("onEdit() function is called");
     this.router.navigate(['post-edit',this.index])
   }
   likePost(){
