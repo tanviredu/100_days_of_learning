@@ -2,7 +2,7 @@
 <p>{{ post?.description }}</p>
 <img class="img-responsive" src="{{ post?.imagePath }}" />
 <p>{{ post?.author }}</p>
-<p>{{ post?.datetimeCreated }}</p>
+<p>{{ post?.datetimeCreated| date }}</p>
 <button (click)="likePost()" class="btn btn-info btn-lg">
     <span class="glyphicon glyphicon-thumbs-up"></span> Like : {{post?.numberOfLikes}}
 </button><br><br>
